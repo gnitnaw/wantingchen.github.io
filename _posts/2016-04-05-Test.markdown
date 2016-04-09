@@ -1,0 +1,70 @@
+---
+layout: post
+title:  "Test post"
+comments: false
+analytics : false
+category: Test 
+tags: jekyll
+---
+
+# First level header #
+
+### Third level header    ###
+
+## Second level header ##   
+
+This is a test page.
+
+$$x^2 + y^2 = z^2$$
+
+**Black**
+
+*Italy*
+
+
+Bien que j’étais une physicienne pendant plus que 10 ans,
+mais ce que j’avais déjà fait dans la moitié de ma vie professionnelle est proche[^1] de technologie informatique,
+y compris la programmation avec langue C/C++, control et l'acquisition des données, et la simulation numerique.
+Depuis 2013, le période que je suis unemployée,
+J’améliore pas seulement la langue du français, mais aussi étudie les compétences informatiques necessaires,
+y compris Pilote informatique de Linux, Architecture ARM, et le système d'exploitation,
+afin d’être un ingénieur system embarqué.
+J’ai aussi fait plusieur de projets afin de eprouver mes compétences,
+y compris un petit drone avec raspberry pi, et Benchmarking de Linux preempt RT (temps réel).
+De temps en temps je participe aussi à la discussion sur les sujets intéressant en internet afin de rattraper
+les progres informatique actuellement. Je crois que vous ne regretterez pas si vous m’employez.
+
+<center>内容</center>
+
+> Quote:
+
+1. One 2. Two
+
+* One
+    + Two
+        - Three
+
+
+|水果名称|价格（元/500克）|
+|:-------:|-----:|
+|苹果|3.2|
+|香蕉|4.5|
+
+<del>Deleted</del>
+{% highlight c linenos %}
+#include <stdio.h>
+int main(void) {
+    put("Hello World!\n");
+}
+// prints 'Hi, Tom' to STDOUT.
+{% endhighlight %}
+
+![My helpful screenshot](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Antitorque.jpg/800px-Antitorque.jpg "Untitled")
+
+[Google](http://google.com)
+
+<p>An image: <img src="/public/imgs/DSCN0902.JPG" alt="gras"/> </p>
+
+[^1]: This is my first footnote
+
+

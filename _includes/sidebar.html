@@ -1,0 +1,29 @@
+<!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>{{ site.author.introduction }}</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item{% if page.title == "Home" %} active{% endif %}" href="/">Home</a>
+    <a class="sidebar-nav-item{% if page.title == "Category" %} active{% endif %}" href="/category.html">Category</a>
+    <a class="sidebar-nav-item{% if page.title == "Tag" %} active{% endif %}" href="/tag.html">Tag</a>
+    <a class="sidebar-nav-item{% if page.title == "About" %} active{% endif %}" href="/about.html">About</a>
+<!--     <span class="sidebar-nav-item">Currently v{{ site.version }}</span> -->
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; {{ site.time | date: '%Y' }} Codinfox. This work is licensed under <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a>.
+    </p>
+  </div>
+  <div class="sidebar-item">
+    <p>
+      Powered by <a href="http://jekyllrb.com">jekyll</a> and <a href="http://lanyon.getpoole.com">lanyon</a>.
+    </p>
+  </div>
+</div>

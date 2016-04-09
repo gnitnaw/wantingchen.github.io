@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+ <title>Wan-Ting</title>
+ <link href="http://gnitnaw.github.io/atom.xml" rel="self"/>
+ <link href="http://gnitnaw.github.io/"/>
+ <updated>2016-04-08T17:41:18+02:00</updated>
+ <id>http://gnitnaw.github.io</id>
+ <author>
+   <name>Wan-Ting CHEN</name>
+   <email>wanting@gmail.com</email>
+ </author>
+
+ 
+ <entry>
+   <title>Test post</title>
+   <link href="http://gnitnaw.github.io/test/2016/04/05/Test.html"/>
+   <updated>2016-04-05T00:00:00+02:00</updated>
+   <id>http://gnitnaw.github.io/test/2016/04/05/Test</id>
+   <content type="html">&lt;h1 id=&quot;first-level-header&quot;&gt;First level header&lt;/h1&gt;
+
+&lt;h3 id=&quot;third-level-header&quot;&gt;Third level header&lt;/h3&gt;
+
+&lt;h2 id=&quot;second-level-header&quot;&gt;Second level header&lt;/h2&gt;
+
+&lt;p&gt;This is a test page.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;x^2 + y^2 = z^2&lt;/script&gt;
+
+&lt;p&gt;&lt;strong&gt;Black&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Italy&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Bien que j’étais une physicienne pendant plus que 10 ans,
+mais ce que j’avais déjà fait dans la moitié de ma vie professionnelle est proche&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt; de technologie informatique,
+y compris la programmation avec langue C/C++, control et l’acquisition des données, et la simulation numerique.
+Depuis 2013, le période que je suis unemployée,
+J’améliore pas seulement la langue du français, mais aussi étudie les compétences informatiques necessaires,
+y compris Pilote informatique de Linux, Architecture ARM, et le système d’exploitation,
+afin d’être un ingénieur system embarqué.
+J’ai aussi fait plusieur de projets afin de eprouver mes compétences,
+y compris un petit drone avec raspberry pi, et Benchmarking de Linux preempt RT (temps réel).
+De temps en temps je participe aussi à la discussion sur les sujets intéressant en internet afin de rattraper
+les progres informatique actuellement. Je crois que vous ne regretterez pas si vous m’employez.&lt;/p&gt;
+
+&lt;center&gt;内容&lt;/center&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Quote:&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;One 2. Two&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;One
+    &lt;ul&gt;
+      &lt;li&gt;Two
+        &lt;ul&gt;
+          &lt;li&gt;Three&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;水果名称&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;价格（元/500克）&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;苹果&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;3.2&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;香蕉&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;4.5&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;del&gt;Deleted&lt;/del&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;
+  &lt;pre&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;cp&quot;&gt;#include &amp;lt;stdio.h&amp;gt;
+&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;put&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Hello World!&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;//&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;prints&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;&#39;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Tom&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&#39;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;STDOUT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Antitorque.jpg/800px-Antitorque.jpg&quot; alt=&quot;My helpful screenshot&quot; title=&quot;Untitled&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://google.com&quot;&gt;Google&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;An image: &lt;img src=&quot;/public/imgs/DSCN0902.JPG&quot; alt=&quot;gras&quot; /&gt; &lt;/p&gt;
+
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot;&gt;
+      &lt;p&gt;This is my first footnote &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
+</content>
+ </entry>
+ 
+
+</feed>

@@ -1,0 +1,41 @@
+# Dependencies
+markdown:            kramdown
+
+# Setup
+title:            Wan-Ting
+tagline:          'Blog pour le system embarqué.'
+description:      'Ayant été une physicienne pendant plus que 10 ans. Maintenant je me transforme en un ingénieur system embarqué.'
+url:              http://wantingchen.github.io
+
+author:
+  name:           Wan-Ting CHEN
+  url:            http://wantingchen.github.io
+  github :        wantingchen
+  email:          wanting@gmail.com
+  introduction:   'Ayant été une physicienne pendant plus que 10 ans. Maintenant je me transforme en un ingénieur system embarqué.'
+
+paginate:         5
+
+# Custom vars
+#version:          1.0.0
+
+timezone: Europe/Paris
+
+kramdown:
+  auto_ids:       true
+  footnote_nr:    1   
+  entity_output:  as_char
+  toc_levels:     1..6
+  smart_quotes:   lsquo,rsquo,ldquo,rdquo
+  enable_coderay: false
+  parse_block_html: true
+
+comments :
+  provider : disqus
+  disqus:
+    short_name : wantingchen
+
+analytics :
+  provider : google 
+  google : 
+    tracking_id : 'UA-75609833-2'
