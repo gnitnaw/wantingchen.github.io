@@ -33,7 +33,7 @@ kramdown:
 comments :
   provider : disqus
   disqus:
-    short_name : wantingchen
+    short_name : gnitnaw
 
 analytics :
   provider : google 
