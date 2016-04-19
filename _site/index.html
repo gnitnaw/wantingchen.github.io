@@ -118,6 +118,105 @@
     
     <div class="post">
         <h1 class="post-title">
+            <a href="/syst%C3%A8me%20embarqu%C3%A9/2016/04/12/Drone_1.html">
+                Construire un quadrirotor avec Raspberry Pi (1)
+            </a>
+        </h1>
+
+        <span class="post-date">
+            12 Apr 2016
+            
+            |
+            
+            <a class="codinfox-tag-mark" href="/tag.html#raspberry-pi">raspberry_pi,</a>
+            
+            <a class="codinfox-tag-mark" href="/tag.html#linux">linux,</a>
+            
+            <a class="codinfox-tag-mark" href="/tag.html#drone">drone,</a>
+            
+            <a class="codinfox-tag-mark" href="/tag.html#programmation-c">programmation_c</a>
+            
+            
+        </span>
+
+        <p>Bien qu’il y a déjà plusieurs réalisations des drones propulsés par raspberry pi <sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>,
+je voulais encore défier une fois moi-même, afin de présenter ce que j’apprends.</p>
+
+<p>Différent avec les autres, le drone que je veux construire a les spécialités:
+- Tous les capteurs/modules sont connectés directement avec Raspberry pi, aucun microprocessor est utilisé.</p>
+
+<ul>
+  <li>
+    <p>Utiliser Arduino pour le controller du drone.</p>
+  </li>
+  <li>
+    <p>Utiliser bcm2835 bibliothèque <sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup> au lieu des autres bibliothèque afin de éviter d’utiliser pas les drivers d’i2c.
+Ça me donne une chance d’essayer Xenomai<sup id="fnref:3"><a href="#fn:3" class="footnote">3</a></sup>.</p>
+  </li>
+  <li>
+    <p>La communication entre le controller et le drone est realisé par RF modules. 
+Et le drone peut arrêter automatiquement quand la communication est vraiment perdue.</p>
+  </li>
+  <li>
+    <p>Si nécessaire, Preempt RT kernel ou Xenomai peut être adapté afin de régulier la fréquence.</p>
+  </li>
+</ul>
+
+<p>Selon les spécification, on doit préparer:</p>
+
+<ul>
+  <li>
+    <p>10 DOF IMU：GY80(I2C，400kHz，le temps de rafraîchissement peut atteindre 1600Hz).</p>
+  </li>
+  <li>
+    <p>nRF24L01*2：modules RF(250Kbps-2Mbps，la bande passante varie avec la distance, SPI), un pour RPi, un pour Arduino.</p>
+  </li>
+  <li>
+    <p>ADC：MCP3008, 10bit(afin de mesurer la tension de la batterie)，SPI.</p>
+  </li>
+  <li>
+    <p>PWM：PCA9685(On peut acheter à Adafruit <sup id="fnref:4"><a href="#fn:4" class="footnote">4</a></sup>)，I2C，12bit，la fréquence maximum est 1526Hz.</p>
+  </li>
+</ul>
+
+<p>Ensuite, on y va!</p>
+
+<h4 id="rfrence">Référence:</h4>
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+      <p><a href="http://www.botched.co.uk/">Botched</a>, 
+  <a href="http://www.instructables.com/id/The-Drone-Pi/">The Drone Pi</a>,
+  <a href="https://github.com/idavidstory/goPiCopter">goPiCopter</a>, 
+  <a href="http://blog.pistuffing.co.uk/">PiStuffing</a>,
+  <a href="https://github.com/vjaunet/QUADCOPTER_V2">QUADCOPTER</a>, 
+  <a href="https://github.com/gregd72002/AvrMiniCopter-wiki/wiki">AvrMiniCopter</a>,
+  <a href="https://www.raspberrypi.org/forums/viewtopic.php?f=37&amp;t=35746">PiCopter</a> <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:2">
+      <p><a href="http://www.airspayce.com/mikem/bcm2835/">C library for Broadcom BCM 2835 as used in Raspberry Pi</a> <a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:3">
+      <p><a href="https://xenomai.org/">Xenomai</a> <a href="#fnref:3" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:4">
+      <p><a href="https://www.adafruit.com/product/815">Adafruit 16-Channel 12-bit PWM/Servo Driver-I2C interface-PCA9685</a> <a href="#fnref:4" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+
+        <div class="codinfox-post-more">
+            <a href="/syst%C3%A8me%20embarqu%C3%A9/2016/04/12/Drone_1.html#disqus_thread">Comment</a>&nbsp;
+            <a href="/syst%C3%A8me%20embarqu%C3%A9/2016/04/12/Drone_1.html">Read more</a>
+        </div>
+        <hr/>
+
+    </div>
+    
+    <div class="post">
+        <h1 class="post-title">
             <a href="/test/2016/04/05/Test.html">
                 Test post
             </a>

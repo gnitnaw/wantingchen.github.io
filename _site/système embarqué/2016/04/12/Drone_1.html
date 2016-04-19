@@ -13,7 +13,7 @@
 
   <title>
     
-      Test post &middot; Wan-Ting
+      Construire un quadrirotor avec Raspberry Pi (1) &middot; Wan-Ting
     
   </title>
 
@@ -107,106 +107,83 @@
 
       <div class="container content">
         <div class="post">
-  <h1 class="post-title">Test post</h1>
+  <h1 class="post-title">Construire un quadrirotor avec Raspberry Pi (1)</h1>
   <span>
     <span class="post-date" style="display:inline-block;">2016-04</span> |
     
-	<a class="codinfox-tag-mark" href="/tag.html#jekyll">jekyll</a>
+	<a class="codinfox-tag-mark" href="/tag.html#raspberry-pi">raspberry_pi,</a>
+    
+	<a class="codinfox-tag-mark" href="/tag.html#linux">linux,</a>
+    
+	<a class="codinfox-tag-mark" href="/tag.html#drone">drone,</a>
+    
+	<a class="codinfox-tag-mark" href="/tag.html#programmation-c">programmation_c</a>
     
   </span>
 
-  <h1 id="first-level-header">First level header</h1>
+  <p>Bien qu’il y a déjà plusieurs réalisations des drones propulsés par raspberry pi <sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>,
+je voulais encore défier une fois moi-même, afin de présenter ce que j’apprends.</p>
 
-<h3 id="third-level-header">Third level header</h3>
-
-<h2 id="second-level-header">Second level header</h2>
-
-<p>This is a test page.</p>
-
-<script type="math/tex; mode=display">x^2 + y^2 = z^2</script>
-
-<p><strong>Black</strong></p>
-
-<p><em>Italy</em></p>
-
-<p>Bien que j’étais une physicienne pendant plus que 10 ans,
-mais ce que j’avais déjà fait dans la moitié de ma vie professionnelle est proche<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup> de technologie informatique,
-y compris la programmation avec langue C/C++, control et l’acquisition des données, et la simulation numerique.
-Depuis 2013, le période que je suis unemployée,
-J’améliore pas seulement la langue du français, mais aussi étudie les compétences informatiques necessaires,
-y compris Pilote informatique de Linux, Architecture ARM, et le système d’exploitation,
-afin d’être un ingénieur system embarqué.
-J’ai aussi fait plusieur de projets afin de eprouver mes compétences,
-y compris un petit drone avec raspberry pi, et Benchmarking de Linux preempt RT (temps réel).
-De temps en temps je participe aussi à la discussion sur les sujets intéressant en internet afin de rattraper
-les progres informatique actuellement. Je crois que vous ne regretterez pas si vous m’employez.</p>
-
-<center>内容</center>
-
-<blockquote>
-  <p>Quote:</p>
-</blockquote>
-
-<ol>
-  <li>One 2. Two</li>
-</ol>
+<p>Différent avec les autres, le drone que je veux construire a les spécialités:
+- Tous les capteurs/modules sont connectés directement avec Raspberry pi, aucun microprocessor est utilisé.</p>
 
 <ul>
-  <li>One
-    <ul>
-      <li>Two
-        <ul>
-          <li>Three</li>
-        </ul>
-      </li>
-    </ul>
+  <li>
+    <p>Utiliser Arduino pour le controller du drone.</p>
+  </li>
+  <li>
+    <p>Utiliser bcm2835 bibliothèque <sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup> au lieu des autres bibliothèque afin de éviter d’utiliser pas les drivers d’i2c.
+Ça me donne une chance d’essayer Xenomai<sup id="fnref:3"><a href="#fn:3" class="footnote">3</a></sup>.</p>
+  </li>
+  <li>
+    <p>La communication entre le controller et le drone est realisé par RF modules. 
+Et le drone peut arrêter automatiquement quand la communication est vraiment perdue.</p>
+  </li>
+  <li>
+    <p>Si nécessaire, Preempt RT kernel ou Xenomai peut être adapté afin de régulier la fréquence.</p>
   </li>
 </ul>
 
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: center">水果名称</th>
-      <th style="text-align: right">价格（元/500克）</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: center">苹果</td>
-      <td style="text-align: right">3.2</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">香蕉</td>
-      <td style="text-align: right">4.5</td>
-    </tr>
-  </tbody>
-</table>
+<p>Selon les spécification, on doit préparer:</p>
 
-<p><del>Deleted</del></p>
+<ul>
+  <li>
+    <p>10 DOF IMU：GY80(I2C，400kHz，le temps de rafraîchissement peut atteindre 1600Hz).</p>
+  </li>
+  <li>
+    <p>nRF24L01*2：modules RF(250Kbps-2Mbps，la bande passante varie avec la distance, SPI), un pour RPi, un pour Arduino.</p>
+  </li>
+  <li>
+    <p>ADC：MCP3008, 10bit(afin de mesurer la tension de la batterie)，SPI.</p>
+  </li>
+  <li>
+    <p>PWM：PCA9685(On peut acheter à Adafruit <sup id="fnref:4"><a href="#fn:4" class="footnote">4</a></sup>)，I2C，12bit，la fréquence maximum est 1526Hz.</p>
+  </li>
+</ul>
 
-<figure class="highlight">
-  <pre><code class="language-c" data-lang="c"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2
-3
-4
-5</pre></td><td class="code"><pre><span class="cp">#include &lt;stdio.h&gt;
-</span><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">put</span><span class="p">(</span><span class="s">"Hello World!</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="o">//</span> <span class="n">prints</span> <span class="err">'</span><span class="n">Hi</span><span class="p">,</span> <span class="n">Tom</span><span class="err">'</span> <span class="n">to</span> <span class="n">STDOUT</span><span class="p">.</span><span class="w">
-</span></pre></td></tr></tbody></table></code></pre>
-</figure>
+<p>Ensuite, on y va!</p>
 
-<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Antitorque.jpg/800px-Antitorque.jpg" alt="My helpful screenshot" title="Untitled" /></p>
-
-<p><a href="http://google.com">Google</a></p>
-
-<p>An image: <img src="/public/imgs/DSCN0902.JPG" alt="gras" /> </p>
+<h4 id="rfrence">Référence:</h4>
 
 <div class="footnotes">
   <ol>
     <li id="fn:1">
-      <p>This is my first footnote <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+      <p><a href="http://www.botched.co.uk/">Botched</a>, 
+  <a href="http://www.instructables.com/id/The-Drone-Pi/">The Drone Pi</a>,
+  <a href="https://github.com/idavidstory/goPiCopter">goPiCopter</a>, 
+  <a href="http://blog.pistuffing.co.uk/">PiStuffing</a>,
+  <a href="https://github.com/vjaunet/QUADCOPTER_V2">QUADCOPTER</a>, 
+  <a href="https://github.com/gregd72002/AvrMiniCopter-wiki/wiki">AvrMiniCopter</a>,
+  <a href="https://www.raspberrypi.org/forums/viewtopic.php?f=37&amp;t=35746">PiCopter</a> <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:2">
+      <p><a href="http://www.airspayce.com/mikem/bcm2835/">C library for Broadcom BCM 2835 as used in Raspberry Pi</a> <a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:3">
+      <p><a href="https://xenomai.org/">Xenomai</a> <a href="#fnref:3" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:4">
+      <p><a href="https://www.adafruit.com/product/815">Adafruit 16-Channel 12-bit PWM/Servo Driver-I2C interface-PCA9685</a> <a href="#fnref:4" class="reversefootnote">&#8617;</a></p>
     </li>
   </ol>
 </div>
@@ -219,8 +196,8 @@ les progres informatique actuellement. Je crois que vous ne regretterez pas si v
     
     <li>
       <h3>
-        <a href="/syst%C3%A8me%20embarqu%C3%A9/2016/04/12/Drone_1.html">
-          Construire un quadrirotor avec Raspberry Pi (1)
+        <a href="/test/2016/04/05/Test.html">
+          Test post
           <small>2016-04</small>
         </a>
       </h3>
@@ -229,6 +206,29 @@ les progres informatique actuellement. Je crois que vous ne regretterez pas si v
   </ul>
 </div>
 
+
+<div id="disqus_thread"></div>
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+    
+    var disqus_config = function () {
+        this.page.url = page.url;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = page.id; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    
+    (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        
+        s.src = '//wantingchen.disqus.com/embed.js';
+        
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
 
 
       </div>

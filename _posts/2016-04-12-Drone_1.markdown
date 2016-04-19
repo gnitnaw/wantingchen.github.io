@@ -1,0 +1,53 @@
+---
+layout: post
+title:  "Construire un quadrirotor avec Raspberry Pi (1)"
+comments: true
+analytics : true
+category: Système embarqué
+tags: raspberry_pi, linux, drone, programmation_c
+---
+
+Bien qu'il y a déjà plusieurs réalisations des drones propulsés par raspberry pi [^1],
+je voulais encore défier une fois moi-même, afin de présenter ce que j'apprends.
+
+Différent avec les autres, le drone que je veux construire a les spécialités:
+- Tous les capteurs/modules sont connectés directement avec Raspberry pi, aucun microprocessor est utilisé.
+
+- Utiliser Arduino pour le controller du drone.
+
+- Utiliser bcm2835 bibliothèque [^2] au lieu des autres bibliothèque afin de éviter d'utiliser pas les drivers d'i2c.
+Ça me donne une chance d'essayer Xenomai[^3].
+
+- La communication entre le controller et le drone est realisé par RF modules. 
+Et le drone peut arrêter automatiquement quand la communication est vraiment perdue.
+
+- Si nécessaire, Preempt RT kernel ou Xenomai peut être adapté afin de régulier la fréquence.
+
+
+Selon les spécification, on doit préparer:
+
+- 10 DOF IMU：GY80(I2C，400kHz，le temps de rafraîchissement peut atteindre 1600Hz).
+
+- nRF24L01*2：modules RF(250Kbps-2Mbps，la bande passante varie avec la distance, SPI), un pour RPi, un pour Arduino.
+
+- ADC：MCP3008, 10bit(afin de mesurer la tension de la batterie)，SPI.
+
+- PWM：PCA9685(On peut acheter à Adafruit [^4])，I2C，12bit，la fréquence maximum est 1526Hz.
+
+Ensuite, on y va!
+
+#### Référence: ####
+
+[^1]: [Botched](http://www.botched.co.uk/), 
+      [The Drone Pi](http://www.instructables.com/id/The-Drone-Pi/),
+      [goPiCopter](https://github.com/idavidstory/goPiCopter), 
+      [PiStuffing](http://blog.pistuffing.co.uk/),
+      [QUADCOPTER](https://github.com/vjaunet/QUADCOPTER_V2), 
+      [AvrMiniCopter](https://github.com/gregd72002/AvrMiniCopter-wiki/wiki),
+      [PiCopter](https://www.raspberrypi.org/forums/viewtopic.php?f=37&t=35746)
+
+[^2]: [C library for Broadcom BCM 2835 as used in Raspberry Pi](http://www.airspayce.com/mikem/bcm2835/)
+
+[^3]: [Xenomai](https://xenomai.org/)
+
+[^4]: [Adafruit 16-Channel 12-bit PWM/Servo Driver-I2C interface-PCA9685](https://www.adafruit.com/product/815)

@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
  <title>Wan-Ting</title>
- <link href="http://gnitnaw.github.io/atom.xml" rel="self"/>
- <link href="http://gnitnaw.github.io/"/>
- <updated>2016-04-08T17:41:18+02:00</updated>
- <id>http://gnitnaw.github.io</id>
+ <link href="http://wantingchen.github.io/atom.xml" rel="self"/>
+ <link href="http://wantingchen.github.io/"/>
+ <updated>2016-04-19T11:38:35+02:00</updated>
+ <id>http://wantingchen.github.io</id>
  <author>
    <name>Wan-Ting CHEN</name>
    <email>wanting@gmail.com</email>
@@ -13,10 +13,84 @@
 
  
  <entry>
+   <title>Construire un quadrirotor avec Raspberry Pi (1)</title>
+   <link href="http://wantingchen.github.io/syst%C3%A8me%20embarqu%C3%A9/2016/04/12/Drone_1.html"/>
+   <updated>2016-04-12T00:00:00+02:00</updated>
+   <id>http://wantingchen.github.io/syst%C3%A8me%20embarqu%C3%A9/2016/04/12/Drone_1</id>
+   <content type="html">&lt;p&gt;Bien qu’il y a déjà plusieurs réalisations des drones propulsés par raspberry pi &lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;,
+je voulais encore défier une fois moi-même, afin de présenter ce que j’apprends.&lt;/p&gt;
+
+&lt;p&gt;Différent avec les autres, le drone que je veux construire a les spécialités:
+- Tous les capteurs/modules sont connectés directement avec Raspberry pi, aucun microprocessor est utilisé.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Utiliser Arduino pour le controller du drone.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Utiliser bcm2835 bibliothèque &lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt; au lieu des autres bibliothèque afin de éviter d’utiliser pas les drivers d’i2c.
+Ça me donne une chance d’essayer Xenomai&lt;sup id=&quot;fnref:3&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;La communication entre le controller et le drone est realisé par RF modules. 
+Et le drone peut arrêter automatiquement quand la communication est vraiment perdue.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Si nécessaire, Preempt RT kernel ou Xenomai peut être adapté afin de régulier la fréquence.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Selon les spécification, on doit préparer:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;10 DOF IMU：GY80(I2C，400kHz，le temps de rafraîchissement peut atteindre 1600Hz).&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;nRF24L01*2：modules RF(250Kbps-2Mbps，la bande passante varie avec la distance, SPI), un pour RPi, un pour Arduino.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;ADC：MCP3008, 10bit(afin de mesurer la tension de la batterie)，SPI.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;PWM：PCA9685(On peut acheter à Adafruit &lt;sup id=&quot;fnref:4&quot;&gt;&lt;a href=&quot;#fn:4&quot; class=&quot;footnote&quot;&gt;4&lt;/a&gt;&lt;/sup&gt;)，I2C，12bit，la fréquence maximum est 1526Hz.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Ensuite, on y va!&lt;/p&gt;
+
+&lt;h4 id=&quot;rfrence&quot;&gt;Référence:&lt;/h4&gt;
+
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;http://www.botched.co.uk/&quot;&gt;Botched&lt;/a&gt;, 
+  &lt;a href=&quot;http://www.instructables.com/id/The-Drone-Pi/&quot;&gt;The Drone Pi&lt;/a&gt;,
+  &lt;a href=&quot;https://github.com/idavidstory/goPiCopter&quot;&gt;goPiCopter&lt;/a&gt;, 
+  &lt;a href=&quot;http://blog.pistuffing.co.uk/&quot;&gt;PiStuffing&lt;/a&gt;,
+  &lt;a href=&quot;https://github.com/vjaunet/QUADCOPTER_V2&quot;&gt;QUADCOPTER&lt;/a&gt;, 
+  &lt;a href=&quot;https://github.com/gregd72002/AvrMiniCopter-wiki/wiki&quot;&gt;AvrMiniCopter&lt;/a&gt;,
+  &lt;a href=&quot;https://www.raspberrypi.org/forums/viewtopic.php?f=37&amp;amp;t=35746&quot;&gt;PiCopter&lt;/a&gt; &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:2&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;http://www.airspayce.com/mikem/bcm2835/&quot;&gt;C library for Broadcom BCM 2835 as used in Raspberry Pi&lt;/a&gt; &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:3&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;https://xenomai.org/&quot;&gt;Xenomai&lt;/a&gt; &lt;a href=&quot;#fnref:3&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:4&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;https://www.adafruit.com/product/815&quot;&gt;Adafruit 16-Channel 12-bit PWM/Servo Driver-I2C interface-PCA9685&lt;/a&gt; &lt;a href=&quot;#fnref:4&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
+</content>
+ </entry>
+ 
+ <entry>
    <title>Test post</title>
-   <link href="http://gnitnaw.github.io/test/2016/04/05/Test.html"/>
+   <link href="http://wantingchen.github.io/test/2016/04/05/Test.html"/>
    <updated>2016-04-05T00:00:00+02:00</updated>
-   <id>http://gnitnaw.github.io/test/2016/04/05/Test</id>
+   <id>http://wantingchen.github.io/test/2016/04/05/Test</id>
    <content type="html">&lt;h1 id=&quot;first-level-header&quot;&gt;First level header&lt;/h1&gt;
 
 &lt;h3 id=&quot;third-level-header&quot;&gt;Third level header&lt;/h3&gt;
