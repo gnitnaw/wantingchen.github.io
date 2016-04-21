@@ -115,9 +115,7 @@
     
 	<a class="codinfox-tag-mark" href="/tag.html#linux">linux,</a>
     
-	<a class="codinfox-tag-mark" href="/tag.html#drone">drone,</a>
-    
-	<a class="codinfox-tag-mark" href="/tag.html#programmation-c">programmation_c</a>
+	<a class="codinfox-tag-mark" href="/tag.html#drone">drone</a>
     
   </span>
 
@@ -148,7 +146,9 @@ Et le drone peut arrêter automatiquement quand la communication est vraiment pe
 
 <ul>
   <li>
-    <p>10 DOF IMU：GY80(I2C，400kHz，le temps de rafraîchissement peut atteindre 1600Hz).</p>
+    <p>10 DOF IMU：GY80(I2C，400kHz，le temps de rafraîchissement peut atteindre 1600Hz). 
+Mais j’ai trouvé que le baromètre (Bosch BMP085) n’est pas assez précis (0.03hPa / 0.25m résolution).
+MS5611 est ajouté afin d’augmenter la précision.</p>
   </li>
   <li>
     <p>nRF24L01*2：modules RF(250Kbps-2Mbps，la bande passante varie avec la distance, SPI), un pour RPi, un pour Arduino.</p>
@@ -158,6 +158,18 @@ Et le drone peut arrêter automatiquement quand la communication est vraiment pe
   </li>
   <li>
     <p>PWM：PCA9685(On peut acheter à Adafruit <sup id="fnref:4"><a href="#fn:4" class="footnote">4</a></sup>)，I2C，12bit，la fréquence maximum est 1526Hz.</p>
+  </li>
+  <li>
+    <p><a href="https://www.amazon.fr/gp/product/B00T6ANWUU/ref=oh_aui_detailpage_o02_s00?ie=UTF8&amp;psc=1">ZOP Power 11.1V 5500mAh 3S1P 35C Lipo Battery For RC Model</a></p>
+  </li>
+  <li>
+    <p><a href="https://www.amazon.fr/gp/product/B00RWH7CA0/ref=oh_aui_detailpage_o03_s00?ie=UTF8&amp;psc=1">HOSdog 30A 4 en 1 Brushless Speed Contrôleur ESC pour RC Quadcopter Multicopter (Noir)</a></p>
+  </li>
+  <li>
+    <p><a href="https://www.amazon.fr/gp/product/B00CCXN4HO/ref=oh_aui_detailpage_o07_s00?ie=UTF8&amp;psc=1">JMT F450 Air multi-Rotor Frame FlameWheel KIT 450F comme DJI pour KK MWC MK 4 axe RC Quadcopter Multicopter UFO Heli</a></p>
+  </li>
+  <li>
+    <p><a href="https://www.amazon.fr/gp/product/B00L8H95AU/ref=oh_aui_detailpage_o08_s00?ie=UTF8&amp;psc=1">Andoer 4 A2212/13T 1000KV Brushless Motor + 2 paires 1045 10 * 4.5 Hélices pour DJI F450 F550 MWC Multicopter (2212 1000KV Brushless Motor, 1045 10 * 4.5 Hélices, DJI F450 F550 partie)</a></p>
   </li>
 </ul>
 
@@ -196,8 +208,8 @@ Et le drone peut arrêter automatiquement quand la communication est vraiment pe
     
     <li>
       <h3>
-        <a href="/test/2016/04/05/Test.html">
-          Test post
+        <a href="/information/2016/04/21/Hash_Encrypt.html">
+          La fonction de Hachage (Hash) et Chiffrement (Encryption)
           <small>2016-04</small>
         </a>
       </h3>
@@ -236,37 +248,5 @@ Et le drone peut arrêter automatiquement quand la communication est vraiment pe
 
     <label for="sidebar-checkbox" class="sidebar-toggle"></label>
 
-<!-- Disqus Embeded -->
-    <script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-    var disqus_shortname = 'yourname'; // required: replace example with your forum shortname
-
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function () {
-        var s = document.createElement('script'); s.async = true;
-        s.type = 'text/javascript';
-        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
-        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-    }());
-    </script>
-
-    <script>
-      (function(document) {
-        var toggle = document.querySelector('.sidebar-toggle');
-        var sidebar = document.querySelector('#sidebar');
-        var checkbox = document.querySelector('#sidebar-checkbox');
-
-        document.addEventListener('click', function(e) {
-          var target = e.target;
-
-          if(!checkbox.checked ||
-             sidebar.contains(target) ||
-             (target === checkbox || target === toggle)) return;
-
-          checkbox.checked = false;
-        }, false);
-      })(document);
-    </script>
-  <script id="dsq-count-scr" src="//gnitnaw.disqus.com/count.js" async></script>
   </body>
 </html>

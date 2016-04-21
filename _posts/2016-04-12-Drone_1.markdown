@@ -4,7 +4,7 @@ title:  "Construire un quadrirotor avec Raspberry Pi (1)"
 comments: true
 analytics : true
 category: Système embarqué
-tags: raspberry_pi, linux, drone, programmation_c
+tags: raspberry_pi, linux, drone
 ---
 
 Bien qu'il y a déjà plusieurs réalisations des drones propulsés par raspberry pi [^1],

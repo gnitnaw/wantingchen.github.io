@@ -4,13 +4,99 @@
  <title>Wan-Ting</title>
  <link href="http://wantingchen.github.io/atom.xml" rel="self"/>
  <link href="http://wantingchen.github.io/"/>
- <updated>2016-04-19T11:38:35+02:00</updated>
+ <updated>2016-04-21T22:36:52+02:00</updated>
  <id>http://wantingchen.github.io</id>
  <author>
    <name>Wan-Ting CHEN</name>
    <email>wanting@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>La fonction de Hachage (Hash) et Chiffrement (Encryption)</title>
+   <link href="http://wantingchen.github.io/information/2016/04/21/Hash_Encrypt.html"/>
+   <updated>2016-04-21T00:00:00+02:00</updated>
+   <id>http://wantingchen.github.io/information/2016/04/21/Hash_Encrypt</id>
+   <content type="html">&lt;h3 id=&quot;la-diffrence-entre-fonction-de-hachage-hash-et-chiffrement-encryption&quot;&gt;La différence entre fonction de Hachage (Hash) et Chiffrement (Encryption)&lt;/h3&gt;
+&lt;p&gt;D’abord, il faut qu’on explique les deux brièvement.&lt;/p&gt;
+
+&lt;p&gt;En général, une fonction de Hachage convertit “irrévesiblement” les données avec les tailles arbitraires aux données avec les tailles fixés.
+Et on peut chiffrer les données à une autre forme et aussi retrouver les données originaux avec la clé de chiffrement correspondante.&lt;/p&gt;
+
+&lt;p&gt;Concrètement,  il y a deux différences majeures:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Normalement, les taille de données convertie par une certaine fonction de Hachage ne change jamais.&lt;/strong&gt; 
+Mais celles obtenues par chiffrement est souvent (pas toujours) proportionnelles aux tailles de données originaux.
+Par exemple, si on utilise la fontion de Hachage encastré de python pour convertir les deux chaîne de caractères, “Microsoft” et “Google”:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;
+  &lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;In&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;22&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;hash&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Microsoft&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;Out&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;22&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;467753631682903773&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;In&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;23&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;hash&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Google&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;Out&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;23&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;201064995106876445&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Les tailles de résultats sont la même. Mais, si on utilise l’implémentation de RSA:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;
+  &lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;In&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;37&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pubkey&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;privkey&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rsa&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;newkeys&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;512&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;In&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;38&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rsa&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;encrypt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Microsoft&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pubkey&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;Out&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;38&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&#39;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\x97\xf3\xae\xf5\xea\xb5\xb9&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;;0&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\x8b&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;1xCW&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\xd0\xca\xd8\x07&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\xf3&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$T&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\x00&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\x9c\n\x88\x96&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Zo&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\x87&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;M&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\x9d\x90\xe3&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;S&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\xb7\xd2\xbd&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;j&amp;gt;&amp;lt;*&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\xad&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\x15\xac&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;z&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\x8e\x95\xfe&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;|,&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\xdf\xfe\xd2&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;tA&amp;lt;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\xa8\x8f&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\xee\x1e&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&#39;&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;In&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;39&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rsa&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;encrypt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Google&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pubkey&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;Out&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;39&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\x1b\xe4&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;B&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\x82&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;XU&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\xcc\xbd\x08&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\x1f&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Q&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\xfb&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\xd8\x19&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\xf1\x18\xd1&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;r{&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\xe1&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\x87\xbe\xc0\xfe&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\xe9\x10\x91&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;B&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\x86\xc6&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\xd7&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;J!&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\x8e\xb5&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;n2&#39;v&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\xeb&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;|?&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\x86&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;C&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\xa0&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;J~&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\x14\xca\x8e&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&#39;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\xd5&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;G&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\xa3&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Y.&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\x83&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;S&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/figure&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Un algorithme de Hachage est irrévisible. Néanmoins, celui de Chiffrement est révisible.&lt;/strong&gt;
+C’est-à-dire qu’il n’existe pas de façon de retrouver les résultats générés par une fonction de hachage á les chaînes de caractères originaux,
+pourtant on peut déchiffrer les codes avec la clé de chiffrement correspondante.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;
+  &lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;In&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;40&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rsa&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;decrypt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\x1b\xe4&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;B&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\x82&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;XU&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\xcc\xbd\x08&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\x1f&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Q&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\xfb&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\xd8\x19&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\xf1\x18\xd1&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;r{&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\xe1&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\x87\xbe\xc0\xfe&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\xe9\x10\x91&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;B&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\x86\xc6&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\xd7&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;J!&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\x8e\xb5&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;n2&#39;v&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\xeb&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;|?&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\x86&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;C&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\xa0&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;J~&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\x14\xca\x8e&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&#39;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\xd5&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;G&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\xa3&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Y.&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\x83&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;S&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;privkey&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;Out&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;40&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&#39;Google&#39;&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;In&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;41&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rsa&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;decrypt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\x97\xf3\xae\xf5\xea\xb5\xb9&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;;0&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\x8b&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;1xCW&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\xd0\xca\xd8\x07&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\xf3&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$T&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\x00&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\x9c\n\x88\x96&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Zo&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\x87&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;M&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\x9d\x90\xe3&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;S&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\xb7\xd2\xbd&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;j&amp;gt;&amp;lt;*&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\xad&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\x15\xac&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;z&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\x8e\x95\xfe&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;|,&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\xdf\xfe\xd2&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;tA&amp;lt;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\xa8\x8f&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\xee\x1e&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;privkey&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;Out&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;41&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&#39;Microsoft&#39;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Pourquoi? 
+Parce que une certaine chaîne de caractères peut avoir uniquement un mapping à une certaine 
+chaîne de caractères avec certains algorithme et clé
+(ça signifie : seul à seul).
+Mais c’est possible de trouver deux ou plus chaînes de caractères qui peuvent convertir a même résultat avec une certaine fountion de Hachage
+(Dans cette situation, on l’appelle ces chaînes de caractères one la “collision”).&lt;/p&gt;
+
+&lt;h3 id=&quot;diffrent-conception&quot;&gt;Différent conception&lt;/h3&gt;
+&lt;p&gt;Pour une bonne fonction de Hachage, il faut avoir les conditions:
+- &lt;strong&gt;C’est difficile de trouver quelconque collision.&lt;/strong&gt; 
+Si on utilise une fonction de Hachage pour convertir un certain mot-de-passe, 
+on peut simplement essayer une énorme quantité de chaînes de caractères afin de obtenir le même résultat,
+et alors on peut passer!&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;C’est sensitive aux petites différences.&lt;/strong&gt;
+Si un caractère d’une chaîne avec 10000-bytes longueur est modifié, le résultat devra changer complétement.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Et une fonction de chiffrement fiable doit avoir la propriété de “fonction à sens unique avec trappe”:
+- &lt;strong&gt;c’est facile de chiffrer facilement et aussi d’être inversé avec clé.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Si on’a pas de clé, c’est extrêmement de trouver le façon de déchiffrer même si on sait l’algorithme.&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;application&quot;&gt;Application&lt;/h3&gt;
+
+&lt;h3 id=&quot;rfrence&quot;&gt;Référence:&lt;/h3&gt;
+&lt;p&gt;[^1] &lt;a href=&quot;http://www.cnblogs.com/leoo2sk/archive/2010/10/01/hash-and-encrypt.html&quot;&gt;哈希(Hash)与加密(Encrypt)的基本原理、区别及工程应用 (en chinois)&lt;/a&gt;&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Construire un quadrirotor avec Raspberry Pi (1)</title>
@@ -44,7 +130,9 @@ Et le drone peut arrêter automatiquement quand la communication est vraiment pe
 
 &lt;ul&gt;
   &lt;li&gt;
-    &lt;p&gt;10 DOF IMU：GY80(I2C，400kHz，le temps de rafraîchissement peut atteindre 1600Hz).&lt;/p&gt;
+    &lt;p&gt;10 DOF IMU：GY80(I2C，400kHz，le temps de rafraîchissement peut atteindre 1600Hz). 
+Mais j’ai trouvé que le baromètre (Bosch BMP085) n’est pas assez précis (0.03hPa / 0.25m résolution).
+MS5611 est ajouté afin d’augmenter la précision.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;nRF24L01*2：modules RF(250Kbps-2Mbps，la bande passante varie avec la distance, SPI), un pour RPi, un pour Arduino.&lt;/p&gt;
@@ -54,6 +142,18 @@ Et le drone peut arrêter automatiquement quand la communication est vraiment pe
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;PWM：PCA9685(On peut acheter à Adafruit &lt;sup id=&quot;fnref:4&quot;&gt;&lt;a href=&quot;#fn:4&quot; class=&quot;footnote&quot;&gt;4&lt;/a&gt;&lt;/sup&gt;)，I2C，12bit，la fréquence maximum est 1526Hz.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://www.amazon.fr/gp/product/B00T6ANWUU/ref=oh_aui_detailpage_o02_s00?ie=UTF8&amp;amp;psc=1&quot;&gt;ZOP Power 11.1V 5500mAh 3S1P 35C Lipo Battery For RC Model&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://www.amazon.fr/gp/product/B00RWH7CA0/ref=oh_aui_detailpage_o03_s00?ie=UTF8&amp;amp;psc=1&quot;&gt;HOSdog 30A 4 en 1 Brushless Speed Contrôleur ESC pour RC Quadcopter Multicopter (Noir)&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://www.amazon.fr/gp/product/B00CCXN4HO/ref=oh_aui_detailpage_o07_s00?ie=UTF8&amp;amp;psc=1&quot;&gt;JMT F450 Air multi-Rotor Frame FlameWheel KIT 450F comme DJI pour KK MWC MK 4 axe RC Quadcopter Multicopter UFO Heli&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://www.amazon.fr/gp/product/B00L8H95AU/ref=oh_aui_detailpage_o08_s00?ie=UTF8&amp;amp;psc=1&quot;&gt;Andoer 4 A2212/13T 1000KV Brushless Motor + 2 paires 1045 10 * 4.5 Hélices pour DJI F450 F550 MWC Multicopter (2212 1000KV Brushless Motor, 1045 10 * 4.5 Hélices, DJI F450 F550 partie)&lt;/a&gt;&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 
@@ -80,109 +180,6 @@ Et le drone peut arrêter automatiquement quand la communication est vraiment pe
     &lt;/li&gt;
     &lt;li id=&quot;fn:4&quot;&gt;
       &lt;p&gt;&lt;a href=&quot;https://www.adafruit.com/product/815&quot;&gt;Adafruit 16-Channel 12-bit PWM/Servo Driver-I2C interface-PCA9685&lt;/a&gt; &lt;a href=&quot;#fnref:4&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-  &lt;/ol&gt;
-&lt;/div&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>Test post</title>
-   <link href="http://wantingchen.github.io/test/2016/04/05/Test.html"/>
-   <updated>2016-04-05T00:00:00+02:00</updated>
-   <id>http://wantingchen.github.io/test/2016/04/05/Test</id>
-   <content type="html">&lt;h1 id=&quot;first-level-header&quot;&gt;First level header&lt;/h1&gt;
-
-&lt;h3 id=&quot;third-level-header&quot;&gt;Third level header&lt;/h3&gt;
-
-&lt;h2 id=&quot;second-level-header&quot;&gt;Second level header&lt;/h2&gt;
-
-&lt;p&gt;This is a test page.&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;x^2 + y^2 = z^2&lt;/script&gt;
-
-&lt;p&gt;&lt;strong&gt;Black&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;Italy&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;Bien que j’étais une physicienne pendant plus que 10 ans,
-mais ce que j’avais déjà fait dans la moitié de ma vie professionnelle est proche&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt; de technologie informatique,
-y compris la programmation avec langue C/C++, control et l’acquisition des données, et la simulation numerique.
-Depuis 2013, le période que je suis unemployée,
-J’améliore pas seulement la langue du français, mais aussi étudie les compétences informatiques necessaires,
-y compris Pilote informatique de Linux, Architecture ARM, et le système d’exploitation,
-afin d’être un ingénieur system embarqué.
-J’ai aussi fait plusieur de projets afin de eprouver mes compétences,
-y compris un petit drone avec raspberry pi, et Benchmarking de Linux preempt RT (temps réel).
-De temps en temps je participe aussi à la discussion sur les sujets intéressant en internet afin de rattraper
-les progres informatique actuellement. Je crois que vous ne regretterez pas si vous m’employez.&lt;/p&gt;
-
-&lt;center&gt;内容&lt;/center&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Quote:&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;One 2. Two&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;One
-    &lt;ul&gt;
-      &lt;li&gt;Two
-        &lt;ul&gt;
-          &lt;li&gt;Three&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;水果名称&lt;/th&gt;
-      &lt;th style=&quot;text-align: right&quot;&gt;价格（元/500克）&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;苹果&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;3.2&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;香蕉&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;4.5&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;&lt;del&gt;Deleted&lt;/del&gt;&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;
-  &lt;pre&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2
-3
-4
-5&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;cp&quot;&gt;#include &amp;lt;stdio.h&amp;gt;
-&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;put&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Hello World!&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;//&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;prints&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;&#39;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Tom&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&#39;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;STDOUT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Antitorque.jpg/800px-Antitorque.jpg&quot; alt=&quot;My helpful screenshot&quot; title=&quot;Untitled&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://google.com&quot;&gt;Google&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;An image: &lt;img src=&quot;/public/imgs/DSCN0902.JPG&quot; alt=&quot;gras&quot; /&gt; &lt;/p&gt;
-
-&lt;div class=&quot;footnotes&quot;&gt;
-  &lt;ol&gt;
-    &lt;li id=&quot;fn:1&quot;&gt;
-      &lt;p&gt;This is my first footnote &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
   &lt;/ol&gt;
 &lt;/div&gt;
