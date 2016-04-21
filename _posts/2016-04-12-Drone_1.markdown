@@ -26,13 +26,24 @@ Et le drone peut arrêter automatiquement quand la communication est vraiment pe
 
 Selon les spécification, on doit préparer:
 
-- 10 DOF IMU：GY80(I2C，400kHz，le temps de rafraîchissement peut atteindre 1600Hz).
+- 10 DOF IMU：GY80(I2C，400kHz，le temps de rafraîchissement peut atteindre 1600Hz). 
+Mais j'ai trouvé que le baromètre (Bosch BMP085) n'est pas assez précis (0.03hPa / 0.25m résolution).
+MS5611 est ajouté afin d'augmenter la précision. 
 
 - nRF24L01*2：modules RF(250Kbps-2Mbps，la bande passante varie avec la distance, SPI), un pour RPi, un pour Arduino.
 
 - ADC：MCP3008, 10bit(afin de mesurer la tension de la batterie)，SPI.
 
 - PWM：PCA9685(On peut acheter à Adafruit [^4])，I2C，12bit，la fréquence maximum est 1526Hz.
+
+- [ZOP Power 11.1V 5500mAh 3S1P 35C Lipo Battery For RC Model](https://www.amazon.fr/gp/product/B00T6ANWUU/ref=oh_aui_detailpage_o02_s00?ie=UTF8&psc=1)
+
+- [HOSdog 30A 4 en 1 Brushless Speed Contrôleur ESC pour RC Quadcopter Multicopter (Noir)](https://www.amazon.fr/gp/product/B00RWH7CA0/ref=oh_aui_detailpage_o03_s00?ie=UTF8&psc=1)
+
+- [JMT F450 Air multi-Rotor Frame FlameWheel KIT 450F comme DJI pour KK MWC MK 4 axe RC Quadcopter Multicopter UFO Heli](https://www.amazon.fr/gp/product/B00CCXN4HO/ref=oh_aui_detailpage_o07_s00?ie=UTF8&psc=1)
+
+- [Andoer 4 A2212/13T 1000KV Brushless Motor + 2 paires 1045 10 * 4.5 Hélices pour DJI F450 F550 MWC Multicopter (2212 1000KV Brushless Motor, 1045 10 * 4.5 Hélices, DJI F450 F550 partie)](https://www.amazon.fr/gp/product/B00L8H95AU/ref=oh_aui_detailpage_o08_s00?ie=UTF8&psc=1)
+
 
 Ensuite, on y va!
 
