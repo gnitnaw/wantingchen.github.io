@@ -13,7 +13,7 @@
 
   <title>
     
-      Construire un quadrirotor avec Raspberry Pi (1) &middot; Wan-Ting
+      Traduction : Un protocole pour le décès (A Protocol for Dying), par Pieter Hintjens &middot; Wan-Ting
     
   </title>
 
@@ -107,113 +107,40 @@
 
       <div class="container content">
         <div class="post">
-  <h1 class="post-title">Construire un quadrirotor avec Raspberry Pi (1)</h1>
+  <h1 class="post-title">Traduction : Un protocole pour le décès (A Protocol for Dying), par Pieter Hintjens</h1>
   <span>
     <span class="post-date" style="display:inline-block;">2016-04</span> |
     
-	<a class="codinfox-tag-mark" href="/tag.html#raspberry-pi">raspberry_pi,</a>
-    
-	<a class="codinfox-tag-mark" href="/tag.html#linux">linux,</a>
-    
-	<a class="codinfox-tag-mark" href="/tag.html#drone">drone</a>
+	<a class="codinfox-tag-mark" href="/tag.html#hintjens">Hintjens</a>
     
   </span>
 
-  <p>Bien qu’il y a déjà plusieurs réalisations des drones propulsés par raspberry pi <sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>,
-je voulais encore défier une fois moi-même, afin de présenter ce que j’apprends.</p>
+  <h2 id="cette-article-original-est-dici--a-protocol-for-dyinghttphintjenscomblog115">Cette article original est d’ici : <a href="http://hintjens.com/blog:115">A Protocol for Dying</a></h2>
+<p>Rédigé par Pieter Hintjens à 11h43, 22 avril, 2016.</p>
 
-<p>Différent avec les autres, le drone que je veux construire a les spécialités:
-- Tous les capteurs/modules sont connectés directement avec Raspberry pi, aucun microprocessor est utilisé.</p>
+<p>Ça arrive mon dernier article. Peut-être j’écrirai plus si j’ai encore le temps après avoir traité avec toutes les choses.
+Je concentrerai mon attention à la posture le plus agréable au lit, 
+le calendrier pour le traitement contre la douleur,
+et les gens autour de moi.</p>
 
-<ul>
-  <li>
-    <p>Utiliser Arduino pour le controller du drone.</p>
-  </li>
-  <li>
-    <p>Utiliser bcm2835 bibliothèque <sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup> au lieu des autres bibliothèque afin de éviter d’utiliser pas les drivers d’i2c.
-Ça me donne une chance d’essayer Xenomai<sup id="fnref:3"><a href="#fn:3" class="footnote">3</a></sup>.</p>
-  </li>
-  <li>
-    <p>La communication entre le controller et le drone est realisé par RF modules. 
-Et le drone peut arrêter automatiquement quand la communication est vraiment perdue.</p>
-  </li>
-  <li>
-    <p>Si nécessaire, Preempt RT kernel ou Xenomai peut être adapté afin de régulier la fréquence.</p>
-  </li>
-</ul>
+<p>Hier j’ai eu douze visiteurs, y compris mes jeunes enfants mignons.
+On peut imaginer que c’est fatigant, 
+dont l’interminable écoulement des amis et des familles s’approchait être dans une baignoire luxe avec une illimité founiture d’eau chaude et fraîche.</p>
 
-<p>Selon les spécification, on doit préparer:</p>
+<p>J’étais un homme isolé et solitaire, et peut-être un peu autistique.
+Je pensais seule à mes œuvres, à la natation, aux mes chats.
+La notion que les gens pouvaient prendre plaisir avec ma compagnie était étrange pour moi.
+Au moins mes œuvres, dont je trouvais, avaient des valeurs.
+Nous avons composé des générateurs de codes avec Cobol.
+J’ai fait un éditeur des codes qui les staffs aimaient bien parce qu’il marchait élégamment et pouvait exécuter partout.
+Je me suis appris C et assembleur 8086 et j’ai composé des outils shareware.</p>
 
-<ul>
-  <li>
-    <p>10 DOF IMU：GY80(I2C，400kHz，le temps de rafraîchissement peut atteindre 1600Hz). 
-Mais j’ai trouvé que le baromètre (Bosch BMP085) n’est pas assez précis (0.03hPa / 0.25m résolution).
-MS5611 est ajouté afin d’augmenter la précision.</p>
-  </li>
-  <li>
-    <p>nRF24L01*2：modules RF(250Kbps-2Mbps，la bande passante varie avec la distance, SPI), un pour RPi, un pour Arduino.</p>
-  </li>
-  <li>
-    <p>ADC：MCP3008, 10bit(afin de mesurer la tension de la batterie)，SPI.</p>
-  </li>
-  <li>
-    <p>PWM：PCA9685(On peut acheter à Adafruit <sup id="fnref:4"><a href="#fn:4" class="footnote">4</a></sup>)，I2C，12bit，la fréquence maximum est 1526Hz.</p>
-  </li>
-  <li>
-    <p><a href="https://www.amazon.fr/gp/product/B00T6ANWUU/ref=oh_aui_detailpage_o02_s00?ie=UTF8&amp;psc=1">ZOP Power 11.1V 5500mAh 3S1P 35C Lipo Battery For RC Model</a></p>
-  </li>
-  <li>
-    <p><a href="https://www.amazon.fr/gp/product/B00RWH7CA0/ref=oh_aui_detailpage_o03_s00?ie=UTF8&amp;psc=1">HOSdog 30A 4 en 1 Brushless Speed Contrôleur ESC pour RC Quadcopter Multicopter (Noir)</a></p>
-  </li>
-  <li>
-    <p><a href="https://www.amazon.fr/gp/product/B00CCXN4HO/ref=oh_aui_detailpage_o07_s00?ie=UTF8&amp;psc=1">JMT F450 Air multi-Rotor Frame FlameWheel KIT 450F comme DJI pour KK MWC MK 4 axe RC Quadcopter Multicopter UFO Heli</a></p>
-  </li>
-  <li>
-    <p><a href="https://www.amazon.fr/gp/product/B00L8H95AU/ref=oh_aui_detailpage_o08_s00?ie=UTF8&amp;psc=1">Andoer 4 A2212/13T 1000KV Brushless Motor + 2 paires 1045 10 * 4.5 Hélices pour DJI F450 F550 MWC Multicopter (2212 1000KV Brushless Motor, 1045 10 * 4.5 Hélices, DJI F450 F550 partie)</a></p>
-  </li>
-</ul>
-
-<p>Ensuite, on y va!</p>
-
-<h4 id="rfrence">Référence:</h4>
-
-<div class="footnotes">
-  <ol>
-    <li id="fn:1">
-      <p><a href="http://www.botched.co.uk/">Botched</a>, 
-  <a href="http://www.instructables.com/id/The-Drone-Pi/">The Drone Pi</a>,
-  <a href="https://github.com/idavidstory/goPiCopter">goPiCopter</a>, 
-  <a href="http://blog.pistuffing.co.uk/">PiStuffing</a>,
-  <a href="https://github.com/vjaunet/QUADCOPTER_V2">QUADCOPTER</a>, 
-  <a href="https://github.com/gregd72002/AvrMiniCopter-wiki/wiki">AvrMiniCopter</a>,
-  <a href="https://www.raspberrypi.org/forums/viewtopic.php?f=37&amp;t=35746">PiCopter</a> <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
-    </li>
-    <li id="fn:2">
-      <p><a href="http://www.airspayce.com/mikem/bcm2835/">C library for Broadcom BCM 2835 as used in Raspberry Pi</a> <a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
-    </li>
-    <li id="fn:3">
-      <p><a href="https://xenomai.org/">Xenomai</a> <a href="#fnref:3" class="reversefootnote">&#8617;</a></p>
-    </li>
-    <li id="fn:4">
-      <p><a href="https://www.adafruit.com/product/815">Adafruit 16-Channel 12-bit PWM/Servo Driver-I2C interface-PCA9685</a> <a href="#fnref:4" class="reversefootnote">&#8617;</a></p>
-    </li>
-  </ol>
-</div>
 
 </div>
 
 <div class="related">
   <h2>Related Posts</h2>
   <ul class="related-posts">
-    
-    <li>
-      <h3>
-        <a href="/vie/2016/04/24/Protocol_for_Dying.html">
-          Traduction : Un protocole pour le décès (A Protocol for Dying), par Pieter Hintjens
-          <small>2016-04</small>
-        </a>
-      </h3>
-    </li>
     
     <li>
       <h3>
@@ -228,6 +155,15 @@ MS5611 est ajouté afin d’augmenter la précision.</p>
       <h3>
         <a href="/information/2016/04/21/Hash_Encrypt.html">
           La fonction de Hachage (Hash) et Chiffrement (Encryption)
+          <small>2016-04</small>
+        </a>
+      </h3>
+    </li>
+    
+    <li>
+      <h3>
+        <a href="/syst%C3%A8me%20embarqu%C3%A9/2016/04/12/Drone_1.html">
+          Construire un quadrirotor avec Raspberry Pi (1)
           <small>2016-04</small>
         </a>
       </h3>

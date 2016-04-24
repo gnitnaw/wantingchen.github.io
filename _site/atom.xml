@@ -4,13 +4,185 @@
  <title>Wan-Ting</title>
  <link href="http://wantingchen.github.io/atom.xml" rel="self"/>
  <link href="http://wantingchen.github.io/"/>
- <updated>2016-04-21T22:36:52+02:00</updated>
+ <updated>2016-04-24T22:48:03+02:00</updated>
  <id>http://wantingchen.github.io</id>
  <author>
    <name>Wan-Ting CHEN</name>
    <email>wanting@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Traduction : Un protocole pour le décès (A Protocol for Dying), par Pieter Hintjens</title>
+   <link href="http://wantingchen.github.io/vie/2016/04/24/Protocol_for_Dying.html"/>
+   <updated>2016-04-24T00:00:00+02:00</updated>
+   <id>http://wantingchen.github.io/vie/2016/04/24/Protocol_for_Dying</id>
+   <content type="html">&lt;h2 id=&quot;cette-article-original-est-dici--a-protocol-for-dyinghttphintjenscomblog115&quot;&gt;Cette article original est d’ici : &lt;a href=&quot;http://hintjens.com/blog:115&quot;&gt;A Protocol for Dying&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Rédigé par Pieter Hintjens à 11h43, 22 avril, 2016.&lt;/p&gt;
+
+&lt;p&gt;Ça arrive mon dernier article. Peut-être j’écrirai plus si j’ai encore le temps après avoir traité avec toutes les choses.
+Je concentrerai mon attention à la posture le plus agréable au lit, 
+le calendrier pour le traitement contre la douleur,
+et les gens autour de moi.&lt;/p&gt;
+
+&lt;p&gt;Hier j’ai eu douze visiteurs, y compris mes jeunes enfants mignons.
+On peut imaginer que c’est fatigant, 
+dont l’interminable écoulement des amis et des familles s’approchait être dans une baignoire luxe avec une illimité founiture d’eau chaude et fraîche.&lt;/p&gt;
+
+&lt;p&gt;J’étais un homme isolé et solitaire, et peut-être un peu autistique.
+Je pensais seule à mes œuvres, à la natation, aux mes chats.
+La notion que les gens pouvaient prendre plaisir avec ma compagnie était étrange pour moi.
+Au moins mes œuvres, dont je trouvais, avaient des valeurs.
+Nous avons composé des générateurs de codes avec Cobol.
+J’ai fait un éditeur des codes qui les staffs aimaient bien parce qu’il marchait élégamment et pouvait exécuter partout.
+Je me suis appris C et assembleur 8086 et j’ai composé des outils shareware.&lt;/p&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>La petite instruction de GNU Make</title>
+   <link href="http://wantingchen.github.io/programmation/2016/04/22/GNUMake.html"/>
+   <updated>2016-04-22T00:00:00+02:00</updated>
+   <id>http://wantingchen.github.io/programmation/2016/04/22/GNUMake</id>
+   <content type="html">&lt;p&gt;Bien que je préfère utilser cmake[^1] pour compiler mon programme, 
+mais c’est encore important de comprendre le principale de GNU Make.&lt;/p&gt;
+
+&lt;h3 id=&quot;lobjectif-de-gnu-make&quot;&gt;L’objectif de GNU Make&lt;/h3&gt;
+&lt;p&gt;L’objectif de GNU make est &lt;strong&gt;déterminer automatiquement quelle pièces d’un grand programme doit être récompilées,
+et spécifier les commandements pour les récompiler&lt;/strong&gt;.
+Le format est comme ça:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;
+  &lt;pre&gt;&lt;code class=&quot;language-makefile&quot; data-lang=&quot;makefile&quot;&gt;&lt;span class=&quot;nl&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;foo.c                      &lt;/span&gt;&lt;span class=&quot;c&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt; Le premier foo est le cible&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt; et foo.c est la condition préalable.&lt;/span&gt;
+        &lt;span class=&quot;err&quot;&gt;gcc&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;-o&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;foo&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;foo.c&lt;/span&gt;        &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;La&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;recette,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;devant&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;gcc&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;est&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;une&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;caractère&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;de&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;tabulation.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Le cible peut être un fichier exécutable, un fichier objet, ou un label.
+La condition préalable et les fichiers/dossiers nécéssaires pour compiler le cible.
+La recette est les commandements pour compiler et lier le cible.&lt;/p&gt;
+
+&lt;p&gt;Les règles du jeu sont:
+- On compile tous les codes source afin de créer le fichier de cible lorsque ça n’existe pas.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;On renouvele le fichier de cible lorsque les fichers indiqués pas la condition préalable sont plus nouveaux que le cible.
+On doit seulement récompiler les codes source actualisés et alors rélier au fichier de cible.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Si les fichiers header sont modifiés, il faut récompiler les codes source qui les comportent et alors rélier au fichier de cible.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;le-rglage-de-variables&quot;&gt;Le réglage de variables&lt;/h3&gt;
+&lt;p&gt;Il y a quatre façons pour créer ou modifier des variables.
+- &lt;strong&gt;VAR = VAL&lt;/strong&gt; : VAR devient VAL lorsque VAL est un constante; si VAL est un autre variable, VAR change aussi bien que VAL change. Par exemple:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;
+  &lt;pre&gt;&lt;code class=&quot;language-makefile&quot; data-lang=&quot;makefile&quot;&gt;&lt;span class=&quot;nv&quot;&gt;VAR1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; un
+&lt;span class=&quot;nv&quot;&gt;VAR2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$(VAR1)&lt;/span&gt;
+&lt;span class=&quot;err&quot;&gt;$(warning&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;$(VAR2))&lt;/span&gt;              &lt;span class=&quot;c&quot;&gt;# obtenira un
+&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;VAR1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; deux
+&lt;span class=&quot;err&quot;&gt;$(warning&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;$(VAR2))&lt;/span&gt;              &lt;span class=&quot;err&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;obtenira&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;deux&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/figure&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;VAR := VAL&lt;/strong&gt; : VAR devient VAL lorsque VAL est un constante; si VAL est un autre variable, VAR ne change pas si VAL change,
+c’est-á-dire que la valeur de VAR n’est pas lièe avec $(VAL).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;
+  &lt;pre&gt;&lt;code class=&quot;language-makefile&quot; data-lang=&quot;makefile&quot;&gt;&lt;span class=&quot;nv&quot;&gt;VAR1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; un
+&lt;span class=&quot;nv&quot;&gt;VAR2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$(VAR1)&lt;/span&gt;                 &lt;span class=&quot;c&quot;&gt;# on change seulement ici&lt;/span&gt;
+&lt;span class=&quot;err&quot;&gt;$(warning&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;$(VAR2))&lt;/span&gt;              &lt;span class=&quot;c&quot;&gt;# obtenira un
+&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;VAR1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; deux
+&lt;span class=&quot;err&quot;&gt;$(warning&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;$(VAR2))&lt;/span&gt;              &lt;span class=&quot;err&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;obtenira&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;un&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;encore&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/figure&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;VAR ?= VAL&lt;/strong&gt; : VAR devient VAL lorsque VAR n’est pas encore défini, sinon VAR ne change pas.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;VAR += VAL&lt;/strong&gt; : on ajoute VAL à VAR.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;
+  &lt;pre&gt;&lt;code class=&quot;language-makefile&quot; data-lang=&quot;makefile&quot;&gt;&lt;span class=&quot;nv&quot;&gt;VAR1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; un
+&lt;span class=&quot;err&quot;&gt;$(warning&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;$(VAR2))&lt;/span&gt;              &lt;span class=&quot;c&quot;&gt;# obtenira un
+&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;VAR1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; deux
+&lt;span class=&quot;err&quot;&gt;$(warning&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;$(VAR1))&lt;/span&gt;              &lt;span class=&quot;err&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;obtenira&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;un&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;deux&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Il y a aussi plusieurs variables encastré utiles:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;$@&lt;/strong&gt; : Le nom de cible&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;$^&lt;/strong&gt; : tous les fichiers/dossiers dans la condition préalable&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;$&amp;lt;&lt;/strong&gt; : Première fichiers/dossiers dans la condition préalable&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;$?&lt;/strong&gt; : tous les fichiers/dossiers dans la condition préalable qui sont réactualisés&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;les-fonction-encastres-utiles&quot;&gt;Les fonction encastrées utiles&lt;/h3&gt;
+&lt;p&gt;Ces fonction encastrées sont souvent utilisées :
+- Montrer les message :
+  + **$(warning &lt;message&gt;)** : Montrer le message d&#39;avertissement avec le nombre de ligne correspondante.
+  + **$(error &lt;message&gt;)** : Affirmer le message d&#39;erreur avec le nombre de ligne correspondante, et puis terminer l&#39;action de make.&lt;/message&gt;&lt;/message&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Traitement de chaînes de caractères :
+    &lt;ul&gt;
+      &lt;li&gt;&lt;strong&gt;$(subst «from»,«to»,«text&amp;lt;&amp;gt;)&lt;/strong&gt; : si on trouve «from» dans «text», «from» sera replacé par «to».&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;$(patsubst «pattern»,«replacement»,«text»)&lt;/strong&gt; : Pour toutes les chaînes de caractères dans «text»,
+s’il y a quelconque avec la forme définie comme «pattern»,
+il deviendra la forme définie comme «replacement» 
+(par exemple : %.c, %.o, foo.c -&amp;gt;  “foo.c” a la forme comme %.c, donc il deviendra “foo.o”).&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;$(shell «commandement»)&lt;/strong&gt; : Commandement de shell, exécuter le «commandement» et montrer le résultat.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;phony&quot;&gt;.PHONY&lt;/h3&gt;
+
+&lt;p&gt;On défine les cible avec &lt;strong&gt;.PHONY&lt;/strong&gt; lorsque ils n’ont pas de condition préalable.
+Par exemple, &lt;strong&gt;make clean&lt;/strong&gt; ou &lt;strong&gt;make install&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;
+  &lt;pre&gt;&lt;code class=&quot;language-makefile&quot; data-lang=&quot;makefile&quot;&gt;&lt;span class=&quot;nl&quot;&gt;.PHONY&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;clean install&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/figure&gt;
+
+&lt;h3 id=&quot;rfrence&quot;&gt;Référence&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://cmake.org/&quot;&gt;CMake&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;http://jeff71321.pixnet.net/blog/post/92143030-makefile%E6%95%99%E5%AD%B8%28%E4%B8%80%29&quot;&gt;makefile教學(一)&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;http://fr.slideshare.net/zzz00072/gnu-make-autotools-cmake&quot;&gt;GNU Make, Autotools, CMake 簡介&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;http://wiki.ubuntu.org.cn/index.php?title=%E8%B7%9F%E6%88%91%E4%B8%80%E8%B5%B7%E5%86%99Makefile:%E4%BD%BF%E7%94%A8%E5%87%BD%E6%95%B0&amp;amp;variant=zh-tw&quot;&gt;跟我一起寫Makefile:使用函數&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+</content>
+ </entry>
  
  <entry>
    <title>La fonction de Hachage (Hash) et Chiffrement (Encryption)</title>
@@ -90,8 +262,6 @@ Si un caractère d’une chaîne avec 10000-bytes longueur est modifié, le rés
 &lt;ul&gt;
   &lt;li&gt;&lt;strong&gt;Si on’a pas de clé, c’est extrêmement de trouver le façon de déchiffrer même si on sait l’algorithme.&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;h3 id=&quot;application&quot;&gt;Application&lt;/h3&gt;
 
 &lt;h3 id=&quot;rfrence&quot;&gt;Référence:&lt;/h3&gt;
 &lt;p&gt;[^1] &lt;a href=&quot;http://www.cnblogs.com/leoo2sk/archive/2010/10/01/hash-and-encrypt.html&quot;&gt;哈希(Hash)与加密(Encrypt)的基本原理、区别及工程应用 (en chinois)&lt;/a&gt;&lt;/p&gt;

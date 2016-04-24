@@ -118,6 +118,218 @@
     
     <div class="post">
         <h1 class="post-title">
+            <a href="/vie/2016/04/24/Protocol_for_Dying.html">
+                Traduction : Un protocole pour le décès (A Protocol for Dying), par Pieter Hintjens
+            </a>
+        </h1>
+
+        <span class="post-date">
+            24 Apr 2016
+            
+            |
+            
+            <a class="codinfox-tag-mark" href="/tag.html#hintjens">Hintjens</a>
+            
+            
+        </span>
+
+        <h2 id="cette-article-original-est-dici--a-protocol-for-dyinghttphintjenscomblog115">Cette article original est d’ici : <a href="http://hintjens.com/blog:115">A Protocol for Dying</a></h2>
+<p>Rédigé par Pieter Hintjens à 11h43, 22 avril, 2016.</p>
+
+<p>Ça arrive mon dernier article. Peut-être j’écrirai plus si j’ai encore le temps après avoir traité avec toutes les choses.
+Je concentrerai mon attention à la posture le plus agréable au lit, 
+le calendrier pour le traitement contre la douleur,
+et les gens autour de moi.</p>
+
+<p>Hier j’ai eu douze visiteurs, y compris mes jeunes enfants mignons.
+On peut imaginer que c’est fatigant, 
+dont l’interminable écoulement des amis et des familles s’approchait être dans une baignoire luxe avec une illimité founiture d’eau chaude et fraîche.</p>
+
+<p>J’étais un homme isolé et solitaire, et peut-être un peu autistique.
+Je pensais seule à mes œuvres, à la natation, aux mes chats.
+La notion que les gens pouvaient prendre plaisir avec ma compagnie était étrange pour moi.
+Au moins mes œuvres, dont je trouvais, avaient des valeurs.
+Nous avons composé des générateurs de codes avec Cobol.
+J’ai fait un éditeur des codes qui les staffs aimaient bien parce qu’il marchait élégamment et pouvait exécuter partout.
+Je me suis appris C et assembleur 8086 et j’ai composé des outils shareware.</p>
+
+
+
+        <div class="codinfox-post-more">
+            <a href="/vie/2016/04/24/Protocol_for_Dying.html#disqus_thread">Comment</a>&nbsp;
+            <a href="/vie/2016/04/24/Protocol_for_Dying.html">Read more</a>
+        </div>
+        <hr/>
+
+    </div>
+    
+    <div class="post">
+        <h1 class="post-title">
+            <a href="/programmation/2016/04/22/GNUMake.html">
+                La petite instruction de GNU Make
+            </a>
+        </h1>
+
+        <span class="post-date">
+            22 Apr 2016
+            
+            |
+            
+            <a class="codinfox-tag-mark" href="/tag.html#c">C,</a>
+            
+            <a class="codinfox-tag-mark" href="/tag.html#make">Make</a>
+            
+            
+        </span>
+
+        <p>Bien que je préfère utilser cmake[^1] pour compiler mon programme, 
+mais c’est encore important de comprendre le principale de GNU Make.</p>
+
+<h3 id="lobjectif-de-gnu-make">L’objectif de GNU Make</h3>
+<p>L’objectif de GNU make est <strong>déterminer automatiquement quelle pièces d’un grand programme doit être récompilées,
+et spécifier les commandements pour les récompiler</strong>.
+Le format est comme ça:</p>
+
+<figure class="highlight">
+  <pre><code class="language-makefile" data-lang="makefile"><span class="nl">foo</span><span class="o">:</span> <span class="nf">foo.c                      </span><span class="c">#</span><span class="nf"> Le premier foo est le cible</span><span class="p">,</span><span class="nf"> et foo.c est la condition préalable.</span>
+        <span class="err">gcc</span> <span class="err">-o</span> <span class="err">foo</span> <span class="err">foo.c</span>        <span class="err">#</span> <span class="err">La</span> <span class="err">recette,</span> <span class="err">devant</span> <span class="err">gcc</span> <span class="err">est</span> <span class="err">une</span> <span class="err">caractère</span> <span class="err">de</span> <span class="err">tabulation.</span></code></pre>
+</figure>
+
+<p>Le cible peut être un fichier exécutable, un fichier objet, ou un label.
+La condition préalable et les fichiers/dossiers nécéssaires pour compiler le cible.
+La recette est les commandements pour compiler et lier le cible.</p>
+
+<p>Les règles du jeu sont:
+- On compile tous les codes source afin de créer le fichier de cible lorsque ça n’existe pas.</p>
+
+<ul>
+  <li>
+    <p>On renouvele le fichier de cible lorsque les fichers indiqués pas la condition préalable sont plus nouveaux que le cible.
+On doit seulement récompiler les codes source actualisés et alors rélier au fichier de cible.</p>
+  </li>
+  <li>
+    <p>Si les fichiers header sont modifiés, il faut récompiler les codes source qui les comportent et alors rélier au fichier de cible.</p>
+  </li>
+</ul>
+
+<h3 id="le-rglage-de-variables">Le réglage de variables</h3>
+<p>Il y a quatre façons pour créer ou modifier des variables.
+- <strong>VAR = VAL</strong> : VAR devient VAL lorsque VAL est un constante; si VAL est un autre variable, VAR change aussi bien que VAL change. Par exemple:</p>
+
+<figure class="highlight">
+  <pre><code class="language-makefile" data-lang="makefile"><span class="nv">VAR1</span> <span class="o">=</span> un
+<span class="nv">VAR2</span> <span class="o">=</span> <span class="nv">$(VAR1)</span>
+<span class="err">$(warning</span> <span class="err">$(VAR2))</span>              <span class="c"># obtenira un
+</span>
+<span class="nv">VAR1</span> <span class="o">=</span> deux
+<span class="err">$(warning</span> <span class="err">$(VAR2))</span>              <span class="err">$</span> <span class="err">obtenira</span> <span class="err">deux</span></code></pre>
+</figure>
+
+<ul>
+  <li><strong>VAR := VAL</strong> : VAR devient VAL lorsque VAL est un constante; si VAL est un autre variable, VAR ne change pas si VAL change,
+c’est-á-dire que la valeur de VAR n’est pas lièe avec $(VAL).</li>
+</ul>
+
+<figure class="highlight">
+  <pre><code class="language-makefile" data-lang="makefile"><span class="nv">VAR1</span> <span class="o">=</span> un
+<span class="nv">VAR2</span> <span class="o">:=</span> <span class="nv">$(VAR1)</span>                 <span class="c"># on change seulement ici</span>
+<span class="err">$(warning</span> <span class="err">$(VAR2))</span>              <span class="c"># obtenira un
+</span>
+<span class="nv">VAR1</span> <span class="o">=</span> deux
+<span class="err">$(warning</span> <span class="err">$(VAR2))</span>              <span class="err">$</span> <span class="err">obtenira</span> <span class="err">un</span> <span class="err">encore</span></code></pre>
+</figure>
+
+<ul>
+  <li>
+    <p><strong>VAR ?= VAL</strong> : VAR devient VAL lorsque VAR n’est pas encore défini, sinon VAR ne change pas.</p>
+  </li>
+  <li>
+    <p><strong>VAR += VAL</strong> : on ajoute VAL à VAR.</p>
+  </li>
+</ul>
+
+<figure class="highlight">
+  <pre><code class="language-makefile" data-lang="makefile"><span class="nv">VAR1</span> <span class="o">=</span> un
+<span class="err">$(warning</span> <span class="err">$(VAR2))</span>              <span class="c"># obtenira un
+</span>
+<span class="nv">VAR1</span> <span class="o">+=</span> deux
+<span class="err">$(warning</span> <span class="err">$(VAR1))</span>              <span class="err">$</span> <span class="err">obtenira</span> <span class="err">un</span> <span class="err">deux</span></code></pre>
+</figure>
+
+<p>Il y a aussi plusieurs variables encastré utiles:</p>
+
+<ul>
+  <li>
+    <p><strong>$@</strong> : Le nom de cible</p>
+  </li>
+  <li>
+    <p><strong>$^</strong> : tous les fichiers/dossiers dans la condition préalable</p>
+  </li>
+  <li>
+    <p><strong>$&lt;</strong> : Première fichiers/dossiers dans la condition préalable</p>
+  </li>
+  <li>
+    <p><strong>$?</strong> : tous les fichiers/dossiers dans la condition préalable qui sont réactualisés</p>
+  </li>
+</ul>
+
+<h3 id="les-fonction-encastres-utiles">Les fonction encastrées utiles</h3>
+<p>Ces fonction encastrées sont souvent utilisées :
+- Montrer les message :
+  + **$(warning <message>)** : Montrer le message d'avertissement avec le nombre de ligne correspondante.
+  + **$(error <message>)** : Affirmer le message d'erreur avec le nombre de ligne correspondante, et puis terminer l'action de make.</message></message></p>
+
+<ul>
+  <li>Traitement de chaînes de caractères :
+    <ul>
+      <li><strong>$(subst «from»,«to»,«text&lt;&gt;)</strong> : si on trouve «from» dans «text», «from» sera replacé par «to».</li>
+      <li><strong>$(patsubst «pattern»,«replacement»,«text»)</strong> : Pour toutes les chaînes de caractères dans «text»,
+s’il y a quelconque avec la forme définie comme «pattern»,
+il deviendra la forme définie comme «replacement» 
+(par exemple : %.c, %.o, foo.c -&gt;  “foo.c” a la forme comme %.c, donc il deviendra “foo.o”).</li>
+    </ul>
+  </li>
+  <li><strong>$(shell «commandement»)</strong> : Commandement de shell, exécuter le «commandement» et montrer le résultat.</li>
+</ul>
+
+<h3 id="phony">.PHONY</h3>
+
+<p>On défine les cible avec <strong>.PHONY</strong> lorsque ils n’ont pas de condition préalable.
+Par exemple, <strong>make clean</strong> ou <strong>make install</strong>.</p>
+
+<figure class="highlight">
+  <pre><code class="language-makefile" data-lang="makefile"><span class="nl">.PHONY</span><span class="o">:</span> <span class="nf">clean install</span></code></pre>
+</figure>
+
+<h3 id="rfrence">Référence</h3>
+
+<ul>
+  <li>
+    <p><a href="https://cmake.org/">CMake</a></p>
+  </li>
+  <li>
+    <p><a href="http://jeff71321.pixnet.net/blog/post/92143030-makefile%E6%95%99%E5%AD%B8%28%E4%B8%80%29">makefile教學(一)</a></p>
+  </li>
+  <li>
+    <p><a href="http://fr.slideshare.net/zzz00072/gnu-make-autotools-cmake">GNU Make, Autotools, CMake 簡介</a></p>
+  </li>
+  <li>
+    <p><a href="http://wiki.ubuntu.org.cn/index.php?title=%E8%B7%9F%E6%88%91%E4%B8%80%E8%B5%B7%E5%86%99Makefile:%E4%BD%BF%E7%94%A8%E5%87%BD%E6%95%B0&amp;variant=zh-tw">跟我一起寫Makefile:使用函數</a></p>
+  </li>
+</ul>
+
+
+
+        <div class="codinfox-post-more">
+            <a href="/programmation/2016/04/22/GNUMake.html#disqus_thread">Comment</a>&nbsp;
+            <a href="/programmation/2016/04/22/GNUMake.html">Read more</a>
+        </div>
+        <hr/>
+
+    </div>
+    
+    <div class="post">
+        <h1 class="post-title">
             <a href="/information/2016/04/21/Hash_Encrypt.html">
                 La fonction de Hachage (Hash) et Chiffrement (Encryption)
             </a>
@@ -208,8 +420,6 @@ Si un caractère d’une chaîne avec 10000-bytes longueur est modifié, le rés
 <ul>
   <li><strong>Si on’a pas de clé, c’est extrêmement de trouver le façon de déchiffrer même si on sait l’algorithme.</strong></li>
 </ul>
-
-<h3 id="application">Application</h3>
 
 <h3 id="rfrence">Référence:</h3>
 <p>[^1] <a href="http://www.cnblogs.com/leoo2sk/archive/2010/10/01/hash-and-encrypt.html">哈希(Hash)与加密(Encrypt)的基本原理、区别及工程应用 (en chinois)</a></p>

@@ -14,7 +14,9 @@ author:
   email:          wanting@gmail.com
   introduction:   'Ayant été une physicienne pendant plus que 10 ans. Maintenant je me transforme en un ingénieur system embarqué.'
 
+#PAGINATION
 paginate:         5
+paginate_path: "/blog/page:num/"
 
 # Custom vars
 #version:          1.0.0
@@ -39,3 +41,5 @@ analytics :
   provider : google 
   google : 
     tracking_id : 'UA-75609833-2'
+
+gems: [jekyll-paginate, jekyll-gist]

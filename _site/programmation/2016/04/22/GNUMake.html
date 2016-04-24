@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+  <head>
+  <meta charset="utf-8">
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="description" content="Ayant été une physicienne pendant plus que 10 ans. Maintenant je me transforme en un ingénieur system embarqué.">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      La petite instruction de GNU Make &middot; Wan-Ting
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/lanyon.css">
+  <link rel="stylesheet" href="/public/css/codinfox.css">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <script type="text/x-mathjax-config">
+
+ MathJax.Hub.Config({
+     jax: ["input/TeX","output/SVG"],
+     extensions: ["tex2jax.js","mml2jax.js","MathMenu.js","MathZoom.js"],
+     TeX: {
+         extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"]
+     },
+     tex2jax: {
+         inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+         processEscapes: true
+     }
+ });
+
+ </script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
+
+
+      <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-75609833-1', 'auto');
+  ga('require', 'displayfeatures');
+  ga('send', 'pageview');
+
+</script>
+</head>
+
+
+  <body class="theme-base-08 layout-default">
+  <div align="justify">
+  <font face="Arial">
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>Ayant été une physicienne pendant plus que 10 ans. Maintenant je me transforme en un ingénieur system embarqué.</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/">Home</a>
+    <a class="sidebar-nav-item" href="/category.html">Category</a>
+    <a class="sidebar-nav-item" href="/tag.html">Tag</a>
+    <a class="sidebar-nav-item" href="/about.html">About</a>
+<!--     <span class="sidebar-nav-item">Currently v</span> -->
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2016 Codinfox. This work is licensed under <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a>.
+    </p>
+  </div>
+  <div class="sidebar-item">
+    <p>
+      Powered by <a href="http://jekyllrb.com">jekyll</a> and <a href="http://lanyon.getpoole.com">lanyon</a>.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+	    <small>Blog pour le system embarqué.</small>
+          </h3>
+        </div>
+        <!-- <div class="codinfox-masthead-bg"></div> -->
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 class="post-title">La petite instruction de GNU Make</h1>
+  <span>
+    <span class="post-date" style="display:inline-block;">2016-04</span> |
+    
+	<a class="codinfox-tag-mark" href="/tag.html#c">C,</a>
+    
+	<a class="codinfox-tag-mark" href="/tag.html#make">Make</a>
+    
+  </span>
+
+  <p>Bien que je préfère utilser cmake[^1] pour compiler mon programme, 
+mais c’est encore important de comprendre le principale de GNU Make.</p>
+
+<h3 id="lobjectif-de-gnu-make">L’objectif de GNU Make</h3>
+<p>L’objectif de GNU make est <strong>déterminer automatiquement quelle pièces d’un grand programme doit être récompilées,
+et spécifier les commandements pour les récompiler</strong>.
+Le format est comme ça:</p>
+
+<figure class="highlight">
+  <pre><code class="language-makefile" data-lang="makefile"><span class="nl">foo</span><span class="o">:</span> <span class="nf">foo.c                      </span><span class="c">#</span><span class="nf"> Le premier foo est le cible</span><span class="p">,</span><span class="nf"> et foo.c est la condition préalable.</span>
+        <span class="err">gcc</span> <span class="err">-o</span> <span class="err">foo</span> <span class="err">foo.c</span>        <span class="err">#</span> <span class="err">La</span> <span class="err">recette,</span> <span class="err">devant</span> <span class="err">gcc</span> <span class="err">est</span> <span class="err">une</span> <span class="err">caractère</span> <span class="err">de</span> <span class="err">tabulation.</span></code></pre>
+</figure>
+
+<p>Le cible peut être un fichier exécutable, un fichier objet, ou un label.
+La condition préalable et les fichiers/dossiers nécéssaires pour compiler le cible.
+La recette est les commandements pour compiler et lier le cible.</p>
+
+<p>Les règles du jeu sont:
+- On compile tous les codes source afin de créer le fichier de cible lorsque ça n’existe pas.</p>
+
+<ul>
+  <li>
+    <p>On renouvele le fichier de cible lorsque les fichers indiqués pas la condition préalable sont plus nouveaux que le cible.
+On doit seulement récompiler les codes source actualisés et alors rélier au fichier de cible.</p>
+  </li>
+  <li>
+    <p>Si les fichiers header sont modifiés, il faut récompiler les codes source qui les comportent et alors rélier au fichier de cible.</p>
+  </li>
+</ul>
+
+<h3 id="le-rglage-de-variables">Le réglage de variables</h3>
+<p>Il y a quatre façons pour créer ou modifier des variables.
+- <strong>VAR = VAL</strong> : VAR devient VAL lorsque VAL est un constante; si VAL est un autre variable, VAR change aussi bien que VAL change. Par exemple:</p>
+
+<figure class="highlight">
+  <pre><code class="language-makefile" data-lang="makefile"><span class="nv">VAR1</span> <span class="o">=</span> un
+<span class="nv">VAR2</span> <span class="o">=</span> <span class="nv">$(VAR1)</span>
+<span class="err">$(warning</span> <span class="err">$(VAR2))</span>              <span class="c"># obtenira un
+</span>
+<span class="nv">VAR1</span> <span class="o">=</span> deux
+<span class="err">$(warning</span> <span class="err">$(VAR2))</span>              <span class="err">$</span> <span class="err">obtenira</span> <span class="err">deux</span></code></pre>
+</figure>
+
+<ul>
+  <li><strong>VAR := VAL</strong> : VAR devient VAL lorsque VAL est un constante; si VAL est un autre variable, VAR ne change pas si VAL change,
+c’est-á-dire que la valeur de VAR n’est pas lièe avec $(VAL).</li>
+</ul>
+
+<figure class="highlight">
+  <pre><code class="language-makefile" data-lang="makefile"><span class="nv">VAR1</span> <span class="o">=</span> un
+<span class="nv">VAR2</span> <span class="o">:=</span> <span class="nv">$(VAR1)</span>                 <span class="c"># on change seulement ici</span>
+<span class="err">$(warning</span> <span class="err">$(VAR2))</span>              <span class="c"># obtenira un
+</span>
+<span class="nv">VAR1</span> <span class="o">=</span> deux
+<span class="err">$(warning</span> <span class="err">$(VAR2))</span>              <span class="err">$</span> <span class="err">obtenira</span> <span class="err">un</span> <span class="err">encore</span></code></pre>
+</figure>
+
+<ul>
+  <li>
+    <p><strong>VAR ?= VAL</strong> : VAR devient VAL lorsque VAR n’est pas encore défini, sinon VAR ne change pas.</p>
+  </li>
+  <li>
+    <p><strong>VAR += VAL</strong> : on ajoute VAL à VAR.</p>
+  </li>
+</ul>
+
+<figure class="highlight">
+  <pre><code class="language-makefile" data-lang="makefile"><span class="nv">VAR1</span> <span class="o">=</span> un
+<span class="err">$(warning</span> <span class="err">$(VAR2))</span>              <span class="c"># obtenira un
+</span>
+<span class="nv">VAR1</span> <span class="o">+=</span> deux
+<span class="err">$(warning</span> <span class="err">$(VAR1))</span>              <span class="err">$</span> <span class="err">obtenira</span> <span class="err">un</span> <span class="err">deux</span></code></pre>
+</figure>
+
+<p>Il y a aussi plusieurs variables encastré utiles:</p>
+
+<ul>
+  <li>
+    <p><strong>$@</strong> : Le nom de cible</p>
+  </li>
+  <li>
+    <p><strong>$^</strong> : tous les fichiers/dossiers dans la condition préalable</p>
+  </li>
+  <li>
+    <p><strong>$&lt;</strong> : Première fichiers/dossiers dans la condition préalable</p>
+  </li>
+  <li>
+    <p><strong>$?</strong> : tous les fichiers/dossiers dans la condition préalable qui sont réactualisés</p>
+  </li>
+</ul>
+
+<h3 id="les-fonction-encastres-utiles">Les fonction encastrées utiles</h3>
+<p>Ces fonction encastrées sont souvent utilisées :
+- Montrer les message :
+  + **$(warning <message>)** : Montrer le message d'avertissement avec le nombre de ligne correspondante.
+  + **$(error <message>)** : Affirmer le message d'erreur avec le nombre de ligne correspondante, et puis terminer l'action de make.</message></message></p>
+
+<ul>
+  <li>Traitement de chaînes de caractères :
+    <ul>
+      <li><strong>$(subst «from»,«to»,«text&lt;&gt;)</strong> : si on trouve «from» dans «text», «from» sera replacé par «to».</li>
+      <li><strong>$(patsubst «pattern»,«replacement»,«text»)</strong> : Pour toutes les chaînes de caractères dans «text»,
+s’il y a quelconque avec la forme définie comme «pattern»,
+il deviendra la forme définie comme «replacement» 
+(par exemple : %.c, %.o, foo.c -&gt;  “foo.c” a la forme comme %.c, donc il deviendra “foo.o”).</li>
+    </ul>
+  </li>
+  <li><strong>$(shell «commandement»)</strong> : Commandement de shell, exécuter le «commandement» et montrer le résultat.</li>
+</ul>
+
+<h3 id="phony">.PHONY</h3>
+
+<p>On défine les cible avec <strong>.PHONY</strong> lorsque ils n’ont pas de condition préalable.
+Par exemple, <strong>make clean</strong> ou <strong>make install</strong>.</p>
+
+<figure class="highlight">
+  <pre><code class="language-makefile" data-lang="makefile"><span class="nl">.PHONY</span><span class="o">:</span> <span class="nf">clean install</span></code></pre>
+</figure>
+
+<h3 id="rfrence">Référence</h3>
+
+<ul>
+  <li>
+    <p><a href="https://cmake.org/">CMake</a></p>
+  </li>
+  <li>
+    <p><a href="http://jeff71321.pixnet.net/blog/post/92143030-makefile%E6%95%99%E5%AD%B8%28%E4%B8%80%29">makefile教學(一)</a></p>
+  </li>
+  <li>
+    <p><a href="http://fr.slideshare.net/zzz00072/gnu-make-autotools-cmake">GNU Make, Autotools, CMake 簡介</a></p>
+  </li>
+  <li>
+    <p><a href="http://wiki.ubuntu.org.cn/index.php?title=%E8%B7%9F%E6%88%91%E4%B8%80%E8%B5%B7%E5%86%99Makefile:%E4%BD%BF%E7%94%A8%E5%87%BD%E6%95%B0&amp;variant=zh-tw">跟我一起寫Makefile:使用函數</a></p>
+  </li>
+</ul>
+
+
+</div>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+    <li>
+      <h3>
+        <a href="/vie/2016/04/24/Protocol_for_Dying.html">
+          Traduction : Un protocole pour le décès (A Protocol for Dying), par Pieter Hintjens
+          <small>2016-04</small>
+        </a>
+      </h3>
+    </li>
+    
+    <li>
+      <h3>
+        <a href="/information/2016/04/21/Hash_Encrypt.html">
+          La fonction de Hachage (Hash) et Chiffrement (Encryption)
+          <small>2016-04</small>
+        </a>
+      </h3>
+    </li>
+    
+    <li>
+      <h3>
+        <a href="/syst%C3%A8me%20embarqu%C3%A9/2016/04/12/Drone_1.html">
+          Construire un quadrirotor avec Raspberry Pi (1)
+          <small>2016-04</small>
+        </a>
+      </h3>
+    </li>
+    
+  </ul>
+</div>
+
+
+<div id="disqus_thread"></div>
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+    
+    var disqus_config = function () {
+        this.page.url = page.url;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = page.id; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    
+    (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        
+        s.src = '//wantingchen.disqus.com/embed.js';
+        
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+  </body>
+</html>
