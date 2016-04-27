@@ -111,4 +111,4 @@ Par exemple, **make clean** ou **make install**.
 
 
 ### Commentaire ###
-[^1][CMake](https://cmake.org/)
+[^1]: [CMake](https://cmake.org/)

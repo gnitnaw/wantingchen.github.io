@@ -73,4 +73,4 @@ Et une fonction de chiffrement fiable doit avoir la propriété de "fonction à 
 
 
 ### Référence: ###
-[^1] [哈希(Hash)与加密(Encrypt)的基本原理、区别及工程应用 (en chinois)](http://www.cnblogs.com/leoo2sk/archive/2010/10/01/hash-and-encrypt.html)
+- [哈希(Hash)与加密(Encrypt)的基本原理、区别及工程应用 (en chinois)](http://www.cnblogs.com/leoo2sk/archive/2010/10/01/hash-and-encrypt.html)
