@@ -7,16 +7,16 @@ category: Programmation
 tags: C, Make
 ---
 
-Bien que je préfère utilser cmake[^1] pour compiler mon programme, 
+Bien que je préfère utilser cmake [^1] pour compiler mon programme, 
 il reste encore important de comprendre le principe de GNU Make.
 
 ### L'objectif de GNU Make ###
-L'objectif de GNU Make est *déterminer automatiquement quelles pièces d'un grand programme devoir être recompilées,
-et spécifier les commandes pour les rcompiler*.
+L'objectif de GNU Make est de *déterminer automatiquement quelles pièces d'un grand programme devoir être recompilées,
+et spécifier les commandes pour les recompiler*.
 Le format est ainsi:
 {% highlight Makefile %}
-foo: foo.c                      # Le premier foo est la cible, et foo.c est la condition préalable.
-        gcc -o foo foo.c        # La recette, obligatoirement précédée par une caractère de tabulation.
+foo: foo.c                  # Le premier foo est la cible, et foo.c est la condition préalable.
+    gcc -o foo foo.c        # La recette, obligatoirement précédée par une caractère de tabulation.
 {% endhighlight %}
 La cible peut être un fichier exécutable, un fichier objet, ou un label.
 La condition préalable est les fichiers/répertoires nécéssaires pour compiler la cible.
@@ -27,9 +27,9 @@ Les règles du jeu sont:
 - On compile tous les codes source afin de créer le fichier de cible lorsqu'il n'existe pas.
 
 - On renouvelle le fichier de cible lorsque les fichiers indiqués pas la condition préalable sont plus nouveaux que la cible.
-On doit seulement récompiler les codes source actualisés et alors rélier au fichier de cible.
+On doit seulement recompiler les codes source actualisés et alors relier au fichier de cible.
 
-- Si les fichiers en-tête sont modifiés, il faut récompiler les codes source qui les comportent et alors rélier au fichier de cible.
+- Si les fichiers en-tête sont modifiés, il faut récompiler les codes source qui les comportent et alors relier au fichier de cible.
 
 ### Le réglage de variables ###
 Il y a quatre façons pour créer ou modifier des variables.
@@ -101,9 +101,11 @@ Par exemple, **make clean** ou **make install**.
 .PHONY: clean install
 {% endhighlight %}
 
-### Références ###
 
 [^1][CMake](https://cmake.org/)
+
+
+### Références ###
 
 - [makefile教學(一)](http://jeff71321.pixnet.net/blog/post/92143030-makefile%E6%95%99%E5%AD%B8%28%E4%B8%80%29)
 
