@@ -46,7 +46,7 @@ $(warning $(VAR2))              $ obtiendra deux
 
 - **VAR := VAL** : VAR devient VAL lorsque VAL est une constante; si VAL est une autre variable, VAR ne change pas si VAL change,
 c'est-à-dire que la valeur de VAR n'est pas liée avec $(VAL).
-{% highlight Makefile %}
+{% highlight make %}
 VAR1 = un
 VAR2 := $(VAR1)                 # on change seulement ici
 $(warning $(VAR2))              # obtenira un
@@ -58,7 +58,7 @@ $(warning $(VAR2))              $ obtiendra un encore
 - **VAR ?= VAL** : VAR devient VAL lorsque VAR n'est pas encore défini, sinon VAR ne change pas.
 
 - **VAR += VAL** : on ajoute VAL à VAR.
-{% highlight Makefile %}
+{% highlight make %}
 VAR1 = un
 $(warning $(VAR2))              # obtiendra un
 
@@ -97,7 +97,7 @@ il deviendra la forme définie comme <<replacement>>
 
 On défine les cibles avec **.PHONY** lorsqu'elles n'ont pas de condition préalable.
 Par exemple, **make clean** ou **make install**.
-{% highlight Makefile %}
+{% highlight make %}
 .PHONY: clean install
 {% endhighlight %}
 
