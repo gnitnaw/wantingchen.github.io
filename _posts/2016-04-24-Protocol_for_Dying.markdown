@@ -30,7 +30,29 @@ Je me suis appris C et assembleur 8086 et j'ai composé des outils shareware dan
 
 Au fil de temps j'ai appris que si on parle avec quelqu'uns dans tout type d'occasion, 
 par exemple, acheter un hotdog ou faire des courses,
-ils le parleront aussi avec plaisir.
+ils le parleront aussi avec plaisir. 
+Graduellement, il devenait ma drogue, comme la progressivement croissance du cafe.
 
+Finalement ça est devenu la base et alors la cible de mon travail:
+aller aux places étranges et rencontrer les gens inconnus.
+J'aime bien les conférence parce qu'on n'a pas besoin d'excuse.
+Tout le monde veut et espère parler.
+Rarement je parle sur les sujets techniques.
+On peut simplement lire les code si on les veut.
 
-Slowly, like a creeping addiction to coffee, this became my drug of choice.
+Ainsi je suis si fier que mon œuvre réel, qui est pendant des décennies, 
+est parler, écouter et échanger avec les gens,
+et alors synthétiser ce que j'obtenis et puis partager avec les autres.
+Des milliers de conversations sont déja fait en travers d'Europe, Américain, Afrique et Asi.
+Et je peux gagner toutes les louanges que les gens crédible me donnent, comme créatif ou brillant, etc.
+Alors les modèle et les théories que j'ai partagés et documentés sont toujours dessinés de la vie réelle avec les autres.
+
+Merci beaucoup pour tout ça, mes amis.
+Quand je dis "Je vous aime", ce n'est pas seulement un geste.
+Vous littéralement m'avez alimenté professionnellement et interlluectuellement.
+
+Par suite je voulais documenter le modèle dernier, 
+qui s'agit comment faire face au décès,
+avec un peu de temps et plusieurs de connaîssances franches.
+Cette fois-ci je n'écris pas un RFC (demande de commentaires). :)
+
