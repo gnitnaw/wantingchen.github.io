@@ -26,5 +26,11 @@ La notion que les gens pouvaient prendre plaisir avec ma compagnie était étran
 Au moins mes œuvres, dont je trouvais, avaient des valeurs.
 Nous avons composé des générateurs de codes avec Cobol.
 J'ai fait un éditeur des codes qui les staffs aimaient bien parce qu'il marchait élégamment et pouvait exécuter partout.
-Je me suis appris C et assembleur 8086 et j'ai composé des outils shareware.
+Je me suis appris C et assembleur 8086 et j'ai composé des outils shareware dans l'époque 1990.
 
+Au fil de temps j'ai appris que si on parle avec quelqu'uns dans tout type d'occasion, 
+par exemple, acheter un hotdog ou faire des courses,
+ils le parleront aussi avec plaisir.
+
+
+Slowly, like a creeping addiction to coffee, this became my drug of choice.
