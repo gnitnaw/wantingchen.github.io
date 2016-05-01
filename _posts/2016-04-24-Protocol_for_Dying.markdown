@@ -143,19 +143,41 @@ et ne prépare pas de nouveau devoir à Bob.
 
 ### Devoir de Bob ###
 
-It's not all Alice's work. Bob too has obligations under this protocol. They are, at least:
+Ce n'est pas toujours la responsabilité d'Alice.
+Bob a aussi son obligation sur le protocole.
+Au moins, y compris:
 
-    Be happy. This may sound trite yet it's essential. If you are going to be gloomy and depressed, Alice will be miserable every time she talks to you.
+- **Soyez heureux.** Peut-être on trouve que c'est banal mais on fait c'est essentiel.
+Si vous restez triste et dépressif, Alice sera tooujours misérable quand elle parle avec vous.  
+- **Évidemment, rangez vos affairs en ordre.**
+J'avais déjà attendu mon décès il y a plusieurs ans, 
+et alors je devais devenir dispensable partout.
+Pour ma famille, ce n'est pas possible.
+Pour mes œuvres, bien-sûr, et pendant les années je me suis jeté d'un rôle majeur à ZeroMQ communité.  
+- **Éliminer autant les stress ou coût que possible.**
+Par exemple, l'euthanasie est licite en Belgique.
+J'avais déjà demandé à mon médecin de la préparer (pas maintenant! Quand c'est arrivé...).
+Et j'avais demandé aux gens de venir chez moi afin de dire adieu avant je meurs, pas après.
+Pas d'obsèque.
+Je vais donner mon corps aux universités ici, s'elles le veulent.  
+- **Soyez réalist.**
+L'espoir n'est pas un médicament, comme j'ai expliqué.
+Si vous allez négocier avec vos médecins, le mettez pragmatique et bénéficiaire aux autres.
+J'avais dit les miens qu'ils pouvaient essayer toutes les chimiothérapie expérimentales qu'ils souhaitent.
+Ils pouvaient obtenir les dossiers, 
+et au moins je pouvais contribuer le système qui me donnait 5 ans plus de vie.  
+- **Assumez la situation pire.**
+Quand mon oncologiste voyait mon scan, elle m'apellée immédiatement.
+Et puis elle m'a informée qu'il y a le cancer partout dans les deux poumons, selon son opinion.
+J'ai raccroché le téléphone et alors dit aux enfants.
+Le lendemain je l'ai dit à leurs ecoles, mon avocat, et mon notaire, afin d'expecter le pire.
+Après dix jours, les biopsie l'a confirmées.
+Ça nous a donné dix jours plus pour nous chagriner et donner plus de temps à préparer.  
+- **Soyez honnête et trasnparent avec les autres.**
+Ils doivent avoir un peu de temps à chagriner. 
+Et c'est plus facile de le passer le décès de Bob s'ils peuvent parler avec lui.
+Il n'y a aucune indicible au décè, ce n'est pas un échec.
 
-    Obviously, put your affairs in order. I've been expecting death for years now, so had been making myself disposable wherever I could. For family, that is not possible. For work, yes, and over the years I've removed myself as a critical actor from the ZeroMQ community.
-
-    Remove all stress and cost that you can. For example Belgium permits euthanasia. I've already asked my doctors to prepare for that. (Not yet!, when it's time…) I've asked people to come say goodbye before I die, not after. No funeral. I'll give my remains to the university here, if they want them.
-
-    Be realistic. Hope is not medicine, as I explained. If you are going to negotiate with your doctors, let it be pragmatic and in everyone's interests. I've told mine they can try whatever experimental chemotherapy they wish to. It's data for them, and the least I can do for a system that's given me five+ years of extra life.
-
-    Assume the brutal worst. When my oncologist saw my scan she immediately called me and told me, in her opinion, it was cancer. In both lungs, all over the place. I put the phone down, and told the children. The next day I told their schools to expect the worst, then my lawyer, then my notary. Ten days later the biopsies confirmed it. That gave us ten more days of grieving and time to prepare.
-
-    Be honest and transparent with others. It takes time to grieve and it is far easier to process Bob's death when you can talk about it with Bob. There is no shame in dying, it is not a failure.
 
 
 
