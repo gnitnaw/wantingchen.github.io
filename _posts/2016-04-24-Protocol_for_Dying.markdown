@@ -222,6 +222,26 @@ Quand c'est fini, on embrasse la fin.
 Je suis heureux que je peux apprendre cette leçon à mes enfants,
 c'est ce que je n'ai jamais.
 
+### Euthanasie ###
+
+Finalement, je suis si content que je ne pars jamais Belgique.
+C'est un pays qui permet le décès à demander, pour les maladies qui sont terminals ou ont une qualité de la vie souffisante terrible.
+Il faut demander 3 médecins, un psychiatre, et une période attendante pendant quatre semaines pour le cas suivant; 
+pour le cas précédent, il faut demander un médecin.
+
+Mon père l'a choisi et il est mort en mardi de Pâques.
+Plusieurs de nous étaient avec lui.
+C'était un processus simple et paisible.
+Il a été envoyé à endormir avec première injection, tombant dans une coma.
+Et puis la deuxième a arrêté son cœur.
+C'était une bonne façon de mourir, c'est ce que j'ai déjà voulu, 
+bien que je ne savais pas encore que je serait malade après.
+
+Je suis choqué que, en 2016, il y a seulement peu de pays qui la permettent,
+et les autres encore appliquent les tortures barbare de la décadence et de l'échec.
+C'est particulièrement pertinent pour du cancer, qui est la cause majeure du décès.
+Il faut trouver le temps à discuter avec les législatifs dans votre ville, s'il ne support pas euthanasie,
+à faire pression pour le droit de mourir avec dignité.
 
 
 
