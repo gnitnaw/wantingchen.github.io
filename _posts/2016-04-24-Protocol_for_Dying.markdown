@@ -113,7 +113,7 @@ C'est très rude, offensant, maladroit et aussi arrogant.
 Si Bob veut chercher les conseils religieux, il va parler avec son clergyman.
 Et si non, il n'a pas envie d'y aller.
 C'est une autre phrase qui encourt mon marteau.  
-- S'engager questionner hésitant est comme un harcèlement passive. PAr exemple,
+- S'engager questionner hésitant est comme un harcèlement passive. Par exemple,
 demander à Bob de répondre à maintes reprises les petites choses comme "je t'ai réveillé?"
 Peut-être Bob n'a pas d'état d'esprit pour un bavardage.
 Il a envie d'avoir les gens qui restent près de lui hysiquement, ou parlent des choses intéressantes (vois ci-dessous).
@@ -177,6 +177,53 @@ Après dix jours, les biopsie l'a confirmées.
 Ils doivent avoir un peu de temps à chagriner. 
 Et c'est plus facile de le passer le décès de Bob s'ils peuvent parler avec lui.
 Il n'y a aucune indicible au décè, ce n'est pas un échec.
+
+### Expliquez aux enfants ###
+
+Mes enfants ont 12, 9, 5 ans. Tragique, etc., etc.
+Ils grandiront sans leur père. C'est une réalité.
+Pourtant ils grandiront avec moi dans leur ADN, 
+dans les discours interminable de la conférence au Youtube,
+et dans mes mots.
+
+Je l'avais eux déjà expliqué doucement, plusieurs fois pendant des années, comme ça:
+Un jour, je serai parti. Peut-être c'est encore longtemps, mais il peut arriver plustôt.
+Toute le monde peut mourir, bien-sûr, mon petit Gregor, toi aussi.
+C'est une partie de la vie.
+
+Imagine que tu as une boite de Lego, et alors tu construis une maison avec ces Lego, et tu la conserves.
+Et puis tu continues construire nouvelles maisons mais ne détruire les anciens,
+Qu'est-ce qu'il va passer?
+"La boite sera vide, papa."
+Bien, oui.
+Ensuite tu peux encore construire nouvelle maison?
+"Non, pas vraiment."
+Ainsi nous sommes comme les maison de Lego;
+nos corps seront rendre en boite quand nous sommes morts.
+Nous mourons, et alors les nouveaux bébés peuvent naître.
+C'est la roue de la vie.
+
+Cependant, j'ai trouvé qu'ils se sentent bien lorsqu'ils voyaient leurs parents heureux et relaxé (pas à cause du anti-douleurs),
+et quand ils disaient au-revoir pendant les semaines.
+Je suis si reconnaissant que je ne meurs pas brusquement, et je ne perds pas mon esprit.
+
+Et j'avais dit à mes enfants d'apprendre à nager, faire du vél, patiner et tirer.
+À cuisiner, à voyager et à camper.
+À utiliser les technologies sans peur.
+Gregor a joué Minecraft quand il avait 3 ans, avec le clavier dans la main gauche, et la souris dans la main droite.
+Quand Noemie avait 7 ans, il a appris à tirer avec un pistolet.
+Ils peuvent parler plusieurs langues.
+Ils sont confiants et peuvent apprendre rapidement, comme leur père.
+
+Toute le monde doit comprendre la signification du décès.
+L'étreinte de la mortalité est une partie au cœur dans un humain.
+On s'efforce de vivre, bien-sûr.
+Quand c'est fini, on embrasse la fin.
+Je suis heureux que je peux apprendre cette leçon à mes enfants,
+c'est ce que je n'ai jamais.
+
+
+
 
 
 
