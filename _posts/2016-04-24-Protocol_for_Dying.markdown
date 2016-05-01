@@ -13,8 +13,8 @@ Cette article original est d'ici : [A Protocol for Dying](http://hintjens.com/bl
 
 Rédigé par Pieter Hintjens à 11h43, 22 avril, 2016.
 
-Ça arrive mon dernier article. Peut-être j'écrirai plus si j'ai encore le temps après avoir traité avec toutes les choses.
-Je concentrerai mon attention à la posture le plus agréable au lit, 
+Voici mon dernier article. Peut-être j'écrirai plus si j'ai encore le temps après avoir traité avec toutes les choses.
+Je concentrerai mon attention à la position le plus agréable au lit, 
 le calendrier pour le traitement contre la douleur,
 et les gens autour de moi.
 
@@ -142,6 +142,20 @@ En outre, n'exprime d'autre émotion que bonheur,
 et ne prépare pas de nouveau devoir à Bob.
 
 ### Devoir de Bob ###
+
+It's not all Alice's work. Bob too has obligations under this protocol. They are, at least:
+
+    Be happy. This may sound trite yet it's essential. If you are going to be gloomy and depressed, Alice will be miserable every time she talks to you.
+
+    Obviously, put your affairs in order. I've been expecting death for years now, so had been making myself disposable wherever I could. For family, that is not possible. For work, yes, and over the years I've removed myself as a critical actor from the ZeroMQ community.
+
+    Remove all stress and cost that you can. For example Belgium permits euthanasia. I've already asked my doctors to prepare for that. (Not yet!, when it's time…) I've asked people to come say goodbye before I die, not after. No funeral. I'll give my remains to the university here, if they want them.
+
+    Be realistic. Hope is not medicine, as I explained. If you are going to negotiate with your doctors, let it be pragmatic and in everyone's interests. I've told mine they can try whatever experimental chemotherapy they wish to. It's data for them, and the least I can do for a system that's given me five+ years of extra life.
+
+    Assume the brutal worst. When my oncologist saw my scan she immediately called me and told me, in her opinion, it was cancer. In both lungs, all over the place. I put the phone down, and told the children. The next day I told their schools to expect the worst, then my lawyer, then my notary. Ten days later the biopsies confirmed it. That gave us ten more days of grieving and time to prepare.
+
+    Be honest and transparent with others. It takes time to grieve and it is far easier to process Bob's death when you can talk about it with Bob. There is no shame in dying, it is not a failure.
 
 
 
