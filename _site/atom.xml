@@ -4,7 +4,7 @@
  <title>Wan-Ting</title>
  <link href="http://wantingchen.github.io/atom.xml" rel="self"/>
  <link href="http://wantingchen.github.io/"/>
- <updated>2016-04-24T22:48:03+02:00</updated>
+ <updated>2016-04-30T23:10:28+02:00</updated>
  <id>http://wantingchen.github.io</id>
  <author>
    <name>Wan-Ting CHEN</name>
@@ -17,7 +17,10 @@
    <link href="http://wantingchen.github.io/vie/2016/04/24/Protocol_for_Dying.html"/>
    <updated>2016-04-24T00:00:00+02:00</updated>
    <id>http://wantingchen.github.io/vie/2016/04/24/Protocol_for_Dying</id>
-   <content type="html">&lt;h2 id=&quot;cette-article-original-est-dici--a-protocol-for-dyinghttphintjenscomblog115&quot;&gt;Cette article original est d’ici : &lt;a href=&quot;http://hintjens.com/blog:115&quot;&gt;A Protocol for Dying&lt;/a&gt;&lt;/h2&gt;
+   <content type="html">&lt;p&gt;Cette article original est d’ici : &lt;a href=&quot;http://hintjens.com/blog:115&quot;&gt;A Protocol for Dying&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
 &lt;p&gt;Rédigé par Pieter Hintjens à 11h43, 22 avril, 2016.&lt;/p&gt;
 
 &lt;p&gt;Ça arrive mon dernier article. Peut-être j’écrirai plus si j’ai encore le temps après avoir traité avec toutes les choses.
@@ -35,7 +38,114 @@ La notion que les gens pouvaient prendre plaisir avec ma compagnie était étran
 Au moins mes œuvres, dont je trouvais, avaient des valeurs.
 Nous avons composé des générateurs de codes avec Cobol.
 J’ai fait un éditeur des codes qui les staffs aimaient bien parce qu’il marchait élégamment et pouvait exécuter partout.
-Je me suis appris C et assembleur 8086 et j’ai composé des outils shareware.&lt;/p&gt;
+Je me suis appris C et assembleur 8086 et j’ai composé des outils shareware dans l’époque 1990.&lt;/p&gt;
+
+&lt;p&gt;Au fil de temps j’ai appris que si on parle avec quelqu’uns dans tout type d’occasion, 
+par exemple, acheter un hotdog ou faire des courses,
+ils le parleront aussi avec plaisir. 
+Graduellement, il devenait ma drogue, comme la progressivement croissance du cafe.&lt;/p&gt;
+
+&lt;p&gt;Finalement ça est devenu la base et alors la cible de mon travail:
+aller aux places étranges et rencontrer les gens inconnus.
+J’aime bien les conférence parce qu’on n’a pas besoin d’excuse.
+Tout le monde veut et espère parler.
+Rarement je parle sur les sujets techniques.
+On peut simplement lire les code si on les veut.&lt;/p&gt;
+
+&lt;p&gt;Ainsi je suis si fier que mon œuvre réel, qui est pendant des décennies, 
+est parler, écouter et échanger avec les gens,
+et alors synthétiser ce que j’obtenis et puis partager avec les autres.
+Des milliers de conversations sont déja fait en travers d’Europe, Américain, Afrique et Asi.
+Et je peux gagner toutes les louanges que les gens crédible me donnent, comme créatif ou brillant, etc.
+Alors les modèle et les théories que j’ai partagés et documentés sont toujours dessinés de la vie réelle avec les autres.&lt;/p&gt;
+
+&lt;p&gt;Merci beaucoup pour tout ça, mes amis.
+Quand je dis “Je vous aime”, ce n’est pas seulement un geste.
+Vous littéralement m’avez alimenté professionnellement et interlluectuellement.&lt;/p&gt;
+
+&lt;p&gt;Par suite je voulais documenter le modèle dernier, 
+qui s’agit comment faire face au décès,
+avec un peu de temps et plusieurs de connaîssances franches.
+Cette fois-ci je n’écris pas un RFC (demande de commentaires). :)&lt;/p&gt;
+
+&lt;h3 id=&quot;comment-cela-sest-pass&quot;&gt;Comment cela s’est passé&lt;/h3&gt;
+
+&lt;p&gt;Techniquement, j’ai la métastase cancéreuse des voies biliaires dans les deux poumons.
+Depuis février j’avais eu les toux sèches, la fatigue augumentée et perdu la concentration au travail.
+En mars, mon père est mort et nous nous sommes dépêchés de l’arranger.
+Je toussais encore tous le temps.
+Le 8 avril je suis allé chez mon oncologiste et je lui ai dit que je n’allais pas bien. 
+Elle a ordonné un CAT-scan urgent et l’analyse de sang.&lt;/p&gt;
+
+&lt;p&gt;Le 13 avril, ça arrivait une bronchoscopie horrible et des biopsies.
+Et puis le 15 avril, un TEP-scan.
+Le 16 avril j’ai prévu de conduire à Eindhoven et donner un keynote à NextBuild.
+Au contraire, je suis allé a la salle d’urgence à cause de la douleur explosive de mon côté,
+où a été fait les biopsies.
+Je me suis enregistré et j’ai été donné des antibiotiques, qui réduisait la douleur.
+Et puis le 18 avril, mon oncologiste a confimé qu’il est le cancer.
+Je suis encore ici, et mes médecins réfléchissent quelle chimio que je peux essayer.
+C’est un cancer rare en Europe ayant peu données solides.&lt;/p&gt;
+
+&lt;p&gt;Tous ce que nous comprenons est, cholangiocarcinoma ne réagit pas bien à chimiothérapie.
+De plus, mon cancer est agressif et vite envahit.
+Plus loin, j’ai déjà des métastases cancéreuses aux ailleurs.
+Tous sont clairs avec données solides.&lt;/p&gt;
+
+&lt;p&gt;Bon! À ce jour je l’ai dit au monde, et alors j’ai préparé à mourir.&lt;/p&gt;
+
+&lt;h3 id=&quot;pour-qui-va-mourir&quot;&gt;Pour qui va mourir&lt;/h3&gt;
+
+&lt;p&gt;Peut-être c’est un peu horriblement gênant de parler une personne mourante (on la nomme “Bob”).
+Voici les choses majeuses que les autres (on l’apelle “Alice”) ne doiven pas dire à Bob :&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;“Accroche-toi! Il faut avoir l’espoir! Tu dois lutter!”&lt;/strong&gt;
+C’est prudent d’assumer que Bob lutte contre la maladie aussi dur que possible.
+Si non, c’est le choix de Bob entièrement.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;“C’est tellement tragique. Je suis si triste. Ne meurs pas S’il vous plaît!”&lt;/strong&gt;
+C’est ce que ma fille m’a dit une fois.
+J’ai expliqué doucement que on ne peut jamais débattre contre la réalité.
+On ne peut jamais éviter le décès.
+Ça simplement gaspille le temps d’être fâché ou triste.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;“Tu peux le vaincre! On ne sait jamais!”&lt;/strong&gt;
+C’est ce qu’Alice fait afin de expresser son espoir.
+L’espoir faux n’est pas un médicament réel,
+mais bonne drogue de la chimiothérapie ou de l’anti-douleur calmant marche bien.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;“Il y a une médecine non conventionnelle célèbre…“&lt;/strong&gt;
+Ça m’énerve et je voulais le frapper avec un marteau,
+heureusement j’ai reçu seulement un peu.
+Même s’il y a une guérison miraculeuse, 
+le coût et le stress (aux autres) de la chercher est un acte tellement égoïste et disproportionné,
+avec une chance si petite comme jouer au loto.
+On vit, et on meurt.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;“Lis le chapitre de la Bible, ça t’aide.”&lt;/strong&gt;
+C’est très rude, offensant, maladroit et aussi arrogant.
+Si Bob veut chercher les conseils religieux, il va parler avec son clergyman.
+Et si non, il n’a pas envie d’y aller.
+C’est une autre phrase qui encourt mon marteau.&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;S’engager questionner hésitant&lt;/p&gt;
+
+    &lt;p&gt;Engage in slow questioning. This is passive-predatory, asking Bob to respond over and over to small, silly things like “did I wake you?” Bob is unlikely to be a mood for idle chitchat. He either wants people close to him, physically, or interesting stuff (see below).&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Above all, do not call and then cry on the phone. If you feel weepy, cut the phone, wait ten minutes, then call back. Tears are fine, yet for Bob, the threat of self-pity looms darker than anything. I’ve learned to master my emotions yet most Bobs will be vulnerable.&lt;/p&gt;
+
+&lt;p&gt;Here are the things that Alice can talk about that will make Bob happy:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Stories of old adventures they had together. Remember that time? Oh boy, yes I do… it was awesome!
+
+Clinical details. Bob, stuck in his bed, is probably obsessed by the rituals of care, the staff, the medicines, and above all, his disease. I&#39;ll come to Bob&#39;s duty to share, in a second.
+
+Helping Bob with technical details. Sorting out a life is complex and needs many hands and minds.
+
+&quot;I bought your book,&quot; assuming Bob is an author like me. It may be flattery, or sincere, either way it&#39;ll make Bob smile.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Above all, express no emotions except happiness, and don’t give Bob new things to deal with.&lt;/p&gt;
 
 </content>
  </entry>
@@ -45,104 +155,109 @@ Je me suis appris C et assembleur 8086 et j’ai composé des outils shareware.&
    <link href="http://wantingchen.github.io/programmation/2016/04/22/GNUMake.html"/>
    <updated>2016-04-22T00:00:00+02:00</updated>
    <id>http://wantingchen.github.io/programmation/2016/04/22/GNUMake</id>
-   <content type="html">&lt;p&gt;Bien que je préfère utilser cmake[^1] pour compiler mon programme, 
-mais c’est encore important de comprendre le principale de GNU Make.&lt;/p&gt;
+   <content type="html">&lt;p&gt;Bien que je préfère utilser cmake &lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt; pour compiler mon programme, 
+il reste encore important de comprendre le principe de GNU Make.&lt;/p&gt;
 
 &lt;h3 id=&quot;lobjectif-de-gnu-make&quot;&gt;L’objectif de GNU Make&lt;/h3&gt;
-&lt;p&gt;L’objectif de GNU make est &lt;strong&gt;déterminer automatiquement quelle pièces d’un grand programme doit être récompilées,
-et spécifier les commandements pour les récompiler&lt;/strong&gt;.
-Le format est comme ça:&lt;/p&gt;
+&lt;p&gt;L’objectif de GNU Make est de &lt;em&gt;déterminer automatiquement quelles pièces d’un grand programme devoir être recompilées,
+et spécifier les commandes pour les recompiler&lt;/em&gt;.
+Le format est ainsi:&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;
-  &lt;pre&gt;&lt;code class=&quot;language-makefile&quot; data-lang=&quot;makefile&quot;&gt;&lt;span class=&quot;nl&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;foo.c                      &lt;/span&gt;&lt;span class=&quot;c&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt; Le premier foo est le cible&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt; et foo.c est la condition préalable.&lt;/span&gt;
-        &lt;span class=&quot;err&quot;&gt;gcc&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;-o&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;foo&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;foo.c&lt;/span&gt;        &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;La&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;recette,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;devant&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;gcc&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;est&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;une&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;caractère&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;de&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;tabulation.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+  &lt;pre&gt;&lt;code class=&quot;language-makefile&quot; data-lang=&quot;makefile&quot;&gt;&lt;span class=&quot;c&quot;&gt;# Le premier foo est la cible, et foo.c est la condition préalable.
+&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;foo.c&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# La recette, obligatoirement précédée par une caractère de tabulation.
+&lt;/span&gt;        &lt;span class=&quot;err&quot;&gt;gcc&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;-o&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;foo&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;foo.c&lt;/span&gt;        &lt;/code&gt;&lt;/pre&gt;
 &lt;/figure&gt;
 
-&lt;p&gt;Le cible peut être un fichier exécutable, un fichier objet, ou un label.
-La condition préalable et les fichiers/dossiers nécéssaires pour compiler le cible.
-La recette est les commandements pour compiler et lier le cible.&lt;/p&gt;
+&lt;p&gt;La cible peut être un fichier exécutable, un fichier objet, ou un label.
+La condition préalable est les fichiers/répertoires nécéssaires pour compiler la cible.
+La recette est la combinaison de commandes pour compiler et lier la cible.&lt;/p&gt;
 
-&lt;p&gt;Les règles du jeu sont:
-- On compile tous les codes source afin de créer le fichier de cible lorsque ça n’existe pas.&lt;/p&gt;
+&lt;p&gt;Les règles du jeu sont:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;On renouvele le fichier de cible lorsque les fichers indiqués pas la condition préalable sont plus nouveaux que le cible.
-On doit seulement récompiler les codes source actualisés et alors rélier au fichier de cible.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Si les fichiers header sont modifiés, il faut récompiler les codes source qui les comportent et alors rélier au fichier de cible.&lt;/p&gt;
-  &lt;/li&gt;
+  &lt;li&gt;On compile tous les codes source afin de créer le fichier de cible lorsqu’il n’existe pas.&lt;/li&gt;
+  &lt;li&gt;On renouvelle le fichier de cible lorsque les fichiers indiqués pas la condition préalable sont plus nouveaux que la cible.
+On doit seulement recompiler les codes source actualisés et alors relier au fichier de cible.&lt;/li&gt;
+  &lt;li&gt;Si les fichiers en-tête sont modifiés, il faut récompiler les codes source qui les comportent et alors relier au fichier de cible.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;le-rglage-de-variables&quot;&gt;Le réglage de variables&lt;/h3&gt;
-&lt;p&gt;Il y a quatre façons pour créer ou modifier des variables.
-- &lt;strong&gt;VAR = VAL&lt;/strong&gt; : VAR devient VAL lorsque VAL est un constante; si VAL est un autre variable, VAR change aussi bien que VAL change. Par exemple:&lt;/p&gt;
+&lt;p&gt;Il y a quatre façons pour créer ou modifier des variables.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;VAR = VAL&lt;/strong&gt; : VAR devient VAL lorsque VAL est une constante; si VAL est une autre variable, VAR change aussi bien que VAL change. Par exemple:&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;
   &lt;pre&gt;&lt;code class=&quot;language-makefile&quot; data-lang=&quot;makefile&quot;&gt;&lt;span class=&quot;nv&quot;&gt;VAR1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; un
 &lt;span class=&quot;nv&quot;&gt;VAR2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$(VAR1)&lt;/span&gt;
-&lt;span class=&quot;err&quot;&gt;$(warning&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;$(VAR2))&lt;/span&gt;              &lt;span class=&quot;c&quot;&gt;# obtenira un
-&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# obtiendra un
+&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;$(warning&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;$(VAR2))&lt;/span&gt;
+
 &lt;span class=&quot;nv&quot;&gt;VAR1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; deux
-&lt;span class=&quot;err&quot;&gt;$(warning&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;$(VAR2))&lt;/span&gt;              &lt;span class=&quot;err&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;obtenira&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;deux&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+
+&lt;span class=&quot;c&quot;&gt;# obtiendra un
+&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;$(warning&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;$(VAR2))&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;/figure&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;VAR := VAL&lt;/strong&gt; : VAR devient VAL lorsque VAL est un constante; si VAL est un autre variable, VAR ne change pas si VAL change,
-c’est-á-dire que la valeur de VAR n’est pas lièe avec $(VAL).&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;VAR := VAL&lt;/strong&gt; : VAR devient VAL lorsque VAL est une constante; si VAL est une autre variable, VAR ne change pas si VAL change,
+c’est-à-dire que la valeur de VAR n’est pas liée avec $(VAL).&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;
-  &lt;pre&gt;&lt;code class=&quot;language-makefile&quot; data-lang=&quot;makefile&quot;&gt;&lt;span class=&quot;nv&quot;&gt;VAR1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; un
-&lt;span class=&quot;nv&quot;&gt;VAR2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$(VAR1)&lt;/span&gt;                 &lt;span class=&quot;c&quot;&gt;# on change seulement ici&lt;/span&gt;
-&lt;span class=&quot;err&quot;&gt;$(warning&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;$(VAR2))&lt;/span&gt;              &lt;span class=&quot;c&quot;&gt;# obtenira un
-&lt;/span&gt;
+  &lt;pre&gt;&lt;code class=&quot;language-make&quot; data-lang=&quot;make&quot;&gt;&lt;span class=&quot;nv&quot;&gt;VAR1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; un
+&lt;span class=&quot;nv&quot;&gt;VAR2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$(VAR1)&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# obtenira un
+&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;$(warning&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;$(VAR2))&lt;/span&gt;
+
 &lt;span class=&quot;nv&quot;&gt;VAR1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; deux
-&lt;span class=&quot;err&quot;&gt;$(warning&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;$(VAR2))&lt;/span&gt;              &lt;span class=&quot;err&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;obtenira&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;un&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;encore&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+
+&lt;span class=&quot;c&quot;&gt;# obtiendra un encore
+&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;$(warning&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;$(VAR2))&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;/figure&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;VAR ?= VAL&lt;/strong&gt; : VAR devient VAL lorsque VAR n’est pas encore défini, sinon VAR ne change pas.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;VAR += VAL&lt;/strong&gt; : on ajoute VAL à VAR.&lt;/p&gt;
-  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;VAR ?= VAL&lt;/strong&gt; : VAR devient VAL lorsque VAR n’est pas encore défini, sinon VAR ne change pas.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;VAR += VAL&lt;/strong&gt; : on ajoute VAL à VAR.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;
-  &lt;pre&gt;&lt;code class=&quot;language-makefile&quot; data-lang=&quot;makefile&quot;&gt;&lt;span class=&quot;nv&quot;&gt;VAR1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; un
-&lt;span class=&quot;err&quot;&gt;$(warning&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;$(VAR2))&lt;/span&gt;              &lt;span class=&quot;c&quot;&gt;# obtenira un
-&lt;/span&gt;
+  &lt;pre&gt;&lt;code class=&quot;language-make&quot; data-lang=&quot;make&quot;&gt;&lt;span class=&quot;nv&quot;&gt;VAR1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; un
+
+&lt;span class=&quot;c&quot;&gt;# obtiendra un
+&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;$(warning&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;$(VAR2))&lt;/span&gt;
+
 &lt;span class=&quot;nv&quot;&gt;VAR1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; deux
-&lt;span class=&quot;err&quot;&gt;$(warning&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;$(VAR1))&lt;/span&gt;              &lt;span class=&quot;err&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;obtenira&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;un&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;deux&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+
+&lt;span class=&quot;c&quot;&gt;# obtiendra un deux
+&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;$(warning&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;$(VAR1))&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;/figure&gt;
 
-&lt;p&gt;Il y a aussi plusieurs variables encastré utiles:&lt;/p&gt;
+&lt;p&gt;Il y a aussi plusieurs variables encastrées utiles:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;$@&lt;/strong&gt; : Le nom de cible&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;$^&lt;/strong&gt; : tous les fichiers/dossiers dans la condition préalable&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;$&amp;lt;&lt;/strong&gt; : Première fichiers/dossiers dans la condition préalable&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;$?&lt;/strong&gt; : tous les fichiers/dossiers dans la condition préalable qui sont réactualisés&lt;/p&gt;
-  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;$@&lt;/strong&gt; : Le nom de cible&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;$^&lt;/strong&gt; : tous les fichiers/dossiers dans la condition préalable&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;$&amp;lt;&lt;/strong&gt; : Premièr fichiers/dossiers dans la condition préalable&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;$?&lt;/strong&gt; : tous les fichiers/dossiers dans la condition préalable qui sont réactualisés&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;les-fonction-encastres-utiles&quot;&gt;Les fonction encastrées utiles&lt;/h3&gt;
-&lt;p&gt;Ces fonction encastrées sont souvent utilisées :
-- Montrer les message :
-  + **$(warning &lt;message&gt;)** : Montrer le message d&#39;avertissement avec le nombre de ligne correspondante.
-  + **$(error &lt;message&gt;)** : Affirmer le message d&#39;erreur avec le nombre de ligne correspondante, et puis terminer l&#39;action de make.&lt;/message&gt;&lt;/message&gt;&lt;/p&gt;
+&lt;h3 id=&quot;les-fonctions-encastres-utiles&quot;&gt;Les fonctions encastrées utiles&lt;/h3&gt;
+&lt;p&gt;Ces fonctions encastrées sont souvent utilisées :&lt;/p&gt;
 
 &lt;ul&gt;
+  &lt;li&gt;Montrer les message :
+    &lt;ul&gt;
+      &lt;li&gt;&lt;strong&gt;$(warning «Message»)&lt;/strong&gt; : Montrer le message «Message» d’avertissement avec le nombre de ligne correspondante.&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;$(error «Message»)&lt;/strong&gt; : Affirmer le message «Message» d’erreur avec le numéro de ligne correspondante, 
+et puis terminer l’action de make.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
   &lt;li&gt;Traitement de chaînes de caractères :
     &lt;ul&gt;
       &lt;li&gt;&lt;strong&gt;$(subst «from»,«to»,«text&amp;lt;&amp;gt;)&lt;/strong&gt; : si on trouve «from» dans «text», «from» sera replacé par «to».&lt;/li&gt;
@@ -152,24 +267,20 @@ il deviendra la forme définie comme «replacement»
 (par exemple : %.c, %.o, foo.c -&amp;gt;  “foo.c” a la forme comme %.c, donc il deviendra “foo.o”).&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;$(shell «commandement»)&lt;/strong&gt; : Commandement de shell, exécuter le «commandement» et montrer le résultat.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;$(shell «commande»)&lt;/strong&gt; : Commande de shell, exécuter le «commande» et montrer le résultat.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;phony&quot;&gt;.PHONY&lt;/h3&gt;
 
-&lt;p&gt;On défine les cible avec &lt;strong&gt;.PHONY&lt;/strong&gt; lorsque ils n’ont pas de condition préalable.
+&lt;p&gt;On défine les cibles avec &lt;strong&gt;.PHONY&lt;/strong&gt; lorsqu’elles n’ont pas de condition préalable.
 Par exemple, &lt;strong&gt;make clean&lt;/strong&gt; ou &lt;strong&gt;make install&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;
-  &lt;pre&gt;&lt;code class=&quot;language-makefile&quot; data-lang=&quot;makefile&quot;&gt;&lt;span class=&quot;nl&quot;&gt;.PHONY&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;clean install&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+  &lt;pre&gt;&lt;code class=&quot;language-make&quot; data-lang=&quot;make&quot;&gt;&lt;span class=&quot;nl&quot;&gt;.PHONY&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;clean install&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;/figure&gt;
 
-&lt;h3 id=&quot;rfrence&quot;&gt;Référence&lt;/h3&gt;
-
+&lt;h3 id=&quot;rfrences&quot;&gt;Références&lt;/h3&gt;
 &lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;https://cmake.org/&quot;&gt;CMake&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;&lt;a href=&quot;http://jeff71321.pixnet.net/blog/post/92143030-makefile%E6%95%99%E5%AD%B8%28%E4%B8%80%29&quot;&gt;makefile教學(一)&lt;/a&gt;&lt;/p&gt;
   &lt;/li&gt;
@@ -181,6 +292,14 @@ Par exemple, &lt;strong&gt;make clean&lt;/strong&gt; ou &lt;strong&gt;make insta
   &lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;h3 id=&quot;commentaire&quot;&gt;Commentaire&lt;/h3&gt;
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;https://cmake.org/&quot;&gt;CMake&lt;/a&gt; &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
 </content>
  </entry>
  
@@ -264,7 +383,9 @@ Si un caractère d’une chaîne avec 10000-bytes longueur est modifié, le rés
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;rfrence&quot;&gt;Référence:&lt;/h3&gt;
-&lt;p&gt;[^1] &lt;a href=&quot;http://www.cnblogs.com/leoo2sk/archive/2010/10/01/hash-and-encrypt.html&quot;&gt;哈希(Hash)与加密(Encrypt)的基本原理、区别及工程应用 (en chinois)&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.cnblogs.com/leoo2sk/archive/2010/10/01/hash-and-encrypt.html&quot;&gt;哈希(Hash)与加密(Encrypt)的基本原理、区别及工程应用 (en chinois)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 </content>
  </entry>
  
