@@ -243,6 +243,40 @@ C'est particulièrement pertinent pour du cancer, qui est la cause majeure du d�
 Il faut trouver le temps à discuter avec les législatifs dans votre ville, s'il ne support pas euthanasie,
 à faire pression pour le droit de mourir avec dignité.
 
+### Mon sentiment pour tous ###
+
+Je ne suis jamais une personne craintive.
+
+Ma dernière brosse au décès m'a lassée si désinvolte sur le concept entiér de risque professionnel et sociale,
+ainsi je suis devenu le caractère prédateur qu'Allen Ding a bien décrit.
+Et puis il nous a calmé après la fin de projet "Game of Thrones".
+Je ne suis jamais vraiment comme ça, je suis juste devenu une telle presonne afin de faire fonctionner les chose sur la place et le temps.
+
+Après avoir eu pluseurs d'années du préparer, 
+et après avoir vu un grand nombre de plans délicats se réunissent au cours de ces années,
+m'a fait profondément satisfaits.
+Depuis 2011 j'étais devenu un expert de pistolet, je me étais appris á jouer du piano (et j'avais aussi composé beaucoup petites pièces),
+j'avais vu mes enfants grandir avec caractères heureuses et bouillonnantes, 
+j'avais écrit trois livres,
+j'avais coaché la communauté de ZeroMQ au serein auto-fiabilité.
+Un Bob peut demander plus?
+ 
+Les membres du staff d'ici sont gentils.
+Je n'ai rien de plainte, 
+et je veux seulement exprimer ma gratitude à tous mes amis pour les années de plaisir que vous me l'avez donné, 
+ma drogue, qui m'a gardé en vie et entraînée.
+
+Merci!
+
+### Pensez à mes enfants ###
+
+Je vous en prie d'utiliser cette article pour ajouter vos histoires.
+Si vous les avez d'ailleurs, vous pouvez aussi m'envoyer, ou copier/coller comme un commentaire.
+N'hésitez pas d'écrire en néerlandais ou français si elles sont votre langue maternelle.
+J'ai envie d'une place où mes enfants peuvent venir et lire ce que les autres parler sur leur père.
+
+Beaucoup de monde m'a demandé mon adress de PayPal : ph@imatix.com,
+afin de supporter à mes enfants.
 
 
 
