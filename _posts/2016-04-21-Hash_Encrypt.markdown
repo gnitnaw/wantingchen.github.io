@@ -4,7 +4,7 @@ title:  "La fonction de Hachage (Hash) et Chiffrement (Encryption)"
 comments: true
 analytics : true
 category: Information
-tags: hash, encryption
+tags: hash encryption
 ---
 
 ### La différence entre fonction de Hachage (Hash) et Chiffrement (Encryption) ###

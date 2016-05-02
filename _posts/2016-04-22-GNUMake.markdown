@@ -4,7 +4,7 @@ title:  "La petite instruction de GNU Make"
 comments: true
 analytics : true
 category: Programmation
-tags: C, Make
+tags: C Make
 ---
 
 Bien que je préfère utilser cmake [^1] pour compiler mon programme, 

@@ -110,6 +110,7 @@ border-top: 1px solid #eee;
 }
 .codinfox-category-list h3 {
     font-size: 1rem;
+    font-weight: bolder;
     margin-top: 0;
 }
 .codinfox-category-list li small {
@@ -150,8 +151,9 @@ border-top: 1px solid #eee;
 }
 
 html {
-    font-family: Avenir, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans-serif;
-    font-weight: 200;
+    font-family: Arial, Times New Roman, sans-serif;
+    font-weight: 300;
+    text-align:justify;
     background:#fff;
     -webkit-text-size-adjust:100%;
     -ms-text-size-adjust:100%;
@@ -161,8 +163,8 @@ html {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family:'Helvetica Neue', 'Microsoft Yahei', 'Hiragino Sans GB', 'Microsoft Sans Serif', 'WenQuanYi Micro Hei', sans-serif;
-    font-weight:400;
+    font-family:Arial, Times New Roman, sans-serif;
+    font-weight:700;
 }
 
 code,
@@ -172,7 +174,7 @@ pre {
 
 blockquote {
     font-weight:300;
-    font-family:Avenir, 'Helvetica Neue', 'Microsoft Yahei', 'Hiragino Sans GB', 'Microsoft Sans Serif', 'WenQuanYi Micro Hei', sans-serif;
+    font-family:Arial, Times New Roman, sans-serif;
 }
 
 @media (min-width: 38rem) {

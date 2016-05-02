@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Wan-Ting
+title: Let's open source!
 ---
 
 <h1 style="display:inline-block;"> {{ page.title }} </h1>
@@ -29,9 +29,9 @@ title: Wan-Ting
             {% endfor %}
             {% endif %}
         </span>
-
-        {{ post.content | split:"<!-- more -->" | first % }}
-
+	<p>
+	{{ post.content | strip_html | truncatewords: 50 }}
+	</p>
         <div class="codinfox-post-more">
             <a href="{{ post.url }}#disqus_thread">Comment</a>&nbsp;
             <a href="{{ post.url }}">Read more</a>
