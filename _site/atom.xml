@@ -4,7 +4,7 @@
  <title>Let's open source!</title>
  <link href="http://wantingchen.github.io/atom.xml" rel="self"/>
  <link href="http://wantingchen.github.io/"/>
- <updated>2016-05-02T20:02:37+02:00</updated>
+ <updated>2016-05-03T15:42:45+02:00</updated>
  <id>http://wantingchen.github.io</id>
  <author>
    <name>Wan-Ting CHEN</name>
@@ -311,26 +311,25 @@ et spécifier les commandes pour les recompiler&lt;/em&gt;.
 Le format est ainsi:&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;
-  &lt;pre&gt;&lt;code class=&quot;language-makefile&quot; data-lang=&quot;makefile&quot;&gt;&lt;span class=&quot;c&quot;&gt;# Le premier foo est la cible, et foo.c est la condition préalable.
+  &lt;pre&gt;&lt;code class=&quot;language-make&quot; data-lang=&quot;make&quot;&gt;&lt;span class=&quot;c&quot;&gt;# Le premier foo est la cible, et foo.c est la condition préalable.
 &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;foo.c&lt;/span&gt;
+	gcc -o foo foo.c
 &lt;span class=&quot;c&quot;&gt;# La recette, obligatoirement précédée par une caractère de tabulation.
-&lt;/span&gt;        &lt;span class=&quot;err&quot;&gt;gcc&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;-o&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;foo&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;foo.c&lt;/span&gt;        &lt;/code&gt;&lt;/pre&gt;
+&lt;/span&gt;  &lt;/code&gt;&lt;/pre&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;La cible peut être un fichier exécutable, un fichier objet, ou un label.
 La condition préalable est les fichiers/répertoires nécéssaires pour compiler la cible.
 La recette est la combinaison de commandes pour compiler et lier la cible.&lt;/p&gt;
 
-&lt;p&gt;Les règles du jeu sont:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;On compile tous les codes source afin de créer le fichier de cible lorsqu’il n’existe pas.&lt;/li&gt;
-  &lt;li&gt;On renouvelle le fichier de cible lorsque les fichiers indiqués pas la condition préalable sont plus nouveaux que la cible.
-On doit seulement recompiler les codes source actualisés et alors relier au fichier de cible.&lt;/li&gt;
-  &lt;li&gt;Si les fichiers en-tête sont modifiés, il faut récompiler les codes source qui les comportent et alors relier au fichier de cible.&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;Les règles du jeu sont:&lt;br /&gt;
+- On compile tous les codes source afin de créer le fichier de cible lorsqu’il n’existe pas.&lt;br /&gt;
+- On renouvelle le fichier de cible lorsque les fichiers indiqués pas la condition préalable sont plus nouveaux que la cible.
+On doit seulement recompiler les codes source actualisés et alors relier au fichier de cible.&lt;br /&gt;
+- Si les fichiers en-tête sont modifiés, il faut récompiler les codes source qui les comportent et alors relier au fichier de cible.&lt;/p&gt;
 
 &lt;h3 id=&quot;le-rglage-de-variables&quot;&gt;Le réglage de variables&lt;/h3&gt;
+
 &lt;p&gt;Il y a quatre façons pour créer ou modifier des variables.&lt;/p&gt;
 
 &lt;ul&gt;
@@ -346,8 +345,12 @@ On doit seulement recompiler les codes source actualisés et alors relier au fic
 
 &lt;span class=&quot;nv&quot;&gt;VAR1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; deux
 
-&lt;span class=&quot;c&quot;&gt;# obtiendra un
-&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;$(warning&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;$(VAR2))&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;span class=&quot;c&quot;&gt;# obtiendra deux
+&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;$(warning&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;$(VAR2))&lt;/span&gt;
+
+&lt;span class=&quot;nl&quot;&gt;fake&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; 
+	&lt;span class=&quot;p&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Do something&quot;&lt;/span&gt;
+  &lt;/code&gt;&lt;/pre&gt;
 &lt;/figure&gt;
 
 &lt;ul&gt;
@@ -365,7 +368,11 @@ c’est-à-dire que la valeur de VAR n’est pas liée avec $(VAL).&lt;/li&gt;
 &lt;span class=&quot;nv&quot;&gt;VAR1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; deux
 
 &lt;span class=&quot;c&quot;&gt;# obtiendra un encore
-&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;$(warning&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;$(VAR2))&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;$(warning&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;$(VAR2))&lt;/span&gt;
+
+&lt;span class=&quot;nl&quot;&gt;fake&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; 
+	&lt;span class=&quot;p&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Do something&quot;&lt;/span&gt;
+  &lt;/code&gt;&lt;/pre&gt;
 &lt;/figure&gt;
 
 &lt;ul&gt;
@@ -382,7 +389,10 @@ c’est-à-dire que la valeur de VAR n’est pas liée avec $(VAL).&lt;/li&gt;
 &lt;span class=&quot;nv&quot;&gt;VAR1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; deux
 
 &lt;span class=&quot;c&quot;&gt;# obtiendra un deux
-&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;$(warning&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;$(VAR1))&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;$(warning&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;$(VAR1))&lt;/span&gt;
+&lt;span class=&quot;nl&quot;&gt;fake&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; 
+	&lt;span class=&quot;p&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Do something&quot;&lt;/span&gt;
+  &lt;/code&gt;&lt;/pre&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Il y a aussi plusieurs variables encastrées utiles:&lt;/p&gt;
@@ -401,7 +411,7 @@ c’est-à-dire que la valeur de VAR n’est pas liée avec $(VAL).&lt;/li&gt;
   &lt;li&gt;Montrer les message :
     &lt;ul&gt;
       &lt;li&gt;&lt;strong&gt;$(warning «Message»)&lt;/strong&gt; : Montrer le message «Message» d’avertissement avec le nombre de ligne correspondante.&lt;/li&gt;
-      &lt;li&gt;&lt;strong&gt;$(error «Message»)&lt;/strong&gt; : Affirmer le message «Message» d’erreur avec le numéro de ligne correspondante, 
+      &lt;li&gt;&lt;strong&gt;$(error «Message»)&lt;/strong&gt; : Affirmer le message «Message» d’erreur avec le numéro de ligne correspondante,
 et puis terminer l’action de make.&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;

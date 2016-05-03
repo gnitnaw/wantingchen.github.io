@@ -133,26 +133,25 @@ et spécifier les commandes pour les recompiler</em>.
 Le format est ainsi:</p>
 
 <figure class="highlight">
-  <pre><code class="language-makefile" data-lang="makefile"><span class="c"># Le premier foo est la cible, et foo.c est la condition préalable.
+  <pre><code class="language-make" data-lang="make"><span class="c"># Le premier foo est la cible, et foo.c est la condition préalable.
 </span><span class="nl">foo</span><span class="o">:</span> <span class="nf">foo.c</span>
+	gcc -o foo foo.c
 <span class="c"># La recette, obligatoirement précédée par une caractère de tabulation.
-</span>        <span class="err">gcc</span> <span class="err">-o</span> <span class="err">foo</span> <span class="err">foo.c</span>        </code></pre>
+</span>  </code></pre>
 </figure>
 
 <p>La cible peut être un fichier exécutable, un fichier objet, ou un label.
 La condition préalable est les fichiers/répertoires nécéssaires pour compiler la cible.
 La recette est la combinaison de commandes pour compiler et lier la cible.</p>
 
-<p>Les règles du jeu sont:</p>
-
-<ul>
-  <li>On compile tous les codes source afin de créer le fichier de cible lorsqu’il n’existe pas.</li>
-  <li>On renouvelle le fichier de cible lorsque les fichiers indiqués pas la condition préalable sont plus nouveaux que la cible.
-On doit seulement recompiler les codes source actualisés et alors relier au fichier de cible.</li>
-  <li>Si les fichiers en-tête sont modifiés, il faut récompiler les codes source qui les comportent et alors relier au fichier de cible.</li>
-</ul>
+<p>Les règles du jeu sont:<br />
+- On compile tous les codes source afin de créer le fichier de cible lorsqu’il n’existe pas.<br />
+- On renouvelle le fichier de cible lorsque les fichiers indiqués pas la condition préalable sont plus nouveaux que la cible.
+On doit seulement recompiler les codes source actualisés et alors relier au fichier de cible.<br />
+- Si les fichiers en-tête sont modifiés, il faut récompiler les codes source qui les comportent et alors relier au fichier de cible.</p>
 
 <h3 id="le-rglage-de-variables">Le réglage de variables</h3>
+
 <p>Il y a quatre façons pour créer ou modifier des variables.</p>
 
 <ul>
@@ -168,8 +167,12 @@ On doit seulement recompiler les codes source actualisés et alors relier au fic
 
 <span class="nv">VAR1</span> <span class="o">=</span> deux
 
-<span class="c"># obtiendra un
-</span><span class="err">$(warning</span> <span class="err">$(VAR2))</span></code></pre>
+<span class="c"># obtiendra deux
+</span><span class="err">$(warning</span> <span class="err">$(VAR2))</span>
+
+<span class="nl">fake</span><span class="o">:</span> 
+	<span class="p">@</span><span class="nb">echo</span> <span class="s2">"Do something"</span>
+  </code></pre>
 </figure>
 
 <ul>
@@ -187,7 +190,11 @@ c’est-à-dire que la valeur de VAR n’est pas liée avec $(VAL).</li>
 <span class="nv">VAR1</span> <span class="o">=</span> deux
 
 <span class="c"># obtiendra un encore
-</span><span class="err">$(warning</span> <span class="err">$(VAR2))</span></code></pre>
+</span><span class="err">$(warning</span> <span class="err">$(VAR2))</span>
+
+<span class="nl">fake</span><span class="o">:</span> 
+	<span class="p">@</span><span class="nb">echo</span> <span class="s2">"Do something"</span>
+  </code></pre>
 </figure>
 
 <ul>
@@ -204,7 +211,10 @@ c’est-à-dire que la valeur de VAR n’est pas liée avec $(VAL).</li>
 <span class="nv">VAR1</span> <span class="o">+=</span> deux
 
 <span class="c"># obtiendra un deux
-</span><span class="err">$(warning</span> <span class="err">$(VAR1))</span></code></pre>
+</span><span class="err">$(warning</span> <span class="err">$(VAR1))</span>
+<span class="nl">fake</span><span class="o">:</span> 
+	<span class="p">@</span><span class="nb">echo</span> <span class="s2">"Do something"</span>
+  </code></pre>
 </figure>
 
 <p>Il y a aussi plusieurs variables encastrées utiles:</p>
@@ -223,7 +233,7 @@ c’est-à-dire que la valeur de VAR n’est pas liée avec $(VAL).</li>
   <li>Montrer les message :
     <ul>
       <li><strong>$(warning «Message»)</strong> : Montrer le message «Message» d’avertissement avec le nombre de ligne correspondante.</li>
-      <li><strong>$(error «Message»)</strong> : Affirmer le message «Message» d’erreur avec le numéro de ligne correspondante, 
+      <li><strong>$(error «Message»)</strong> : Affirmer le message «Message» d’erreur avec le numéro de ligne correspondante,
 et puis terminer l’action de make.</li>
     </ul>
   </li>
