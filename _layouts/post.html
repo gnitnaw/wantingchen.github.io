@@ -10,7 +10,6 @@ layout: default
 	<a class="codinfox-tag-mark" href="/tag.html#{{ tag | slugify }}">{{ tag }}</a>
     {% endfor %}
   </span>
-  <p><span style="color: blue">Last update : {{ page.last_modified_at | date: '%d %B, %Y' }}</span></p>
   {{ content }}
 </div>
 
