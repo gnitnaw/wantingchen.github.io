@@ -42,7 +42,7 @@ analytics :
   google : 
     tracking_id : 'UA-75609833-2'
 
-gems: [jekyll-paginate, jekyll-gist]
+gems: [jekyll-paginate, jekyll-gist, jekyll-last-modified-at]
 
 excerpt_separator: "<!-- more -->"
 

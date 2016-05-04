@@ -4,7 +4,7 @@
  <title>Let's open source!</title>
  <link href="http://wantingchen.github.io/atom.xml" rel="self"/>
  <link href="http://wantingchen.github.io/"/>
- <updated>2016-05-03T15:42:45+02:00</updated>
+ <updated>2016-05-04T16:21:39+02:00</updated>
  <id>http://wantingchen.github.io</id>
  <author>
    <name>Wan-Ting CHEN</name>
@@ -17,15 +17,16 @@
    <link href="http://wantingchen.github.io/vie/2016/04/24/Protocol_for_Dying.html"/>
    <updated>2016-04-24T00:00:00+02:00</updated>
    <id>http://wantingchen.github.io/vie/2016/04/24/Protocol_for_Dying</id>
-   <content type="html">&lt;p&gt;Cette article original est d’ici : &lt;a href=&quot;http://hintjens.com/blog:115&quot;&gt;A Protocol for Dying&lt;/a&gt;&lt;/p&gt;
+   <content type="html">&lt;p&gt;L’original de cet article est d’ici : &lt;a href=&quot;http://hintjens.com/blog:115&quot;&gt;A Protocol for Dying&lt;/a&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 
 &lt;p&gt;Rédigé par Pieter Hintjens à 11h43, 22 avril, 2016.&lt;/p&gt;
 
-&lt;p&gt;Voici mon dernier article. Peut-être j’écrirai plus si j’ai encore le temps après avoir traité avec toutes les choses.
-Je concentrerai mon attention à la position le plus agréable au lit, 
-le calendrier pour le traitement contre la douleur,
+&lt;p&gt;Voici mon dernier article. Peut-être je pourrais écrire plus, 
+si j’ai encore le temps après.
+Je concentrerai mon attention à la position la plus agréable au lit, 
+la planification du traitement contre la douleur,
 et les gens autour de moi.&lt;/p&gt;
 
 &lt;p&gt;Hier j’ai eu douze visiteurs, y compris mes jeunes enfants mignons.
@@ -302,7 +303,7 @@ afin de supporter à mes enfants.&lt;/p&gt;
    <link href="http://wantingchen.github.io/programmation/2016/04/22/GNUMake.html"/>
    <updated>2016-04-22T00:00:00+02:00</updated>
    <id>http://wantingchen.github.io/programmation/2016/04/22/GNUMake</id>
-   <content type="html">&lt;p&gt;Bien que je préfère utilser cmake &lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt; pour compiler mon programme, 
+   <content type="html">&lt;p&gt;Bien que je préfère utilser &lt;a href=&quot;https://cmake.org/&quot;&gt;CMake&lt;/a&gt; pour compiler mon programme, 
 il reste encore important de comprendre le principe de GNU Make.&lt;/p&gt;
 
 &lt;h3 id=&quot;lobjectif-de-gnu-make&quot;&gt;L’objectif de GNU Make&lt;/h3&gt;
@@ -430,10 +431,24 @@ il deviendra la forme définie comme «replacement»
 &lt;h3 id=&quot;phony&quot;&gt;.PHONY&lt;/h3&gt;
 
 &lt;p&gt;On défine les cibles avec &lt;strong&gt;.PHONY&lt;/strong&gt; lorsqu’elles n’ont pas de condition préalable.
-Par exemple, &lt;strong&gt;make clean&lt;/strong&gt; ou &lt;strong&gt;make install&lt;/strong&gt;.&lt;/p&gt;
+Normalement on l’utilise afin de définer la procédure de:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;make clean&lt;/strong&gt; : 
+Supprimer les fichiers creés par la procédure de la compilation.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;make install&lt;/strong&gt; : 
+Copier les bibliothèque ou les fichiers exécutable aux répertoires propres.&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;
-  &lt;pre&gt;&lt;code class=&quot;language-make&quot; data-lang=&quot;make&quot;&gt;&lt;span class=&quot;nl&quot;&gt;.PHONY&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;clean install&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+  &lt;pre&gt;&lt;code class=&quot;language-make&quot; data-lang=&quot;make&quot;&gt;&lt;span class=&quot;nl&quot;&gt;.PHONY&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;clean&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;TARGET&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; hello
+
+&lt;span class=&quot;nl&quot;&gt;$(TARGET)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;$(TARGET).c&lt;/span&gt;
+	&lt;span class=&quot;nv&quot;&gt;$(CC)&lt;/span&gt; -o &lt;span class=&quot;nv&quot;&gt;$@&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$^&lt;/span&gt;
+
+&lt;span class=&quot;nl&quot;&gt;clean&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
+	rm -f &lt;span class=&quot;nv&quot;&gt;$(TARGET)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;/figure&gt;
 
 &lt;h3 id=&quot;rfrences&quot;&gt;Références&lt;/h3&gt;
@@ -449,14 +464,6 @@ Par exemple, &lt;strong&gt;make clean&lt;/strong&gt; ou &lt;strong&gt;make insta
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;commentaire&quot;&gt;Commentaire&lt;/h3&gt;
-&lt;div class=&quot;footnotes&quot;&gt;
-  &lt;ol&gt;
-    &lt;li id=&quot;fn:1&quot;&gt;
-      &lt;p&gt;&lt;a href=&quot;https://cmake.org/&quot;&gt;CMake&lt;/a&gt; &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-  &lt;/ol&gt;
-&lt;/div&gt;
 </content>
  </entry>
  

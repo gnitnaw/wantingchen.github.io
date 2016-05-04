@@ -123,8 +123,8 @@
 	<a class="codinfox-tag-mark" href="/tag.html#make">Make</a>
     
   </span>
-
-  <p>Bien que je préfère utilser cmake <sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup> pour compiler mon programme, 
+  <p><span style="color: blue">Last update : 04 May, 2016</span></p>
+  <p>Bien que je préfère utilser <a href="https://cmake.org/">CMake</a> pour compiler mon programme, 
 il reste encore important de comprendre le principe de GNU Make.</p>
 
 <h3 id="lobjectif-de-gnu-make">L’objectif de GNU Make</h3>
@@ -252,10 +252,24 @@ il deviendra la forme définie comme «replacement»
 <h3 id="phony">.PHONY</h3>
 
 <p>On défine les cibles avec <strong>.PHONY</strong> lorsqu’elles n’ont pas de condition préalable.
-Par exemple, <strong>make clean</strong> ou <strong>make install</strong>.</p>
+Normalement on l’utilise afin de définer la procédure de:</p>
+
+<ul>
+  <li><strong>make clean</strong> : 
+Supprimer les fichiers creés par la procédure de la compilation.</li>
+  <li><strong>make install</strong> : 
+Copier les bibliothèque ou les fichiers exécutable aux répertoires propres.</li>
+</ul>
 
 <figure class="highlight">
-  <pre><code class="language-make" data-lang="make"><span class="nl">.PHONY</span><span class="o">:</span> <span class="nf">clean install</span></code></pre>
+  <pre><code class="language-make" data-lang="make"><span class="nl">.PHONY</span><span class="o">:</span> <span class="nf">clean</span>
+<span class="nv">TARGET</span> <span class="o">=</span> hello
+
+<span class="nl">$(TARGET)</span><span class="o">:</span> <span class="nf">$(TARGET).c</span>
+	<span class="nv">$(CC)</span> -o <span class="nv">$@</span> <span class="nv">$^</span>
+
+<span class="nl">clean</span><span class="o">:</span>
+	rm -f <span class="nv">$(TARGET)</span></code></pre>
 </figure>
 
 <h3 id="rfrences">Références</h3>
@@ -271,14 +285,6 @@ Par exemple, <strong>make clean</strong> ou <strong>make install</strong>.</p>
   </li>
 </ul>
 
-<h3 id="commentaire">Commentaire</h3>
-<div class="footnotes">
-  <ol>
-    <li id="fn:1">
-      <p><a href="https://cmake.org/">CMake</a> <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
-    </li>
-  </ol>
-</div>
 
 </div>
 
@@ -288,27 +294,27 @@ Par exemple, <strong>make clean</strong> ou <strong>make install</strong>.</p>
     
     <li>
       <h3>
-        <a href="/vie/2016/04/24/Protocol_for_Dying.html">
-          Traduction : Un protocole pour le décès (A Protocol for Dying), par Pieter Hintjens
-          <small>2016-04</small>
+        <a href="">
+          
+          <small></small>
         </a>
       </h3>
     </li>
     
     <li>
       <h3>
-        <a href="/information/2016/04/21/Hash_Encrypt.html">
-          La fonction de Hachage (Hash) et Chiffrement (Encryption)
-          <small>2016-04</small>
+        <a href="">
+          
+          <small></small>
         </a>
       </h3>
     </li>
     
     <li>
       <h3>
-        <a href="/syst%C3%A8me%20embarqu%C3%A9/2016/04/12/Drone_1.html">
-          Construire un quadrirotor avec Raspberry Pi (1)
-          <small>2016-04</small>
+        <a href="">
+          
+          <small></small>
         </a>
       </h3>
     </li>

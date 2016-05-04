@@ -10,7 +10,7 @@ layout: default
 	<a class="codinfox-tag-mark" href="/tag.html#{{ tag | slugify }}">{{ tag }}</a>
     {% endfor %}
   </span>
-
+  <p><span style="color: blue">Last update : {{ page.last_modified_at | date: '%d %B, %Y' }}</span></p>
   {{ content }}
 </div>
 
@@ -20,9 +20,9 @@ layout: default
     {% for post in site.related_posts limit:3 %}
     <li>
       <h3>
-        <a href="{{ post.url }}">
-          {{ post.title }}
-          <small>{{ post.date | date:"%Y-%m" }}</small>
+        <a href="{{ post.doc.url }}">
+          {{ post.doc.title }}
+          <small>{{ post.doc.date | date:"%Y-%m" }}</small>
         </a>
       </h3>
     </li>
