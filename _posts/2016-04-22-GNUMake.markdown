@@ -7,7 +7,7 @@ category: Programmation
 tags: C Make
 ---
 
-Bien que je préfère utilser cmake [^1] pour compiler mon programme, 
+Bien que je préfère utilser [CMake](https://cmake.org/) pour compiler mon programme, 
 il reste encore important de comprendre le principe de GNU Make.
 
 ### L'objectif de GNU Make ###
@@ -118,9 +118,21 @@ il deviendra la forme définie comme <<replacement>>
 ### .PHONY ###
 
 On défine les cibles avec **.PHONY** lorsqu'elles n'ont pas de condition préalable.
-Par exemple, **make clean** ou **make install**.
+Normalement on l'utilise afin de définer la procédure de:
+
+- **make clean** : 
+Supprimer les fichiers creés par la procédure de la compilation.  
+- **make install** : 
+Copier les bibliothèque ou les fichiers exécutable aux répertoires propres.
 {% highlight make %}
-.PHONY: clean install
+.PHONY: clean
+TARGET = hello
+
+$(TARGET): $(TARGET).c
+	$(CC) -o $@ $^
+
+clean:
+	rm -f $(TARGET)
 {% endhighlight %}
 
 
@@ -132,5 +144,3 @@ Par exemple, **make clean** ou **make install**.
 - [跟我一起寫Makefile:使用函數](http://wiki.ubuntu.org.cn/index.php?title=%E8%B7%9F%E6%88%91%E4%B8%80%E8%B5%B7%E5%86%99Makefile:%E4%BD%BF%E7%94%A8%E5%87%BD%E6%95%B0&variant=zh-tw)
 
 
-### Commentaire ###
-[^1]: [CMake](https://cmake.org/)

@@ -1,21 +1,22 @@
 ---
 layout: post
 title:  "Traduction : Un protocole pour le décès (A Protocol for Dying), par Pieter Hintjens"
-comments: true
+comments: false
 analytics : true
 category: Vie
 tags: Hintjens
 ---
 
-Cette article original est d'ici : [A Protocol for Dying](http://hintjens.com/blog:115)
+L'original de cet article est d'ici : [A Protocol for Dying](http://hintjens.com/blog:115)
 
 --------------------------------------------
 
 Rédigé par Pieter Hintjens à 11h43, 22 avril, 2016.
 
-Voici mon dernier article. Peut-être j'écrirai plus si j'ai encore le temps après avoir traité avec toutes les choses.
-Je concentrerai mon attention à la position le plus agréable au lit, 
-le calendrier pour le traitement contre la douleur,
+Voici mon dernier article. Peut-être je pourrais écrire plus, 
+si j'ai encore le temps après.
+Je concentrerai mon attention à la position la plus agréable au lit, 
+la planification du traitement contre la douleur,
 et les gens autour de moi.
 
 Hier j'ai eu douze visiteurs, y compris mes jeunes enfants mignons.
