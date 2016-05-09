@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Traduction : Un protocole pour le décès (A Protocol for Dying), par Pieter Hintjens"
-comments: false
+comments: true
 analytics : true
 category: Vie
 tags: Hintjens
@@ -11,7 +11,7 @@ L'original de cet article est ici : [A Protocol for Dying](http://hintjens.com/b
 
 --------------------------------------------
 
-Rédigé par Pieter Hintjens à 11h43, 22 avril, 2016.
+<span style="color: blue"> Rédigé par Pieter Hintjens à 11h43, 22 avril, 2016.</span>
 
 Voici mon dernier article. Peut-être je pourrais écrire plus, 
 si j'ai encore le temps après.
@@ -113,7 +113,7 @@ C'est très rude, offensant, maladroit et aussi arrogant.
 Si Bob veut des conseils religieux, il parlera à son prêtre.
 Dans le cas contraire: territoire interdit!
 C'est une autre offense qui encourt mon marteau.  
-- S'engager questionner hésitant est comme un harcèlement passif. Par exemple,
+- **S'engager questionner hésitant est comme un harcèlement passif.** Par exemple,
 demander à Bob de répondre à maintes reprises des petites choses comme "je t'ai réveillé?"
 Probablement, Bob n'a pas l'état d'esprit pour un bavardage.
 Il a envie d'avoir les gens qui restent près de lui physiquement, ou parlent des choses intéressantes (vois ci-dessous).
