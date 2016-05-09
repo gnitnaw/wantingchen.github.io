@@ -73,10 +73,10 @@ Cette fois-ci je ne vais pas écrire un RFC (demande de commentaires). :)
 ### Comment cela s'est passé ###
 
 Techniquement, j'ai un cancer métastasé des voies biliaires dans les deux poumons.
-Depuis février j'ai eu la toux sèche, la fatigue augmentée et la perde de concentration au travail.
+Depuis février j'ai eu la toux sèche, la fatigue augmentée et la perte de concentration au travail.
 En mars, mon père est décédé et nous nous sommes dépêchés de l'arranger.
 Je toussais encore tous le temps.
-Le 8 avril je suis allé chez mon oncologiste et je lui ai dit que je n'allais pas bien. 
+Le 8 avril je suis allé chez mon oncologue et je lui ai dit que je n'allais pas bien. 
 Elle a ordonné un CAT-scan urgent et des analyses de sang.
 
 Le 13 avril, une bronchoscopie horrible et des biopsies.
@@ -84,7 +84,7 @@ Et puis le 15 avril, un TEP-scan.
 Pour le 16 avril, il avait été prévu que je conduise à Eindhoven pour y donner un keynote à NextBuild.
 Au contraire, je suis allé à la salle d'urgence à cause de la douleur explosive du côté des biopsies.
 Je me suis enregistré et j'ai été donné des antibiotiques, qui réduis la douleur.
-Et puis le 18 avril, mon oncologiste a confirmé que c'est du cancer.
+Et puis le 18 avril, mon oncologue a confirmé que c'est du cancer.
 Je suis encore ici, et mes médecins réfléchissent quelle chimio que je peux essayer.
 C'est un cancer rare en Europe, avec peu de données solides.
 
@@ -179,7 +179,7 @@ J'ai dit les miens qu'ils peuvent essayer toute chimiothérapie expérimentale q
 Ils pouvaient en obtenir des données,
 et c'est la moindre récompense que je peux verser à un système qui ma donné une extension de vie de plus que cinq ans.  
 - **Présumez le pire.**
-Quand mon oncologiste voyait mon scan, elle m'appelée tout de suite et me disait que,
+Quand mon oncologue voyait mon scan, elle m'appelée tout de suite et me disait que,
 pour sa part, il s'agissait du cancers.
 J'ai raccroché le téléphone et puis, je l'ai dit aux enfants.
 Le lendemain j'ai dit à leurs écoles, mon avocat, et mon notaire, d'expecter le pire.
