@@ -9,6 +9,16 @@ tags: Hintjens
 
 L'original de cet article est ici : [A Protocol for Dying](http://hintjens.com/blog:115)
 
+[Pieter Hintjens](https://en.wikipedia.org/wiki/Pieter_Hintjens) est écrivain, programmeur et penseur,
+qui a dépensé des décennies à construire de grands systèmes logiciels et des communautés en-ligne,
+qu'il décrit comme des "système vivant".
+Il est un expert du calcul distribué, 
+et il a rédigé plus que 30 protocoles et système distribué.
+Il a conçu AMQP en 2004, et il a fondé le projet de logiciel libre ZeroMQ en 2007.
+Il est l'auteur de "ZeroMQ - Messaging for Many Applications" (O'Reilly), 
+"Culture and Empire: Digital Revolution", et "The Psychopath Code".
+En avril 2016, il a été diagnostiqué de métastase terminale d'un cancer précédent.
+
 --------------------------------------------
 
 <span style="color: blue"> Rédigé par Pieter Hintjens à 11h43, 22 avril, 2016.</span>
@@ -19,7 +29,7 @@ Je concentrerai mon attention à la position la plus agréable au lit,
 la planification du traitement contre la douleur,
 et les gens autour de moi.
 
-Hier j'ai eu douze visiteurs, y compris mes jeunes enfants amiables.
+Hier j'ai eu douze visiteurs, y compris mes jeunes enfants aimables.
 On peut imaginer que c'est fatigant, 
 mais l'interminable flux des amis et de la famille était comme être dans un confortable bain chaud alimenté en eau fraîche sans cesse.
 
@@ -29,7 +39,7 @@ La notion que les gens inconnues à moi pouvaient prendre plaisir de ma compagni
 Au moins mes œuvres, dont je trouvais, avaient des valeurs.
 Nous avons composé des générateurs de code en Cobol.
 J'ai fait un éditeur de code que le personnel aimait bien, parce qu'il marchait gracieusement et pouvait exécuter partout.
-J'ai fait fr l'auto apprentissage en C et assembleur 8086 et j'ai composé des outils shareware dans les années 1990.
+J'ai fait l'auto apprentissage en C et assembleur 8086 et j'ai composé des outils shareware dans les années 1990.
 
 Au fil du temps j'ai appris que si on noue une petite conversation avec un inconnu,
 la réponse vient avec un rayon de plaisir.
