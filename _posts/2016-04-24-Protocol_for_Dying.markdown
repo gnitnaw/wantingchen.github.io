@@ -129,7 +129,7 @@ Probablement, Bob n'a pas l'état d'esprit pour un bavardage.
 Il a envie d'avoir les gens qui restent près de lui physiquement, ou parlent des choses intéressantes (vois ci-dessous).
 
 En outre, ne pleure pas au téléphone quand tu l'appelles.
-Si tu sens, que tu vas pleurer, raccroche le téléphone et attends pendant 10 minutes, puis rappelle-le.
+Si tu sens que tu vas pleurer, raccroche le téléphone et attends pendant 10 minutes, puis rappelle-le.
 La larme n'est pas de problème.
 Pourtant, la menace d'auto apitoiement peut pousser Bob vers l'obscur.
 J'avais appris à maîtriser mon émotion main souvent Bob est vulnérable.
@@ -154,7 +154,7 @@ ne lui présente pas de problèmes additionnels.
 ### Devoir de Bob ###
 
 Ce n'est pas toujours la responsabilité d'Alice.
-Bob a aussi ses obligations sous ce protocole.
+Bob aussi a ses obligations sous ce protocole.
 Y compris, au moins :
 
 - **Soyez heureux.** 
