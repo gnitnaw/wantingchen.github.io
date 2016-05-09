@@ -93,11 +93,11 @@ De plus, mon cancer est agressif et envahit vite.
 Ensuite, j'ai déjà des clusters ailleurs dans mon corps.
 Tout ceci, ce sont des données solides.
 
-Ce jour-là, je l'ai dit au monde, et alors j'ai préparé de décès.
+Ce jour-là, je l'ai dit au monde, et alors j'ai préparé le décès.
 
 ### S'adresser à une personne qui va mourir ###
 
-Je peux s'avérer très étrange de parler une personne mourante (on la nomme "Bob").
+Il peut s'avérer très étrange de parler une personne mourante (on la nomme "Bob").
 Voici les choses principales que l'autre personne (on l'appelle "Alice") ne devrait pas dire à Bob :
 
 - **"Accroche-toi! Il faut avoir de l'espoir! Tu dois lutter!"**
@@ -105,7 +105,7 @@ Il est prudent d'assumer que Bob lutte contre la maladie aussi durement que poss
 Si non, c'est le choix de Bob entièrement.  
 - **"C'est tellement tragique. Je suis si triste. Ne meurs pas s'il vous plaît!"**
 C'est ce que ma fille m'a dit une fois.
-J'ai expliqué doucement que on ne peut jamais débattre contre la réalité.
+J'ai expliqué doucement qu'on ne peut jamais lutter contre la réalité.
 La mort n'est pas une option.
 Être fâché ou triste en face des faits, c'est du gaspillage de temps.  
 - **"Tu peux vaincre ceci! On ne sait jamais!"**
