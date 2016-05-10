@@ -35,11 +35,11 @@ mais l'interminable flux des amis et de la famille était comme être dans un co
 
 J'étais un homme isolé et solitaire, et peut-être un peu autiste.
 Je pensais seulement au travail, à la natation, à mes chats.
-La notion que les gens inconnues à moi pouvaient prendre plaisir de ma compagnie était étrange pour moi.
-Au moins mes œuvres, dont je trouvais, avaient des valeurs.
+La notion que les gens inconnus à moi pouvaient prendre plaisir de ma compagnie était étrange pour moi.
+Au moins mes œuvres, je trouvais, avaient la valeur.
 Nous avons composé des générateurs de code en Cobol.
 J'ai fait un éditeur de code que le personnel aimait bien, parce qu'il marchait gracieusement et pouvait exécuter partout.
-J'ai fait l'auto apprentissage en C et assembleur 8086 et j'ai composé des outils shareware dans les années 1990.
+J'ai fait de l'auto apprentissage en C et assembleur 8086 et j'ai composé des outils shareware dans les années 1990.
 
 Au fil du temps j'ai appris que si on noue une petite conversation avec un inconnu,
 la réponse vient avec un rayon de plaisir.
@@ -82,10 +82,10 @@ Elle a ordonné un CAT-scan urgent et des analyses de sang.
 Le 13 avril, une bronchoscopie horrible et des biopsies.
 Et puis le 15 avril, un TEP-scan.
 Pour le 16 avril, il avait été prévu que je conduise à Eindhoven pour y donner un keynote à NextBuild.
-Au contraire, je suis allé à la salle d'urgence à cause de la douleur explosive du côté des biopsies.
-Je me suis enregistré et j'ai été donné des antibiotiques, qui réduis la douleur.
+Au contraire, je suis allé aux urgences à cause de la douleur explosive du côté des biopsies.
+Je me suis enregistré et j'ai été donné des antibiotiques, qui réduit la douleur.
 Et puis le 18 avril, mon oncologue a confirmé que c'est du cancer.
-Je suis encore ici, et mes médecins réfléchissent quelle chimio que je peux essayer.
+Je suis encore ici, et mes médecins réfléchissent quelle chimio je peux essayer.
 C'est un cancer rare en Europe, avec peu de données solides.
 
 Tous ce que nous comprenons est, cholangiocarcinoma ne répond pas bien à la chimiothérapie.

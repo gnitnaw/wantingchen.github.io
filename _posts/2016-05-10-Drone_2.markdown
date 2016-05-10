@@ -1,0 +1,19 @@
+---
+layout: post
+title:  "Construire un quadrirotor avec Raspberry Pi (2)"
+comments: false
+analytics : false
+category: Système embarqué
+tags: raspberry_pi linux drone
+---
+
+Avant de faire un programme, on doit aussi faire la spécification du programme:  
+- Faire de la programmation avec c. Mais on peut encore utiliser un peu de C++ s'il faut utiliser bibliothéque de C++.  
+- Utiliser pthread pour la programmation multithreading, puis [gcc](https://gcc.gnu.org/wiki/C11Status) 
+et clang ne supporte pas encore C11 Thread (c'est à cause de glibc).  
+- Le programme doit marcher sur RPi modèle B+ et aussi sur RPI2 modèle B+.  
+
+(à suivre)
+
+
+

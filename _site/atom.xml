@@ -4,7 +4,7 @@
  <title>Let's open source!</title>
  <link href="http://wantingchen.github.io/atom.xml" rel="self"/>
  <link href="http://wantingchen.github.io/"/>
- <updated>2016-05-09T12:44:32+02:00</updated>
+ <updated>2016-05-10T22:49:42+02:00</updated>
  <id>http://wantingchen.github.io</id>
  <author>
    <name>Wan-Ting CHEN</name>
@@ -13,11 +13,37 @@
 
  
  <entry>
+   <title>Construire un quadrirotor avec Raspberry Pi (2)</title>
+   <link href="http://wantingchen.github.io/syst%C3%A8me%20embarqu%C3%A9/2016/05/10/Drone_2.html"/>
+   <updated>2016-05-10T00:00:00+02:00</updated>
+   <id>http://wantingchen.github.io/syst%C3%A8me%20embarqu%C3%A9/2016/05/10/Drone_2</id>
+   <content type="html">&lt;p&gt;Avant de faire un programme, on doit aussi faire la spécification du programme:&lt;br /&gt;
+- Faire de la programmation avec c. Mais on peut encore utiliser un peu de C++ s’il faut utiliser bibliothéque de C++.&lt;br /&gt;
+- Utiliser pthread pour la programmation multithreading, puis &lt;a href=&quot;https://gcc.gnu.org/wiki/C11Status&quot;&gt;gcc&lt;/a&gt; 
+et clang ne supporte pas encore C11 Thread (c’est à cause de glibc).&lt;br /&gt;
+- Le programme doit marcher sur RPi modèle B+ et aussi sur RPI2 modèle B+.&lt;/p&gt;
+
+&lt;p&gt;(à suivre)&lt;/p&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
    <title>Traduction : Un protocole pour le décès (A Protocol for Dying), par Pieter Hintjens</title>
    <link href="http://wantingchen.github.io/vie/2016/04/24/Protocol_for_Dying.html"/>
    <updated>2016-04-24T00:00:00+02:00</updated>
    <id>http://wantingchen.github.io/vie/2016/04/24/Protocol_for_Dying</id>
    <content type="html">&lt;p&gt;L’original de cet article est ici : &lt;a href=&quot;http://hintjens.com/blog:115&quot;&gt;A Protocol for Dying&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Pieter_Hintjens&quot;&gt;Pieter Hintjens&lt;/a&gt; est écrivain, programmeur et penseur,
+qui a dépensé des décennies à construire de grands systèmes logiciels et des communautés en-ligne,
+qu’il décrit comme des “système vivant”.
+Il est un expert du calcul distribué, 
+et il a rédigé plus que 30 protocoles et système distribué.
+Il a conçu AMQP en 2004, et il a fondé le projet de logiciel libre ZeroMQ en 2007.
+Il est l’auteur de “ZeroMQ - Messaging for Many Applications” (O’Reilly), 
+“Culture and Empire: Digital Revolution”, et “The Psychopath Code”.
+En avril 2016, il a été diagnostiqué de métastase terminale d’un cancer précédent.&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -29,17 +55,17 @@ Je concentrerai mon attention à la position la plus agréable au lit,
 la planification du traitement contre la douleur,
 et les gens autour de moi.&lt;/p&gt;
 
-&lt;p&gt;Hier j’ai eu douze visiteurs, y compris mes jeunes enfants amiables.
+&lt;p&gt;Hier j’ai eu douze visiteurs, y compris mes jeunes enfants aimables.
 On peut imaginer que c’est fatigant, 
 mais l’interminable flux des amis et de la famille était comme être dans un confortable bain chaud alimenté en eau fraîche sans cesse.&lt;/p&gt;
 
 &lt;p&gt;J’étais un homme isolé et solitaire, et peut-être un peu autiste.
 Je pensais seulement au travail, à la natation, à mes chats.
-La notion que les gens inconnues à moi pouvaient prendre plaisir de ma compagnie était étrange pour moi.
-Au moins mes œuvres, dont je trouvais, avaient des valeurs.
+La notion que les gens inconnus à moi pouvaient prendre plaisir de ma compagnie était étrange pour moi.
+Au moins mes œuvres, je trouvais, avaient la valeur.
 Nous avons composé des générateurs de code en Cobol.
 J’ai fait un éditeur de code que le personnel aimait bien, parce qu’il marchait gracieusement et pouvait exécuter partout.
-J’ai fait fr l’auto apprentissage en C et assembleur 8086 et j’ai composé des outils shareware dans les années 1990.&lt;/p&gt;
+J’ai fait de l’auto apprentissage en C et assembleur 8086 et j’ai composé des outils shareware dans les années 1990.&lt;/p&gt;
 
 &lt;p&gt;Au fil du temps j’ai appris que si on noue une petite conversation avec un inconnu,
 la réponse vient avec un rayon de plaisir.
@@ -73,19 +99,19 @@ Cette fois-ci je ne vais pas écrire un RFC (demande de commentaires). :)&lt;/p&
 &lt;h3 id=&quot;comment-cela-sest-pass&quot;&gt;Comment cela s’est passé&lt;/h3&gt;
 
 &lt;p&gt;Techniquement, j’ai un cancer métastasé des voies biliaires dans les deux poumons.
-Depuis février j’ai eu la toux sèche, la fatigue augmentée et la perde de concentration au travail.
+Depuis février j’ai eu la toux sèche, la fatigue augmentée et la perte de concentration au travail.
 En mars, mon père est décédé et nous nous sommes dépêchés de l’arranger.
 Je toussais encore tous le temps.
-Le 8 avril je suis allé chez mon oncologiste et je lui ai dit que je n’allais pas bien. 
+Le 8 avril je suis allé chez mon oncologue et je lui ai dit que je n’allais pas bien. 
 Elle a ordonné un CAT-scan urgent et des analyses de sang.&lt;/p&gt;
 
 &lt;p&gt;Le 13 avril, une bronchoscopie horrible et des biopsies.
 Et puis le 15 avril, un TEP-scan.
 Pour le 16 avril, il avait été prévu que je conduise à Eindhoven pour y donner un keynote à NextBuild.
-Au contraire, je suis allé à la salle d’urgence à cause de la douleur explosive du côté des biopsies.
-Je me suis enregistré et j’ai été donné des antibiotiques, qui réduis la douleur.
-Et puis le 18 avril, mon oncologiste a confirmé que c’est du cancer.
-Je suis encore ici, et mes médecins réfléchissent quelle chimio que je peux essayer.
+Au contraire, je suis allé aux urgences à cause de la douleur explosive du côté des biopsies.
+Je me suis enregistré et j’ai été donné des antibiotiques, qui réduit la douleur.
+Et puis le 18 avril, mon oncologue a confirmé que c’est du cancer.
+Je suis encore ici, et mes médecins réfléchissent quelle chimio je peux essayer.
 C’est un cancer rare en Europe, avec peu de données solides.&lt;/p&gt;
 
 &lt;p&gt;Tous ce que nous comprenons est, cholangiocarcinoma ne répond pas bien à la chimiothérapie.
@@ -93,11 +119,11 @@ De plus, mon cancer est agressif et envahit vite.
 Ensuite, j’ai déjà des clusters ailleurs dans mon corps.
 Tout ceci, ce sont des données solides.&lt;/p&gt;
 
-&lt;p&gt;Ce jour-là, je l’ai dit au monde, et alors j’ai préparé de décès.&lt;/p&gt;
+&lt;p&gt;Ce jour-là, je l’ai dit au monde, et alors j’ai préparé le décès.&lt;/p&gt;
 
 &lt;h3 id=&quot;sadresser--une-personne-qui-va-mourir&quot;&gt;S’adresser à une personne qui va mourir&lt;/h3&gt;
 
-&lt;p&gt;Je peux s’avérer très étrange de parler une personne mourante (on la nomme “Bob”).
+&lt;p&gt;Il peut s’avérer très étrange de parler une personne mourante (on la nomme “Bob”).
 Voici les choses principales que l’autre personne (on l’appelle “Alice”) ne devrait pas dire à Bob :&lt;/p&gt;
 
 &lt;ul&gt;
@@ -106,7 +132,7 @@ Il est prudent d’assumer que Bob lutte contre la maladie aussi durement que po
 Si non, c’est le choix de Bob entièrement.&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;“C’est tellement tragique. Je suis si triste. Ne meurs pas s’il vous plaît!”&lt;/strong&gt;
 C’est ce que ma fille m’a dit une fois.
-J’ai expliqué doucement que on ne peut jamais débattre contre la réalité.
+J’ai expliqué doucement qu’on ne peut jamais lutter contre la réalité.
 La mort n’est pas une option.
 Être fâché ou triste en face des faits, c’est du gaspillage de temps.&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;“Tu peux vaincre ceci! On ne sait jamais!”&lt;/strong&gt;
@@ -131,7 +157,7 @@ Il a envie d’avoir les gens qui restent près de lui physiquement, ou parlent 
 &lt;/ul&gt;
 
 &lt;p&gt;En outre, ne pleure pas au téléphone quand tu l’appelles.
-Si tu sens, que tu vas pleurer, raccroche le téléphone et attends pendant 10 minutes, puis rappelle-le.
+Si tu sens que tu vas pleurer, raccroche le téléphone et attends pendant 10 minutes, puis rappelle-le.
 La larme n’est pas de problème.
 Pourtant, la menace d’auto apitoiement peut pousser Bob vers l’obscur.
 J’avais appris à maîtriser mon émotion main souvent Bob est vulnérable.&lt;/p&gt;
@@ -158,7 +184,7 @@ ne lui présente pas de problèmes additionnels.&lt;/p&gt;
 &lt;h3 id=&quot;devoir-de-bob&quot;&gt;Devoir de Bob&lt;/h3&gt;
 
 &lt;p&gt;Ce n’est pas toujours la responsabilité d’Alice.
-Bob a aussi ses obligations sous ce protocole.
+Bob aussi a ses obligations sous ce protocole.
 Y compris, au moins :&lt;/p&gt;
 
 &lt;ul&gt;
@@ -184,7 +210,7 @@ J’ai dit les miens qu’ils peuvent essayer toute chimiothérapie expérimenta
 Ils pouvaient en obtenir des données,
 et c’est la moindre récompense que je peux verser à un système qui ma donné une extension de vie de plus que cinq ans.&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Présumez le pire.&lt;/strong&gt;
-Quand mon oncologiste voyait mon scan, elle m’appelée tout de suite et me disait que,
+Quand mon oncologue voyait mon scan, elle m’appelée tout de suite et me disait que,
 pour sa part, il s’agissait du cancers.
 J’ai raccroché le téléphone et puis, je l’ai dit aux enfants.
 Le lendemain j’ai dit à leurs écoles, mon avocat, et mon notaire, d’expecter le pire.
@@ -569,56 +595,27 @@ Si un caractère d’une chaîne avec 10000-bytes longueur est modifié, le rés
    <content type="html">&lt;p&gt;Bien qu’il y a déjà plusieurs réalisations des drones propulsés par raspberry pi &lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;,
 je voulais encore défier une fois moi-même, afin de présenter ce que j’apprends.&lt;/p&gt;
 
-&lt;p&gt;Différent avec les autres, le drone que je veux construire a les spécialités:
-- Tous les capteurs/modules sont connectés directement avec Raspberry pi, aucun microprocessor est utilisé.&lt;/p&gt;
+&lt;p&gt;Différent avec les autres, le drone que je veux construire a les spécialités:&lt;br /&gt;
+- Tous les capteurs/modules sont connectés directement avec Raspberry pi, aucun microprocesseur est utilisé.&lt;br /&gt;
+- Utiliser Arduino pour le contrôler du drone.&lt;br /&gt;
+- Utiliser &lt;a href=&quot;http://www.airspayce.com/mikem/bcm2835/&quot;&gt;bcm2835 bibliothèque&lt;/a&gt; 
+au lieu des autres bibliothèque afin de éviter d’utiliser pas les drivers d’i2c.
+Ça me donne une chance d’essayer &lt;a href=&quot;https://xenomai.org/&quot;&gt;Xenomai&lt;/a&gt;.&lt;br /&gt;
+- La communication entre le contrôler et le drone est réalisée par RF modules. 
+Et le drone peut arrêter automatiquement quand la communication est vraiment perdue.&lt;br /&gt;
+- Si nécessaire, Preempt RT kernel ou Xenomai peut être adapté afin de régulier la fréquence.&lt;/p&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Utiliser Arduino pour le controller du drone.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Utiliser bcm2835 bibliothèque &lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt; au lieu des autres bibliothèque afin de éviter d’utiliser pas les drivers d’i2c.
-Ça me donne une chance d’essayer Xenomai&lt;sup id=&quot;fnref:3&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;La communication entre le controller et le drone est realisé par RF modules. 
-Et le drone peut arrêter automatiquement quand la communication est vraiment perdue.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Si nécessaire, Preempt RT kernel ou Xenomai peut être adapté afin de régulier la fréquence.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Selon les spécification, on doit préparer:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;10 DOF IMU：GY80(I2C，400kHz，le temps de rafraîchissement peut atteindre 1600Hz). 
+&lt;p&gt;Selon les spécifications, on doit préparer:&lt;br /&gt;
+- 10 DOF IMU：GY80(I2C，400kHz，le temps de rafraîchissement peut atteindre 1600Hz). 
 Mais j’ai trouvé que le baromètre (Bosch BMP085) n’est pas assez précis (0.03hPa / 0.25m résolution).
-MS5611 est ajouté afin d’augmenter la précision.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;nRF24L01*2：modules RF(250Kbps-2Mbps，la bande passante varie avec la distance, SPI), un pour RPi, un pour Arduino.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;ADC：MCP3008, 10bit(afin de mesurer la tension de la batterie)，SPI.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;PWM：PCA9685(On peut acheter à Adafruit &lt;sup id=&quot;fnref:4&quot;&gt;&lt;a href=&quot;#fn:4&quot; class=&quot;footnote&quot;&gt;4&lt;/a&gt;&lt;/sup&gt;)，I2C，12bit，la fréquence maximum est 1526Hz.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;https://www.amazon.fr/gp/product/B00T6ANWUU/ref=oh_aui_detailpage_o02_s00?ie=UTF8&amp;amp;psc=1&quot;&gt;ZOP Power 11.1V 5500mAh 3S1P 35C Lipo Battery For RC Model&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;https://www.amazon.fr/gp/product/B00RWH7CA0/ref=oh_aui_detailpage_o03_s00?ie=UTF8&amp;amp;psc=1&quot;&gt;HOSdog 30A 4 en 1 Brushless Speed Contrôleur ESC pour RC Quadcopter Multicopter (Noir)&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;https://www.amazon.fr/gp/product/B00CCXN4HO/ref=oh_aui_detailpage_o07_s00?ie=UTF8&amp;amp;psc=1&quot;&gt;JMT F450 Air multi-Rotor Frame FlameWheel KIT 450F comme DJI pour KK MWC MK 4 axe RC Quadcopter Multicopter UFO Heli&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;https://www.amazon.fr/gp/product/B00L8H95AU/ref=oh_aui_detailpage_o08_s00?ie=UTF8&amp;amp;psc=1&quot;&gt;Andoer 4 A2212/13T 1000KV Brushless Motor + 2 paires 1045 10 * 4.5 Hélices pour DJI F450 F550 MWC Multicopter (2212 1000KV Brushless Motor, 1045 10 * 4.5 Hélices, DJI F450 F550 partie)&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
+MS5611 est ajouté afin d’augmenter la précision. &lt;br /&gt;
+- nRF24L01*2：modules RF(250Kbps-2Mbps，la bande passante varie avec la distance, SPI), un pour RPi, un pour Arduino.&lt;br /&gt;
+- ADC：MCP3008, 10bit(afin de mesurer la tension de la batterie)，SPI.&lt;br /&gt;
+- PWM：PCA9685 (on peut acheter à &lt;a href=&quot;(https://www.adafruit.com/product/815)&quot;&gt;Adafruit&lt;/a&gt;)，I2C，12bit，la fréquence maximum est 1526Hz.&lt;br /&gt;
+- &lt;a href=&quot;https://www.amazon.fr/gp/product/B00T6ANWUU/ref=oh_aui_detailpage_o02_s00?ie=UTF8&amp;amp;psc=1&quot;&gt;ZOP Power 11.1V 5500mAh 3S1P 35C Lipo Battery For RC Model&lt;/a&gt;&lt;br /&gt;
+- &lt;a href=&quot;https://www.amazon.fr/gp/product/B00RWH7CA0/ref=oh_aui_detailpage_o03_s00?ie=UTF8&amp;amp;psc=1&quot;&gt;HOSdog 30A 4 en 1 Brushless Speed Contrôleur ESC pour RC Quadcopter Multicopter (Noir)&lt;/a&gt;&lt;br /&gt;
+- &lt;a href=&quot;https://www.amazon.fr/gp/product/B00CCXN4HO/ref=oh_aui_detailpage_o07_s00?ie=UTF8&amp;amp;psc=1&quot;&gt;JMT F450 Air multi-Rotor Frame FlameWheel KIT 450F comme DJI pour KK MWC MK 4 axe RC Quadcopter Multicopter UFO Heli&lt;/a&gt;&lt;br /&gt;
+- &lt;a href=&quot;https://www.amazon.fr/gp/product/B00L8H95AU/ref=oh_aui_detailpage_o08_s00?ie=UTF8&amp;amp;psc=1&quot;&gt;Andoer 4 A2212/13T 1000KV Brushless Motor + 2 paires 1045 10 * 4.5 Hélices pour DJI F450 F550 MWC Multicopter (2212 1000KV Brushless Motor, 1045 10 * 4.5 Hélices, DJI F450 F550 partie)&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;Ensuite, on y va!&lt;/p&gt;
 
@@ -634,15 +631,6 @@ MS5611 est ajouté afin d’augmenter la précision.&lt;/p&gt;
   &lt;a href=&quot;https://github.com/vjaunet/QUADCOPTER_V2&quot;&gt;QUADCOPTER&lt;/a&gt;, 
   &lt;a href=&quot;https://github.com/gregd72002/AvrMiniCopter-wiki/wiki&quot;&gt;AvrMiniCopter&lt;/a&gt;,
   &lt;a href=&quot;https://www.raspberrypi.org/forums/viewtopic.php?f=37&amp;amp;t=35746&quot;&gt;PiCopter&lt;/a&gt; &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-    &lt;li id=&quot;fn:2&quot;&gt;
-      &lt;p&gt;&lt;a href=&quot;http://www.airspayce.com/mikem/bcm2835/&quot;&gt;C library for Broadcom BCM 2835 as used in Raspberry Pi&lt;/a&gt; &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-    &lt;li id=&quot;fn:3&quot;&gt;
-      &lt;p&gt;&lt;a href=&quot;https://xenomai.org/&quot;&gt;Xenomai&lt;/a&gt; &lt;a href=&quot;#fnref:3&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-    &lt;li id=&quot;fn:4&quot;&gt;
-      &lt;p&gt;&lt;a href=&quot;https://www.adafruit.com/product/815&quot;&gt;Adafruit 16-Channel 12-bit PWM/Servo Driver-I2C interface-PCA9685&lt;/a&gt; &lt;a href=&quot;#fnref:4&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
   &lt;/ol&gt;
 &lt;/div&gt;
