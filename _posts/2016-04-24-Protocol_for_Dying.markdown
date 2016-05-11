@@ -253,7 +253,7 @@ C'était une bonne façon de mourir, c'est ce que j'ai déjà voulu,
 bien que je ne savais pas encore que j'étais malade en ce moment.
 
 Je suis choqué que, en 2016, il y a seulement peu de pays qui la permettent,
-et les autres appliquent encore les tortures barbare de la décadence et de l'échec.
+et les autres appliquent encore les tortures barbares de la décadence et de l'échec.
 C'est particulièrement pertinent pour le cancer, qui est la cause majeure du décès.
 Si votre juridiction interdit l'euthanasie,
 prenez le temps pour faire du lobbyisme pour la droit de mourir dans la dignité.
@@ -264,8 +264,8 @@ Je n'ai jamais été une personne craintive.
 
 Ma dernière presque-collision avec la mort m'a laissée si indifférent sur le concept entier de risque professionnel et sociale,
 ainsi je suis devenu le caractère prédateur qu'Allen Ding décrit si bien.
-Ça c'est calmé après la fin de notre projet "Game of Thrones".
-Je n'étais vraiment comme ça, 
+Ça s'est calmé après la fin de notre projet "Game of Thrones".
+Je n'étais pas vraiment comme ça, 
 je suis juste devenu une telle personne afin de faire fonctionner les choses étant donné les circonstances.
 
 Après avoir eu plusieurs années pour me préparer, 
@@ -282,7 +282,7 @@ Un Bob peut demander plus?
 Les membres du personnel d'ici sont aimables.
 Je n'ai rien à plaindre, 
 et je veux seulement exprimer ma gratitude à tous mes amis pour les années de plaisir que vous me l'avez donné, 
-ma médicaments, qui m'ont gardé vivant et motivé.
+mes médicaments, qui m'ont gardé vivant et motivé.
 
 Merci!
 
