@@ -32,7 +32,7 @@ MS5611 est ajouté afin d'augmenter la précision.
 - [JMT F450 Air multi-Rotor Frame FlameWheel KIT 450F comme DJI pour KK MWC MK 4 axe RC Quadcopter Multicopter UFO Heli](https://www.amazon.fr/gp/product/B00CCXN4HO/ref=oh_aui_detailpage_o07_s00?ie=UTF8&psc=1)  
 - [Andoer 4 A2212/13T 1000KV Brushless Motor + 2 paires 1045 10 * 4.5 Hélices pour DJI F450 F550 MWC Multicopter (2212 1000KV Brushless Motor, 1045 10 * 4.5 Hélices, DJI F450 F550 partie)](https://www.amazon.fr/gp/product/B00L8H95AU/ref=oh_aui_detailpage_o08_s00?ie=UTF8&psc=1)  
 
-
+<p>Voici le schéma de système <img src="/public/imgs/Sheme_drone.jpg" alt="gras"/> </p>
 Ensuite, on y va!
 
 #### Référence: ####

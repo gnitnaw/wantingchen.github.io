@@ -8,12 +8,24 @@ tags: raspberry_pi linux drone
 ---
 
 Avant de faire un programme, on doit aussi faire la spécification du programme:  
-- Faire de la programmation avec c. Mais on peut encore utiliser un peu de C++ s'il faut utiliser bibliothéque de C++.  
+- Faire de la programmation en c avec C11 standard. Mais on peut encore utiliser un peu de C++ s'il faut utiliser bibliothéque de C++.
+gcc 4.9 est utilisé.  
 - Utiliser pthread pour la programmation multithreading, puis [gcc](https://gcc.gnu.org/wiki/C11Status) 
 et clang ne supporte pas encore C11 Thread (c'est à cause de glibc).  
-- Le programme doit marcher sur RPi modèle B+ et aussi sur RPI2 modèle B+.  
+- Le programme doit marcher sur RPi modèle B+ et aussi sur RPi2 modèle B (peut-être aussi RPi3 modèle B, j'espère).  
+- Le programme peut se faire exécuter à la fin de la procédure de démarrage.
+Davantage, le système peut exécuter le programme s'il est arrêté à cause des raisons certaines.
+C'est-à-dire on doit préparer un script shell qui peut être exécuté par /etc/rc.local 
+afin de lancer ce programme et surveiller s'il est encore en cours.  
+- Il faut enregistrer toutes les données nécessaires, 
+y compris celles recueillies par les capteurs et celles calculées pas le programme,
+dans un fichier nommé selon le temps d'exécution de programme.  
+- [CMake](http://www.cmake.org/) est utilisé pour générer Makefile  
+- Suivre les principes indiqué par [How to C in 2016](https://matt.sh/howto-c) 
+et [21/CLASS - C Language Style for Scalability ](http://rfc.zeromq.org/spec:21)  
+- Utiliser [Doxygen](http://www.stack.nl/~dimitri/doxygen/index.html) 
+pour générer documentation de code source.
 
-(à suivre)
 
 
 
