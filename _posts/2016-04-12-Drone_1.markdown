@@ -7,18 +7,18 @@ category: Système embarqué
 tags: raspberry_pi linux drone
 ---
 
-Bien qu'il y a déjà plusieurs réalisations des drones propulsés par raspberry pi [^1],
-je voulais encore défier une fois moi-même, afin de présenter ce que j'apprends.
+Bien qu'il y a déjà plusieurs réalisations de drones propulsés par Raspberry Pi [^1],
+je me suis défié à en assembler un moi-même, et cet apprentissage fort utile est rapporté ci-dessous.
 
-Différent avec les autres, le drone que je veux construire a les spécialités:  
-- Tous les capteurs/modules sont connectés directement avec Raspberry pi, aucun microprocesseur est utilisé.  
-- Utiliser Arduino pour le contrôler du drone.  
-- Utiliser [bcm2835 bibliothèque](http://www.airspayce.com/mikem/bcm2835/) 
-au lieu des autres bibliothèque afin de éviter d'utiliser pas les drivers d'i2c.
-Ça me donne une chance d'essayer [Xenomai](https://xenomai.org/).  
-- La communication entre le contrôler et le drone est réalisée par RF modules. 
+Contrairement aux autres, le drone que je veux construire a les spécialités suivantes :  
+- Tous les capteurs/modules sont connectés directement avec Raspberry Pi, aucun autre microprocesseur est utilisé.  
+- Le contrôle / l'asservissement du drone est fait par Arduino.  
+- L'utilisation de [bcm2835 bibliothèque](http://www.airspayce.com/mikem/bcm2835/) 
+au lieu d'autres bibliothèques, afin d'éviter l'utilisation des pilotes I2C.
+Ça me donne l'opportunité d'essayer [Xenomai](https://xenomai.org/).  
+- La communication entre le contrôleur et le drone est réalisée par des modules RF. 
 Et le drone peut arrêter automatiquement quand la communication est vraiment perdue.  
-- Si nécessaire, Preempt RT kernel ou Xenomai peut être adapté afin de régulier la fréquence.  
+- Si nécessaire, le noyau Preempt RT ou Xenomai peut être adapté afin de réguler la fréquence.  
 
 Selon les spécifications, on doit préparer:  
 - 10 DOF IMU：GY80(I2C，400kHz，le temps de rafraîchissement peut atteindre 1600Hz). 
@@ -32,7 +32,7 @@ MS5611 est ajouté afin d'augmenter la précision.
 - [JMT F450 Air multi-Rotor Frame FlameWheel KIT 450F comme DJI pour KK MWC MK 4 axe RC Quadcopter Multicopter UFO Heli](https://www.amazon.fr/gp/product/B00CCXN4HO/ref=oh_aui_detailpage_o07_s00?ie=UTF8&psc=1)  
 - [Andoer 4 A2212/13T 1000KV Brushless Motor + 2 paires 1045 10 * 4.5 Hélices pour DJI F450 F550 MWC Multicopter (2212 1000KV Brushless Motor, 1045 10 * 4.5 Hélices, DJI F450 F550 partie)](https://www.amazon.fr/gp/product/B00L8H95AU/ref=oh_aui_detailpage_o08_s00?ie=UTF8&psc=1)  
 
-<p>Voici le schéma de système <img src="/public/imgs/Sheme_drone.jpg" alt="gras"/> </p>
+<p>Voici le schéma du système <img src="/public/imgs/Sheme_drone.jpg" alt="gras"/> </p>
 Ensuite, on y va!
 
 #### Référence: ####
