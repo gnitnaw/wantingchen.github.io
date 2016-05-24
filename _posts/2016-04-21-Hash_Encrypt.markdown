@@ -73,7 +73,7 @@ Et une fonction de Chiffrement fiable doit avoir la propriété de "fonction à 
 - **Faible coût de calcul de chiffrement. Faible coût de calcul de déchiffrement, à condition de posséder la clé.**  
 - **Si on n'a pas la clé, il sera extrêmement difficile de trouver l'original même si on sait l'algorithme.**  
 
-### Référence: ###
+### Référence ###
 
 - [哈希(Hash)与加密(Encrypt)的基本原理、区别及工程应用 (en chinois)](http://www.cnblogs.com/leoo2sk/archive/2010/10/01/hash-and-encrypt.html)
 
