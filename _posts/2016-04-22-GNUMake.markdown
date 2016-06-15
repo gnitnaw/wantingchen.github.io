@@ -27,6 +27,7 @@ La condition préalable est les fichiers/répertoires nécéssaires pour compile
 La recette est la combinaison de commandes pour compiler et lier la cible.
 
 Les règles du jeu sont:  
+
 - On compile tous les codes source afin de créer le fichier de cible lorsqu'il n'existe pas.  
 - On renouvelle le fichier de cible lorsque les fichiers indiqués pas la condition préalable sont plus nouveaux que la cible.
 On doit seulement recompiler les codes source actualisés et alors relier au fichier de cible.  

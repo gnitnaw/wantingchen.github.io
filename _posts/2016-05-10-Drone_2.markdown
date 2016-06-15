@@ -8,6 +8,7 @@ tags: raspberry_pi linux drone
 ---
 
 La programmation et les spécifications :  
+
 - Le code est écrit en C, en exploitant les nouveautés couverts pas le standard C99. 
 gcc 4.9 est utilisé.  
 - Utiliser pthreads (POSIX) pour la programmation multithreading, puis [gcc](https://gcc.gnu.org/wiki/C11Status) 
