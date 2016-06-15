@@ -22,6 +22,7 @@ Et le drone peut arrêter automatiquement quand la communication est vraiment pe
 - Si nécessaire, le noyau Preempt RT ou Xenomai peut être adapté afin de réguler la fréquence.  
 
 Selon les spécifications, on doit préparer:  
+
 - 10 DOF IMU：GY80(I2C，400kHz，le temps de rafraîchissement peut atteindre 1600Hz). 
 Mais j'ai trouvé que le baromètre (Bosch BMP085) n'est pas assez précis (0.03hPa / 0.25m résolution).
 MS5611 est ajouté afin d'augmenter la précision.   
