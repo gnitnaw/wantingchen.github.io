@@ -11,6 +11,7 @@ Bien qu'il y a déjà plusieurs réalisations de drones propulsés par Raspberry
 je me suis défié à en assembler un moi-même, et cet apprentissage fort utile est rapporté ci-dessous.
 
 Contrairement aux autres, le drone que je veux construire a les spécialités suivantes :  
+
 - Tous les capteurs/modules sont connectés directement avec Raspberry Pi, aucun autre microprocesseur est utilisé.  
 - Le contrôle / l'asservissement du drone est fait par Arduino.  
 - L'utilisation de [bcm2835 bibliothèque](http://www.airspayce.com/mikem/bcm2835/) 
