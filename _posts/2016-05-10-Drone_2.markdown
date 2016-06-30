@@ -22,8 +22,8 @@ afin de lancer ce programme et surveiller s'il est encore en cours.
 y compris celles recueillies par les capteurs et celles calculées pas le programme,
 dans un fichier log dont le nom contient l'instant (date,heure,etc.) du démarrage du programme.  
 - [CMake](http://www.cmake.org/) est utilisé pour générer le fichier Makefile  
-- Suivre les principes indiqués par [How to C in 2016](https://matt.sh/howto-c) 
-et [21/CLASS - C Language Style for Scalability ](http://rfc.zeromq.org/spec:21)  
+- Suivre les principes indiqués par [How to C in 2016](https://matt.sh/howto-c), 
+et le style de code fait référence à [21/CLASS - C Language Style for Scalability ](http://zeromq.org/docs:style)  
 - Utiliser [Doxygen](http://www.stack.nl/~dimitri/doxygen/index.html) 
 pour générer la documentation du code source.
 

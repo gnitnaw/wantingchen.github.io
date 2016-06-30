@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="description" content="Ayant été une physicienne pendant plus que 10 ans. Maintenant je me transforme en un ingénieur system embarqué.">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Construire un quadrirotor avec Raspberry Pi (3) -- Artistic Style &middot; Let's open source!
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/lanyon.css">
+  <link rel="stylesheet" href="/public/css/codinfox.css">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <script type="text/x-mathjax-config">
+
+ MathJax.Hub.Config({
+     jax: ["input/TeX","output/SVG"],
+     extensions: ["tex2jax.js","mml2jax.js","MathMenu.js","MathZoom.js"],
+     TeX: {
+         extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"]
+     },
+     tex2jax: {
+         inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+         processEscapes: true
+     }
+ });
+
+ </script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
+
+
+      <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-75609833-2', 'auto');
+  ga('require', 'displayfeatures');
+  ga('send', 'pageview');
+
+</script>
+</head>
+
+
+  <body class="theme-base-08 layout-default">
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>Ayant été une physicienne pendant plus que 10 ans. Maintenant je me transforme en un ingénieur system embarqué.</p>
+        
+        <li>
+                <a href="https://github.com/wantingchen">
+                <i class="fa fa-github"></i> GitHub </a>
+        </li>
+        
+        
+        <li>
+                <a href="https://github.com/gnitnaw">
+                <i class="fa fa-github"></i> GitHub </a>
+        </li>
+        
+
+	
+  	<li>
+    		<a href="https://linkedin.com/in/wan-ting-chen-30128b5b">
+      		<i class="fa fa-linkedin"></i> LinkedIn </a>
+  	</li>
+	
+    </p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/">Home</a>
+    <a class="sidebar-nav-item" href="/category.html">Category</a>
+    <a class="sidebar-nav-item" href="/tag.html">Tag</a>
+    <a class="sidebar-nav-item" href="/about.html">About</a>
+  </nav>
+
+  <div class="sidebar-item">
+    <p> <a href="http://gnitnaw.github.io/"> Blog en chinois </a> </p>
+    <p>
+      Powered by <a href="http://jekyllrb.com">jekyll</a> and <a href="http://lanyon.getpoole.com">lanyon</a>.
+    </p>
+  </div>
+</div>
+
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+	    <small>Blog pour un amateur du system embarqué.</small>
+          </h3>
+        </div>
+        <!-- <div class="codinfox-masthead-bg"></div> -->
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 class="post-title">Construire un quadrirotor avec Raspberry Pi (3) -- Artistic Style</h1>
+  <span>
+    <span class="post-date" style="display:inline-block;">2016-06</span> |
+    
+	<a class="codinfox-tag-mark" href="/tag.html#raspberry-pi">raspberry_pi</a>
+    
+	<a class="codinfox-tag-mark" href="/tag.html#linux">linux</a>
+    
+	<a class="codinfox-tag-mark" href="/tag.html#drone">drone</a>
+    
+	<a class="codinfox-tag-mark" href="/tag.html#astyle">astyle</a>
+    
+  </span>
+  <h3 id="pourquoi-faut-il-avoir-un-certain-style-de-programmation-">Pourquoi faut-il avoir un certain style de programmation ?</h3>
+
+<p>Quand on fait la programmation, on doit collaborer avec au moins avec deux personnes:
+soi-même auparavant et à l’avenir.
+Beaucoup de programmateurs ont de l’expérience comme ça:
+on ne comprend plus rien ce que on a fait si on ne touche pas les code source pendant plus que un mois.
+Em outre, si votre code source est déjà assez difficile pour vous-même à l’avenir de comprendre,
+ça deviendra plus compliqué de ajouter des autre collaborateurs pour réutiliser, modifier ou améliorer votre code.</p>
+
+<p>Ainsi, c’est plus efficace de définer certains règles or spécifications de codage afin d’aider à lire et comprendre les code source,
+dont facilite la communication parmi les programmateurs et éviter des bugs davantage.
+Avec un propre style de programmation, on peut assurer la qualité de code et aussi limiter sa complexité et taille.</p>
+
+<h3 id="util-pour-bien-contrler-le-format-de-code--astyle">Util pour bien contrôler le format de code : astyle</h3>
+
+<p><a href="http://astyle.sourceforge.net/">Artistic Style</a>
+est un util qui peut formatter, embellir, et ajuster l’indentation le code source de
+C, C ++, C ++ / CLI, Objective-C, C# et Java langages de programmation.
+Il est un programme de console qui reçoit l’information de ligne de commande, comme ça:</p>
+
+<figure class="highlight">
+  <pre><code class="language-terminal" data-lang="terminal">astyle  [OPTIONS]  SourceFile1  SourceFile2  SourceFile3  [ . . . ]</code></pre>
+</figure>
+
+<p>Dans [OPTION] on peut mettre plus que une option. Par exemple, pour formatter un fichier:</p>
+
+<figure class="highlight">
+  <pre><code class="language-terminal" data-lang="terminal">astyle  --style=allman  /home/user/project/foo.cpp</code></pre>
+</figure>
+
+<p>Pour plusiers fichiers:</p>
+
+<figure class="highlight">
+  <pre><code class="language-terminal" data-lang="terminal">astyle  --style=allman --recursive  /home/user/project/*.cpp  /home/user/project/*.h</code></pre>
+</figure>
+
+<p><a href="http://rfc.zeromq.org/spec:21/CLASS/">C Language Style for Scalability</a>: Code Style</p>
+
+<p>Indentation</p>
+
+<p>Indentation SHALL be 4 spaces per level. Tab characters SHALL NOT be used in code.
+Declarations</p>
+
+<p>Functions SHALL be prototyped as follows:</p>
+
+<type>
+    <name> (<arguments>);
+
+Functions SHALL be defined as follows:
+
+<type>
+<name> (<arguments>)
+{
+    <body>
+}
+
+When the project uses C99, stack variables SHALL be defined in-line, as close as possible to their first use, and initialized. For example:
+
+myp_myclass_t *myclass = myp_myclass_new ();
+char *comma = strchr (surname, '.');
+
+When the project uses C89, stack variables SHALL all be defined and initialized at the start of the function or method where they are used.
+
+    Variables and functions SHALL use lower-case names.
+
+    Where necessary, underlines SHALL be used to separate parts of a name.
+
+    Variable names like i and temp that carry no information SHALL NOT be used.
+
+Statements
+
+Code lines of more than 80-100 characters SHOULD be folded for readability.
+
+Single-statement blocks SHALL NOT be enclosed in brackets.
+
+This is the form of a single-statement block:
+
+if (comma == NULL)
+    comma = surname;
+
+In else statements, the else SHALL be put on a line by itself.
+
+Multiple if/else tests SHALL be stacked vertically to indicate that the order is arbitrary.
+
+This is the form of a stacked if statement block:
+
+if (command == CMD_HELLO)
+    puts ("hello");
+else
+if (command == CMD_GOODBYE)
+    puts ("goodbye");
+else
+if (command == CMD_ERROR)
+    puts ("error");
+
+With multi-statement conditional blocks, the closing bracket SHALL be put on a line by itself, aligned with the opening keyword.
+
+This is the form of a stacked if statement block with brackets around each conditional block:
+
+if (command == CMD_HELLO) {
+    puts ("hello");
+    myp_peer_reply (peer, CMD_GOODBYE);
+}
+else
+if (command == CMD_GOODBYE) {
+    puts ("goodbye");
+    myp_peer_reply (peer, CMD_DISCONNECT);
+}
+else
+if (command == CMD_ERROR) {
+    puts ("error");
+    myp_peer_close (peer);
+}
+
+This is the form of a while statement:
+
+char *comma = strchr (surname, ',');
+while (comma) {
+    *comma = ' ';
+    comma = strchr (surname, ',');
+}
+
+Comments
+
+Comments on code SHALL be used lightly and where necessary.
+
+In C99 projects the syntax for comments is:
+
+    In-line comments SHALL use the C++ // style.
+
+    Multi-line comments MAY use the C / ... / style or MAY use the C++ style.
+
+In C89 projects the syntax for all comments SHALL be the C / ... / style.
+
+    When possible in-line comments shall start at column 33.
+
+    In in-line comments, the // or /* shall be followed by two spaces.
+
+    Every function shall have a multi-line comment header that briefly explains its purpose.
+    Method comment headers SHALL be preceded by a line of hyphens ending at column 78.
+    Suitably-marked-up comments before a function MAY be used as source material for reference documentation.
+
+This is the general template for a method comment header:
+
+//  --------------------------------------------------------------------------
+//  Finds the first item in the list, returns null if the list is empty.
+
+myp_myclass_t *
+myp_myclass_first (myp_myclass_t *self)
+{
+    ...
+
+    Every property in a class structure SHALL have a 1-line in-line comment that describes its purpose.
+    Comments SHALL NOT be used to compensate for illegible code.
+    Code that cannot be reasonable read and understood by the casual reader SHOULD be rewritten, not annotated.
+    Properties and functions whose semantics are not clear from their names SHOULD be renamed, not annotated.
+
+Blank Lines
+
+Blank lines SHALL be used to separate blocks of code to improve readability, in these cases:
+
+    After the closing bracket of a function body and before the comment header for a function.
+    To break up blocks of code that exceed 6-8 lines.
+    After assertions at the start of a class body.
+    After an if statement with a single-statement block.
+    After multi-line case blocks inside a switch statement.
+    After multi-line comment blocks.
+
+Blank lines SHALL not be used in these cases:
+
+    After the closing bracket of a conditional block.
+    To separate individual lines of code that could better be grouped together.
+
+Vertical Alignment
+
+Code SHALL NOT use extra spacing to create vertical alignment.
+
+char *comma = strchr (surname, ',');
+while (comma) {
+    *comma = ' ';
+    comma = strchr (surname, ',');
+}
+
+Punctuation
+
+Punctuation SHALL follow English rules as far as possible.
+
+This is the style for unary operators, with a space after but not before the operator:
+
+char_nbr++;
+
+This is the style for binary operators, with a space before and after the operator:
+
+comma = comma + 1;
+
+This is the style for the ?: operator:
+
+comma = comma? comma + 1: strchr (name, '.');
+
+This is the style for semi-colons, with a space after but not before:
+
+for (char_nbr = 0; *char_nbr; char_nbr++)
+    char_nbr++;
+
+This is the style for parentheses, with a space before the opening, and after the closing parenthesis, with multiple opening or closing parentheses joined together without spaces:
+
+node = (node_t *) zmalloc (sizeof (node_t));
+if (!node)
+    return -1;
+
+This is the style for square brackets:
+
+comma = name [char_nbr];
+
+This is the style for pointer dereferences, with no space before or after the '-&gt;':
+
+self-&gt;name = strdup (name);
+
+Assertions
+
+Classes SHOULD check the validity of arguments using assertions. That is, misuse of the API is considered a programming error, not a run-time error.
+
+    Assertions SHALL be used for their documentary value, for example to warn the reader, "this argument SHALL NOT be null".
+
+    Assertions on arguments SHALL come at the start of the class body and SHALL follow the order of the arguments.
+
+    Assertions MAY be used on return values from function calls if such failures cannot safely be handled by the code.
+
+    Assertions MAY be used on internal state (e.g., instance properties) to assert a mandatory condition for continuing.
+
+    Assertions SHALL NOT be used to trap errors on external conditions, e.g., bad user input, invalid protocol messages, etc.
+
+    Assertions SHOULD be used to trap errors on internal APIs, e.g. invalid messages sent from one thread to another.
+
+    Assertions SHALL NOT have side-effects since the entire statement may be removed by an optimizing compiler.
+
+Exiting Functions and Goto Statements
+
+The return statement MAY be used at any point in a function to return to the caller.
+
+If the function needs to do clean-up (e.g., free a number of properties), the code MAY use goto and a single clean-up block at the end of the function. Such a clean-up block SHALL follow the last "normal" return.
+
+A void function SHALL NOT end in an empty return statement.
+Recommended Patterns
+
+    The recommended pattern for an open-ended loop is while (true) {}, with break statements as needed to exit the loop.
+
+    The recommended pattern for array iteration is:
+
+for (array_index = 0; array_index &lt; array_size; array_index++) {
+    //  Access element [array_index]
+}
+
+    The recommended pattern for list iteration is:
+
+myp_myclass_t *myclass = (myp_myclass_t *) myp_myclass_first (myclass);
+while (myclass) {
+    //  Do something
+    myclass = (myp_myclass_t *) myp_myclass_next (myclass);
+}
+
+</body></arguments></name></type></arguments></name></type>
+
+</div>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+    <li>
+      <h3>
+        <a href="">
+          
+          <small></small>
+        </a>
+      </h3>
+    </li>
+    
+    <li>
+      <h3>
+        <a href="">
+          
+          <small></small>
+        </a>
+      </h3>
+    </li>
+    
+    <li>
+      <h3>
+        <a href="">
+          
+          <small></small>
+        </a>
+      </h3>
+    </li>
+    
+  </ul>
+</div>
+
+
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+  </body>
+</html>

@@ -4,7 +4,7 @@
  <title>Let's open source!</title>
  <link href="http://wantingchen.github.io/atom.xml" rel="self"/>
  <link href="http://wantingchen.github.io/"/>
- <updated>2016-05-10T22:56:00+02:00</updated>
+ <updated>2016-06-28T18:20:40+02:00</updated>
  <id>http://wantingchen.github.io</id>
  <author>
    <name>Wan-Ting CHEN</name>
@@ -13,17 +13,343 @@
 
  
  <entry>
+   <title>Construire un quadrirotor avec Raspberry Pi (3) -- Artistic Style</title>
+   <link href="http://wantingchen.github.io/syst%C3%A8me%20embarqu%C3%A9/2016/06/28/Drone_3.html"/>
+   <updated>2016-06-28T00:00:00+02:00</updated>
+   <id>http://wantingchen.github.io/syst%C3%A8me%20embarqu%C3%A9/2016/06/28/Drone_3</id>
+   <content type="html">&lt;h3 id=&quot;pourquoi-faut-il-avoir-un-certain-style-de-programmation-&quot;&gt;Pourquoi faut-il avoir un certain style de programmation ?&lt;/h3&gt;
+
+&lt;p&gt;Quand on fait la programmation, on doit collaborer avec au moins avec deux personnes:
+soi-même auparavant et à l’avenir.
+Beaucoup de programmateurs ont de l’expérience comme ça:
+on ne comprend plus rien ce que on a fait si on ne touche pas les code source pendant plus que un mois.
+Em outre, si votre code source est déjà assez difficile pour vous-même à l’avenir de comprendre,
+ça deviendra plus compliqué de ajouter des autre collaborateurs pour réutiliser, modifier ou améliorer votre code.&lt;/p&gt;
+
+&lt;p&gt;Ainsi, c’est plus efficace de définer certains règles or spécifications de codage afin d’aider à lire et comprendre les code source,
+dont facilite la communication parmi les programmateurs et éviter des bugs davantage.
+Avec un propre style de programmation, on peut assurer la qualité de code et aussi limiter sa complexité et taille.&lt;/p&gt;
+
+&lt;h3 id=&quot;util-pour-bien-contrler-le-format-de-code--astyle&quot;&gt;Util pour bien contrôler le format de code : astyle&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://astyle.sourceforge.net/&quot;&gt;Artistic Style&lt;/a&gt;
+est un util qui peut formatter, embellir, et ajuster l’indentation le code source de
+C, C ++, C ++ / CLI, Objective-C, C# et Java langages de programmation.
+Il est un programme de console qui reçoit l’information de ligne de commande, comme ça:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;
+  &lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;astyle  [OPTIONS]  SourceFile1  SourceFile2  SourceFile3  [ . . . ]&lt;/code&gt;&lt;/pre&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Dans [OPTION] on peut mettre plus que une option. Par exemple, pour formatter un fichier:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;
+  &lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;astyle  --style=allman  /home/user/project/foo.cpp&lt;/code&gt;&lt;/pre&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Pour plusiers fichiers:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;
+  &lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;astyle  --style=allman --recursive  /home/user/project/*.cpp  /home/user/project/*.h&lt;/code&gt;&lt;/pre&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://rfc.zeromq.org/spec:21/CLASS/&quot;&gt;C Language Style for Scalability&lt;/a&gt;: Code Style&lt;/p&gt;
+
+&lt;p&gt;Indentation&lt;/p&gt;
+
+&lt;p&gt;Indentation SHALL be 4 spaces per level. Tab characters SHALL NOT be used in code.
+Declarations&lt;/p&gt;
+
+&lt;p&gt;Functions SHALL be prototyped as follows:&lt;/p&gt;
+
+&lt;type&gt;
+    &lt;name&gt; (&lt;arguments&gt;);
+
+Functions SHALL be defined as follows:
+
+&lt;type&gt;
+&lt;name&gt; (&lt;arguments&gt;)
+{
+    &lt;body&gt;
+}
+
+When the project uses C99, stack variables SHALL be defined in-line, as close as possible to their first use, and initialized. For example:
+
+myp_myclass_t *myclass = myp_myclass_new ();
+char *comma = strchr (surname, &#39;.&#39;);
+
+When the project uses C89, stack variables SHALL all be defined and initialized at the start of the function or method where they are used.
+
+    Variables and functions SHALL use lower-case names.
+
+    Where necessary, underlines SHALL be used to separate parts of a name.
+
+    Variable names like i and temp that carry no information SHALL NOT be used.
+
+Statements
+
+Code lines of more than 80-100 characters SHOULD be folded for readability.
+
+Single-statement blocks SHALL NOT be enclosed in brackets.
+
+This is the form of a single-statement block:
+
+if (comma == NULL)
+    comma = surname;
+
+In else statements, the else SHALL be put on a line by itself.
+
+Multiple if/else tests SHALL be stacked vertically to indicate that the order is arbitrary.
+
+This is the form of a stacked if statement block:
+
+if (command == CMD_HELLO)
+    puts (&quot;hello&quot;);
+else
+if (command == CMD_GOODBYE)
+    puts (&quot;goodbye&quot;);
+else
+if (command == CMD_ERROR)
+    puts (&quot;error&quot;);
+
+With multi-statement conditional blocks, the closing bracket SHALL be put on a line by itself, aligned with the opening keyword.
+
+This is the form of a stacked if statement block with brackets around each conditional block:
+
+if (command == CMD_HELLO) {
+    puts (&quot;hello&quot;);
+    myp_peer_reply (peer, CMD_GOODBYE);
+}
+else
+if (command == CMD_GOODBYE) {
+    puts (&quot;goodbye&quot;);
+    myp_peer_reply (peer, CMD_DISCONNECT);
+}
+else
+if (command == CMD_ERROR) {
+    puts (&quot;error&quot;);
+    myp_peer_close (peer);
+}
+
+This is the form of a while statement:
+
+char *comma = strchr (surname, &#39;,&#39;);
+while (comma) {
+    *comma = &#39; &#39;;
+    comma = strchr (surname, &#39;,&#39;);
+}
+
+Comments
+
+Comments on code SHALL be used lightly and where necessary.
+
+In C99 projects the syntax for comments is:
+
+    In-line comments SHALL use the C++ // style.
+
+    Multi-line comments MAY use the C / ... / style or MAY use the C++ style.
+
+In C89 projects the syntax for all comments SHALL be the C / ... / style.
+
+    When possible in-line comments shall start at column 33.
+
+    In in-line comments, the // or /* shall be followed by two spaces.
+
+    Every function shall have a multi-line comment header that briefly explains its purpose.
+    Method comment headers SHALL be preceded by a line of hyphens ending at column 78.
+    Suitably-marked-up comments before a function MAY be used as source material for reference documentation.
+
+This is the general template for a method comment header:
+
+//  --------------------------------------------------------------------------
+//  Finds the first item in the list, returns null if the list is empty.
+
+myp_myclass_t *
+myp_myclass_first (myp_myclass_t *self)
+{
+    ...
+
+    Every property in a class structure SHALL have a 1-line in-line comment that describes its purpose.
+    Comments SHALL NOT be used to compensate for illegible code.
+    Code that cannot be reasonable read and understood by the casual reader SHOULD be rewritten, not annotated.
+    Properties and functions whose semantics are not clear from their names SHOULD be renamed, not annotated.
+
+Blank Lines
+
+Blank lines SHALL be used to separate blocks of code to improve readability, in these cases:
+
+    After the closing bracket of a function body and before the comment header for a function.
+    To break up blocks of code that exceed 6-8 lines.
+    After assertions at the start of a class body.
+    After an if statement with a single-statement block.
+    After multi-line case blocks inside a switch statement.
+    After multi-line comment blocks.
+
+Blank lines SHALL not be used in these cases:
+
+    After the closing bracket of a conditional block.
+    To separate individual lines of code that could better be grouped together.
+
+Vertical Alignment
+
+Code SHALL NOT use extra spacing to create vertical alignment.
+
+char *comma = strchr (surname, &#39;,&#39;);
+while (comma) {
+    *comma = &#39; &#39;;
+    comma = strchr (surname, &#39;,&#39;);
+}
+
+Punctuation
+
+Punctuation SHALL follow English rules as far as possible.
+
+This is the style for unary operators, with a space after but not before the operator:
+
+char_nbr++;
+
+This is the style for binary operators, with a space before and after the operator:
+
+comma = comma + 1;
+
+This is the style for the ?: operator:
+
+comma = comma? comma + 1: strchr (name, &#39;.&#39;);
+
+This is the style for semi-colons, with a space after but not before:
+
+for (char_nbr = 0; *char_nbr; char_nbr++)
+    char_nbr++;
+
+This is the style for parentheses, with a space before the opening, and after the closing parenthesis, with multiple opening or closing parentheses joined together without spaces:
+
+node = (node_t *) zmalloc (sizeof (node_t));
+if (!node)
+    return -1;
+
+This is the style for square brackets:
+
+comma = name [char_nbr];
+
+This is the style for pointer dereferences, with no space before or after the &#39;-&amp;gt;&#39;:
+
+self-&amp;gt;name = strdup (name);
+
+Assertions
+
+Classes SHOULD check the validity of arguments using assertions. That is, misuse of the API is considered a programming error, not a run-time error.
+
+    Assertions SHALL be used for their documentary value, for example to warn the reader, &quot;this argument SHALL NOT be null&quot;.
+
+    Assertions on arguments SHALL come at the start of the class body and SHALL follow the order of the arguments.
+
+    Assertions MAY be used on return values from function calls if such failures cannot safely be handled by the code.
+
+    Assertions MAY be used on internal state (e.g., instance properties) to assert a mandatory condition for continuing.
+
+    Assertions SHALL NOT be used to trap errors on external conditions, e.g., bad user input, invalid protocol messages, etc.
+
+    Assertions SHOULD be used to trap errors on internal APIs, e.g. invalid messages sent from one thread to another.
+
+    Assertions SHALL NOT have side-effects since the entire statement may be removed by an optimizing compiler.
+
+Exiting Functions and Goto Statements
+
+The return statement MAY be used at any point in a function to return to the caller.
+
+If the function needs to do clean-up (e.g., free a number of properties), the code MAY use goto and a single clean-up block at the end of the function. Such a clean-up block SHALL follow the last &quot;normal&quot; return.
+
+A void function SHALL NOT end in an empty return statement.
+Recommended Patterns
+
+    The recommended pattern for an open-ended loop is while (true) {}, with break statements as needed to exit the loop.
+
+    The recommended pattern for array iteration is:
+
+for (array_index = 0; array_index &amp;lt; array_size; array_index++) {
+    //  Access element [array_index]
+}
+
+    The recommended pattern for list iteration is:
+
+myp_myclass_t *myclass = (myp_myclass_t *) myp_myclass_first (myclass);
+while (myclass) {
+    //  Do something
+    myclass = (myp_myclass_t *) myp_myclass_next (myclass);
+}
+
+&lt;/body&gt;&lt;/arguments&gt;&lt;/name&gt;&lt;/type&gt;&lt;/arguments&gt;&lt;/name&gt;&lt;/type&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Comment fonctionne une base de données</title>
+   <link href="http://wantingchen.github.io/algorithm/2016/06/20/Base_de_donnees.html"/>
+   <updated>2016-06-20T00:00:00+02:00</updated>
+   <id>http://wantingchen.github.io/algorithm/2016/06/20/Base_de_donnees</id>
+   <content type="html">&lt;h3 id=&quot;normalement-cest-ce-que-les-gens-pensent&quot;&gt;Normalement, c’est ce que les gens pensent&lt;/h3&gt;
+
+&lt;h3 id=&quot;rfrence&quot;&gt;Référence&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://coding-geek.com/how-databases-work/&quot;&gt;How does a relational database work &lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://blog.jobbole.com/100349/&quot;&gt;如果有人问你数据库的原理，叫他看这篇文章&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Coursera: Algorithm Design Analysis (1) -- Diviser pour régner (Divide & conquer)</title>
+   <link href="http://wantingchen.github.io/algorithm/2016/06/17/Coursera_Algorithm_01.html"/>
+   <updated>2016-06-17T00:00:00+02:00</updated>
+   <id>http://wantingchen.github.io/algorithm/2016/06/17/Coursera_Algorithm_01</id>
+   <content type="html">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
+
+&lt;h3 id=&quot;algorithme-de-karatsuba&quot;&gt;Algorithme de Karatsuba&lt;/h3&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;(a × 10^k + b)(c × 10^k + d) = ac × 10^{2k} + (ac + bd – (a – b)(c – d)) × 10^k + bd&lt;/script&gt;
+
+&lt;p&gt;Recursion:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;T(n) = 3T(n/2) + cn + d&lt;/script&gt;
+
+&lt;p&gt;Complexité : &lt;script type=&quot;math/tex&quot;&gt;n^(log_23)&lt;/script&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;tri-fusion&quot;&gt;Tri fusion&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Karatsuba_algorithm&quot;&gt;Karatsuba algorithm&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
    <title>Construire un quadrirotor avec Raspberry Pi (2)</title>
    <link href="http://wantingchen.github.io/syst%C3%A8me%20embarqu%C3%A9/2016/05/10/Drone_2.html"/>
    <updated>2016-05-10T00:00:00+02:00</updated>
    <id>http://wantingchen.github.io/syst%C3%A8me%20embarqu%C3%A9/2016/05/10/Drone_2</id>
-   <content type="html">&lt;p&gt;Avant de faire un programme, on doit aussi faire la spécification du programme:&lt;br /&gt;
-- Faire de la programmation avec c. Mais on peut encore utiliser un peu de C++ s’il faut utiliser bibliothéque de C++.&lt;br /&gt;
-- Utiliser pthread pour la programmation multithreading, puis &lt;a href=&quot;https://gcc.gnu.org/wiki/C11Status&quot;&gt;gcc&lt;/a&gt; 
-et clang ne supporte pas encore C11 Thread (c’est à cause de glibc).&lt;br /&gt;
-- Le programme doit marcher sur RPi modèle B+ et aussi sur RPI2 modèle B+.&lt;/p&gt;
+   <content type="html">&lt;p&gt;La programmation et les spécifications :&lt;/p&gt;
 
-&lt;p&gt;(à suivre)&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Le code est écrit en C, en exploitant les nouveautés couverts pas le standard C99. 
+gcc 4.9 est utilisé.&lt;/li&gt;
+  &lt;li&gt;Utiliser pthreads (POSIX) pour la programmation multithreading, puis &lt;a href=&quot;https://gcc.gnu.org/wiki/C11Status&quot;&gt;gcc&lt;/a&gt; 
+et clang ne supporte pas encore C11 Thread (c’est à cause de glibc).&lt;/li&gt;
+  &lt;li&gt;Le programme doit marcher sur RPi modèle B+ et aussi sur RPi2 modèle B (peut-être aussi RPi3 modèle B, j’espère).&lt;/li&gt;
+  &lt;li&gt;Le programme peut se faire exécuter à la fin de la procédure de démarrage.
+Davantage, le système peut exécuter le programme s’il est arrêté à cause de certaines raisons.
+C’est-à-dire, on doit préparer un script shell qui peut être exécuté par /etc/rc.local 
+afin de lancer ce programme et surveiller s’il est encore en cours.&lt;/li&gt;
+  &lt;li&gt;Il faut enregistrer toutes les données nécessaires, 
+y compris celles recueillies par les capteurs et celles calculées pas le programme,
+dans un fichier log dont le nom contient l’instant (date,heure,etc.) du démarrage du programme.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.cmake.org/&quot;&gt;CMake&lt;/a&gt; est utilisé pour générer le fichier Makefile&lt;/li&gt;
+  &lt;li&gt;Suivre les principes indiqués par &lt;a href=&quot;https://matt.sh/howto-c&quot;&gt;How to C in 2016&lt;/a&gt;, 
+et le style de code fait référence à &lt;a href=&quot;http://zeromq.org/docs:style&quot;&gt;21/CLASS - C Language Style for Scalability &lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Utiliser &lt;a href=&quot;http://www.stack.nl/~dimitri/doxygen/index.html&quot;&gt;Doxygen&lt;/a&gt; 
+pour générer la documentation du code source.&lt;/li&gt;
+&lt;/ul&gt;
 
 </content>
  </entry>
@@ -130,7 +456,7 @@ Voici les choses principales que l’autre personne (on l’appelle “Alice”)
   &lt;li&gt;&lt;strong&gt;“Accroche-toi! Il faut avoir de l’espoir! Tu dois lutter!”&lt;/strong&gt;
 Il est prudent d’assumer que Bob lutte contre la maladie aussi durement que possible.
 Si non, c’est le choix de Bob entièrement.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;“C’est tellement tragique. Je suis si triste. Ne meurs pas s’il vous plaît!”&lt;/strong&gt;
+  &lt;li&gt;&lt;strong&gt;“C’est tellement tragique. Je suis si triste. Ne meurs pas s’il te plaît!”&lt;/strong&gt;
 C’est ce que ma fille m’a dit une fois.
 J’ai expliqué doucement qu’on ne peut jamais lutter contre la réalité.
 La mort n’est pas une option.
@@ -150,7 +476,7 @@ C’est très rude, offensant, maladroit et aussi arrogant.
 Si Bob veut des conseils religieux, il parlera à son prêtre.
 Dans le cas contraire: territoire interdit!
 C’est une autre offense qui encourt mon marteau.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;S’engager questionner hésitant est comme un harcèlement passif.&lt;/strong&gt; Par exemple,
+  &lt;li&gt;&lt;strong&gt;S’engager à questionner hésitant est comme un harcèlement passif.&lt;/strong&gt; Par exemple,
 demander à Bob de répondre à maintes reprises des petites choses comme “je t’ai réveillé?”
 Probablement, Bob n’a pas l’état d’esprit pour un bavardage.
 Il a envie d’avoir les gens qui restent près de lui physiquement, ou parlent des choses intéressantes (vois ci-dessous).&lt;/li&gt;
@@ -158,9 +484,9 @@ Il a envie d’avoir les gens qui restent près de lui physiquement, ou parlent 
 
 &lt;p&gt;En outre, ne pleure pas au téléphone quand tu l’appelles.
 Si tu sens que tu vas pleurer, raccroche le téléphone et attends pendant 10 minutes, puis rappelle-le.
-La larme n’est pas de problème.
-Pourtant, la menace d’auto apitoiement peut pousser Bob vers l’obscur.
-J’avais appris à maîtriser mon émotion main souvent Bob est vulnérable.&lt;/p&gt;
+Les larmes ne sont pas le problème.
+Pourtant, la menace d’auto-apitoiement peut pousser Bob vers l’obscur.
+J’ai appris à maîtriser mon émotion mais souvent Bob est vulnérable.&lt;/p&gt;
 
 &lt;p&gt;Voici les choses qu’Alice peut évoquer pour rendre Bob heureux.&lt;/p&gt;
 
@@ -190,12 +516,12 @@ Y compris, au moins :&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;strong&gt;Soyez heureux.&lt;/strong&gt; 
 Peut-être on trouve que c’est banal mais en fait c’est essentiel.
-Si vous restez triste et dépressif, Alice toujours sera misérable quand elle parle avec vous.&lt;/li&gt;
+Si vous restez triste et dépressif, Alice sera toujours misérable quand elle parle avec vous.&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Évidemment, rangez vos affaires en ordre.&lt;/strong&gt;
 J’avais déjà attendu mon décès il y a plusieurs années, 
-alors me suis fait dispensable partout où je pouvais.
+alors je me suis fait dispensable partout où je pouvais.
 Pour ma famille, ce n’est pas possible.
-Pour mes œuvres, bien-sûr, au fil des années je me suis rentré en tant qu’acteur critiqué de la communauté ZeroMQ.&lt;/li&gt;
+Pour mes œuvres, biensûr, au fil des années je me suis rentré en tant qu’acteur critiqué de la communauté ZeroMQ.&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Éliminez autant de stress et frais que possible.&lt;/strong&gt;
 Par exemple, l’euthanasie est licite en Belgique.
 J’ai déjà demandé à mon médecin de la préparer 
@@ -208,17 +534,17 @@ L’espoir n’est pas un médicament, comme j’ai expliqué.
 Si vous allez négocier avec vos médecins, que ce soit pragmatique et à l’intérêt de tous.
 J’ai dit les miens qu’ils peuvent essayer toute chimiothérapie expérimentale qu’ils souhaitent.
 Ils pouvaient en obtenir des données,
-et c’est la moindre récompense que je peux verser à un système qui ma donné une extension de vie de plus que cinq ans.&lt;/li&gt;
+et c’est la moindre récompense que je peux verser à un système qui m’a donné une extension de vie de plus que cinq ans.&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Présumez le pire.&lt;/strong&gt;
-Quand mon oncologue voyait mon scan, elle m’appelée tout de suite et me disait que,
-pour sa part, il s’agissait du cancers.
+Quand mon oncologue voyait mon scan, elle m’a appelée tout de suite et me disait que,
+pour sa part, il s’agissait du cancer.
 J’ai raccroché le téléphone et puis, je l’ai dit aux enfants.
 Le lendemain j’ai dit à leurs écoles, mon avocat, et mon notaire, d’expecter le pire.
-Après dix jours, les biopsies l’ont confirmées.
+Après dix jours, les biopsies l’ont confirmé.
 Ça nous a donné dix jours plus pour nous chagriner, et plus de temps à préparer.&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Soyez honnête et transparent avec les autres.&lt;/strong&gt;
-Il faut du temps au chagriner. 
-Et c’est plus facile de le passer le décès de Bob s’ils peuvent parler avec lui.
+Il faut du temps au chagrin. 
+Il est bien plus facile de traiter le décès de Bob si l’on peut en parler avec Bob.
 Il n’y a aucune honte au décès, ce n’est pas un échec.&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -236,8 +562,8 @@ Chacun va mourir, oui, mon petit Gregor, toi aussi.
 C’est la vie.&lt;/p&gt;
 
 &lt;p&gt;Imagine que tu as une boîte de Lego, et alors tu construis une maison, et tu la conserves.
-Et puis tu continues à construire de nouvelles maisons sans détruire les anciens.
-Qu’est-ce qu’il va passer?
+Et puis tu continues à construire de nouvelles maisons sans détruire les anciennes.
+Qu’est-ce qu’il va se passer?
 “La boite sera vide, papa.”
 Bien, oui.
 Ensuite tu peux encore construire une nouvelle maison?
@@ -261,7 +587,7 @@ Ils peuvent parler plusieurs langues.
 Ils sont confiants et peuvent apprendre rapidement, comme leur père.&lt;/p&gt;
 
 &lt;p&gt;Toute le monde doit comprendre la signification du décès.
-Accepter sa propre mortalité est une compétence-clé de l’être un humain.
+Accepter sa propre mortalité est une compétence-clé de l’être humain.
 On s’efforce de vivre, bien sûr.
 Quand c’est fini, on embrasse la fin.
 Je suis heureux que je peux apprendre cette leçon à mes enfants,
@@ -271,9 +597,9 @@ une leçon que je n’ai jamais eu.&lt;/p&gt;
 
 &lt;p&gt;Finalement, je suis si content que je n’ai jamais quitté la Belgique.
 C’est un pays qui permet le décès sur demande, 
-pour les malades qui sont terminals ou ont une qualité de la vie souffrante terrible.
+pour les malades qui sont terminaux ou ont une qualité de la vie suffisant mauvaise.
 Il faut l’avis de 3 médecins, un psychiatre, 
-et une période attendante de quatre semaines; 
+et une période d’attendante de quatre semaines. 
 Dans le premier cas, l’opinion d’un médecin suffira.&lt;/p&gt;
 
 &lt;p&gt;Mon père l’a choisi et il est décédé le mardi de Pâques.
@@ -285,7 +611,7 @@ C’était une bonne façon de mourir, c’est ce que j’ai déjà voulu,
 bien que je ne savais pas encore que j’étais malade en ce moment.&lt;/p&gt;
 
 &lt;p&gt;Je suis choqué que, en 2016, il y a seulement peu de pays qui la permettent,
-et les autres appliquent encore les tortures barbare de la décadence et de l’échec.
+et les autres appliquent encore les tortures barbares de la décadence et de l’échec.
 C’est particulièrement pertinent pour le cancer, qui est la cause majeure du décès.
 Si votre juridiction interdit l’euthanasie,
 prenez le temps pour faire du lobbyisme pour la droit de mourir dans la dignité.&lt;/p&gt;
@@ -296,8 +622,8 @@ prenez le temps pour faire du lobbyisme pour la droit de mourir dans la dignité
 
 &lt;p&gt;Ma dernière presque-collision avec la mort m’a laissée si indifférent sur le concept entier de risque professionnel et sociale,
 ainsi je suis devenu le caractère prédateur qu’Allen Ding décrit si bien.
-Ça c’est calmé après la fin de notre projet “Game of Thrones”.
-Je n’étais vraiment comme ça, 
+Ça s’est calmé après la fin de notre projet “Game of Thrones”.
+Je n’étais pas vraiment comme ça, 
 je suis juste devenu une telle personne afin de faire fonctionner les choses étant donné les circonstances.&lt;/p&gt;
 
 &lt;p&gt;Après avoir eu plusieurs années pour me préparer, 
@@ -314,7 +640,7 @@ Un Bob peut demander plus?&lt;/p&gt;
 &lt;p&gt;Les membres du personnel d’ici sont aimables.
 Je n’ai rien à plaindre, 
 et je veux seulement exprimer ma gratitude à tous mes amis pour les années de plaisir que vous me l’avez donné, 
-ma médicaments, qui m’ont gardé vivant et motivé.&lt;/p&gt;
+mes médicaments, qui m’ont gardé vivant et motivé.&lt;/p&gt;
 
 &lt;p&gt;Merci!&lt;/p&gt;
 
@@ -357,11 +683,14 @@ Le format est ainsi:&lt;/p&gt;
 La condition préalable est les fichiers/répertoires nécéssaires pour compiler la cible.
 La recette est la combinaison de commandes pour compiler et lier la cible.&lt;/p&gt;
 
-&lt;p&gt;Les règles du jeu sont:&lt;br /&gt;
-- On compile tous les codes source afin de créer le fichier de cible lorsqu’il n’existe pas.&lt;br /&gt;
-- On renouvelle le fichier de cible lorsque les fichiers indiqués pas la condition préalable sont plus nouveaux que la cible.
-On doit seulement recompiler les codes source actualisés et alors relier au fichier de cible.&lt;br /&gt;
-- Si les fichiers en-tête sont modifiés, il faut récompiler les codes source qui les comportent et alors relier au fichier de cible.&lt;/p&gt;
+&lt;p&gt;Les règles du jeu sont:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;On compile tous les codes source afin de créer le fichier de cible lorsqu’il n’existe pas.&lt;/li&gt;
+  &lt;li&gt;On renouvelle le fichier de cible lorsque les fichiers indiqués pas la condition préalable sont plus nouveaux que la cible.
+On doit seulement recompiler les codes source actualisés et alors relier au fichier de cible.&lt;/li&gt;
+  &lt;li&gt;Si les fichiers en-tête sont modifiés, il faut récompiler les codes source qui les comportent et alors relier au fichier de cible.&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h3 id=&quot;le-rglage-de-variables&quot;&gt;Le réglage de variables&lt;/h3&gt;
 
@@ -507,17 +836,19 @@ Copier les bibliothèque ou les fichiers exécutable aux répertoires propres.&l
    <updated>2016-04-21T00:00:00+02:00</updated>
    <id>http://wantingchen.github.io/information/2016/04/21/Hash_Encrypt</id>
    <content type="html">&lt;h3 id=&quot;la-diffrence-entre-fonction-de-hachage-hash-et-chiffrement-encryption&quot;&gt;La différence entre fonction de Hachage (Hash) et Chiffrement (Encryption)&lt;/h3&gt;
+
 &lt;p&gt;D’abord, il faut qu’on explique les deux brièvement.&lt;/p&gt;
 
-&lt;p&gt;En général, une fonction de Hachage convertit “irrévesiblement” les données avec les tailles arbitraires aux données avec les tailles fixés.
-Et on peut chiffrer les données à une autre forme et aussi retrouver les données originaux avec la clé de chiffrement correspondante.&lt;/p&gt;
+&lt;p&gt;En général, une fonction de Hachage convertit “irréversiblement” les données de tailles arbitraires aux données de tailles fixes.
+De l’autre côté, il y a le Chiffrement, qui convertit les données dans une autre forme, 
+tout en permettant de retrouver les données originales avec la clé de chiffrement correspondante.&lt;/p&gt;
 
 &lt;p&gt;Concrètement,  il y a deux différences majeures:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Normalement, les taille de données convertie par une certaine fonction de Hachage ne change jamais.&lt;/strong&gt; 
-Mais celles obtenues par chiffrement est souvent (pas toujours) proportionnelles aux tailles de données originaux.
-Par exemple, si on utilise la fontion de Hachage encastré de python pour convertir les deux chaîne de caractères, “Microsoft” et “Google”:&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Normalement, les tailles des données converties par une certaine fonction de Hachage ne changent jamais.&lt;/strong&gt; 
+Mais celles obtenues par Chiffrement sont souvent (pas toujours) proportionnelles aux tailles des données originales.
+Par exemple, si on utilise la fontion de Hachage encastré de Python pour convertir les deux chaînes de caractères, “Microsoft” et “Google”:&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;
@@ -528,7 +859,7 @@ Par exemple, si on utilise la fontion de Hachage encastré de python pour conver
 &lt;span class=&quot;n&quot;&gt;Out&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;23&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;201064995106876445&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;/figure&gt;
 
-&lt;p&gt;Les tailles de résultats sont la même. Mais, si on utilise l’implémentation de RSA:&lt;/p&gt;
+&lt;p&gt;Les tailles de résultats sont les mêmes. Mais, si on utilise l’implémentation de RSA &lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;:&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;
   &lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;In&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;37&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pubkey&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;privkey&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rsa&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;newkeys&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;512&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
@@ -541,9 +872,9 @@ Par exemple, si on utilise la fontion de Hachage encastré de python pour conver
 &lt;/figure&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Un algorithme de Hachage est irrévisible. Néanmoins, celui de Chiffrement est révisible.&lt;/strong&gt;
-C’est-à-dire qu’il n’existe pas de façon de retrouver les résultats générés par une fonction de hachage á les chaînes de caractères originaux,
-pourtant on peut déchiffrer les codes avec la clé de chiffrement correspondante.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Un algorithme de Hachage est irréversible. Au contraire, celui de Chiffrement est réversible.&lt;/strong&gt;
+C’est-à-dire qu’il n’existe pas de façon de reconvertir les résultats générés par une fonction de hachage aux chaînes de caractères originales,
+pourtant on peut déchiffrer les codes avec la clé de Chiffrement correspondante.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;
@@ -555,35 +886,42 @@ pourtant on peut déchiffrer les codes avec la clé de chiffrement correspondant
 &lt;/figure&gt;
 
 &lt;p&gt;Pourquoi? 
-Parce que une certaine chaîne de caractères peut avoir uniquement un mapping à une certaine 
-chaîne de caractères avec certains algorithme et clé
+Parce qu’une certaine chaîne de caractères ne peut avoir qu’un seul mapping à une autre 
+chaîne de caractères, étant donné l’algorithme et la clé
 (ça signifie : seul à seul).
-Mais c’est possible de trouver deux ou plus chaînes de caractères qui peuvent convertir a même résultat avec une certaine fountion de Hachage
-(Dans cette situation, on l’appelle ces chaînes de caractères one la “collision”).&lt;/p&gt;
+Mais il est possible de trouver plusieurs chaînes de caractères qui peuvent convertir a un même résultat avec une certaine fountion de Hachage
+(Dans cette situation, on appelle ces chaînes de caractères ont la “collision”).&lt;/p&gt;
 
-&lt;h3 id=&quot;diffrent-conception&quot;&gt;Différent conception&lt;/h3&gt;
-&lt;p&gt;Pour une bonne fonction de Hachage, il faut avoir les conditions:
-- &lt;strong&gt;C’est difficile de trouver quelconque collision.&lt;/strong&gt; 
+&lt;h3 id=&quot;conception-diffrente&quot;&gt;Conception différente&lt;/h3&gt;
+
+&lt;p&gt;Pour une bonne fonction de Hachage, les conditions ci-dessous doivent être satisfaites :&lt;br /&gt;
+- &lt;strong&gt;Il est difficile de trouver quelconque collision.&lt;/strong&gt; 
 Si on utilise une fonction de Hachage pour convertir un certain mot-de-passe, 
 on peut simplement essayer une énorme quantité de chaînes de caractères afin de obtenir le même résultat,
-et alors on peut passer!&lt;/p&gt;
+et alors on peut passer!&lt;br /&gt;
+- &lt;strong&gt;Elle est sensible aux petites différences.&lt;/strong&gt;
+Si un caractère d’une chaîne avec 10000-bytes longueur est modifié, le résultat devra changer complétement.&lt;/p&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;C’est sensitive aux petites différences.&lt;/strong&gt;
-Si un caractère d’une chaîne avec 10000-bytes longueur est modifié, le résultat devra changer complétement.&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;Et une fonction de Chiffrement fiable doit avoir la propriété de “fonction à sens unique avec trappe”:&lt;br /&gt;
+- &lt;strong&gt;Faible coût de calcul de chiffrement. Faible coût de calcul de déchiffrement, à condition de posséder la clé.&lt;/strong&gt;&lt;br /&gt;
+- &lt;strong&gt;Si on n’a pas la clé, il sera extrêmement difficile de trouver l’original même si on sait l’algorithme.&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;Et une fonction de chiffrement fiable doit avoir la propriété de “fonction à sens unique avec trappe”:
-- &lt;strong&gt;c’est facile de chiffrer facilement et aussi d’être inversé avec clé.&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&quot;rfrence&quot;&gt;Référence&lt;/h3&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Si on’a pas de clé, c’est extrêmement de trouver le façon de déchiffrer même si on sait l’algorithme.&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;rfrence&quot;&gt;Référence:&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;http://www.cnblogs.com/leoo2sk/archive/2010/10/01/hash-and-encrypt.html&quot;&gt;哈希(Hash)与加密(Encrypt)的基本原理、区别及工程应用 (en chinois)&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;h3 id=&quot;commentaire&quot;&gt;Commentaire&lt;/h3&gt;
+
+&lt;p&gt;et plus généralement pour échanger des données confidentielles sur Internet.&lt;/p&gt;
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot;&gt;
+      &lt;p&gt;Le chiffrement RSA est un algorithme de cryptographie asymétrique, très utilisé dans le commerce électronique, &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
 </content>
  </entry>
  
@@ -592,31 +930,38 @@ Si un caractère d’une chaîne avec 10000-bytes longueur est modifié, le rés
    <link href="http://wantingchen.github.io/syst%C3%A8me%20embarqu%C3%A9/2016/04/12/Drone_1.html"/>
    <updated>2016-04-12T00:00:00+02:00</updated>
    <id>http://wantingchen.github.io/syst%C3%A8me%20embarqu%C3%A9/2016/04/12/Drone_1</id>
-   <content type="html">&lt;p&gt;Bien qu’il y a déjà plusieurs réalisations des drones propulsés par raspberry pi &lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;,
-je voulais encore défier une fois moi-même, afin de présenter ce que j’apprends.&lt;/p&gt;
+   <content type="html">&lt;p&gt;Bien qu’il y a déjà plusieurs réalisations de drones propulsés par Raspberry Pi &lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;,
+je me suis défié à en assembler un moi-même, et cet apprentissage fort utile est rapporté ci-dessous.&lt;/p&gt;
 
-&lt;p&gt;Différent avec les autres, le drone que je veux construire a les spécialités:&lt;br /&gt;
-- Tous les capteurs/modules sont connectés directement avec Raspberry pi, aucun microprocesseur est utilisé.&lt;br /&gt;
-- Utiliser Arduino pour le contrôler du drone.&lt;br /&gt;
-- Utiliser &lt;a href=&quot;http://www.airspayce.com/mikem/bcm2835/&quot;&gt;bcm2835 bibliothèque&lt;/a&gt; 
-au lieu des autres bibliothèque afin de éviter d’utiliser pas les drivers d’i2c.
-Ça me donne une chance d’essayer &lt;a href=&quot;https://xenomai.org/&quot;&gt;Xenomai&lt;/a&gt;.&lt;br /&gt;
-- La communication entre le contrôler et le drone est réalisée par RF modules. 
-Et le drone peut arrêter automatiquement quand la communication est vraiment perdue.&lt;br /&gt;
-- Si nécessaire, Preempt RT kernel ou Xenomai peut être adapté afin de régulier la fréquence.&lt;/p&gt;
+&lt;p&gt;Contrairement aux autres, le drone que je veux construire a les spécialités suivantes :&lt;/p&gt;
 
-&lt;p&gt;Selon les spécifications, on doit préparer:&lt;br /&gt;
-- 10 DOF IMU：GY80(I2C，400kHz，le temps de rafraîchissement peut atteindre 1600Hz). 
+&lt;ul&gt;
+  &lt;li&gt;Tous les capteurs/modules sont connectés directement avec Raspberry Pi, aucun autre microprocesseur est utilisé.&lt;/li&gt;
+  &lt;li&gt;Le contrôle / l’asservissement du drone est fait par Arduino.&lt;/li&gt;
+  &lt;li&gt;L’utilisation de &lt;a href=&quot;http://www.airspayce.com/mikem/bcm2835/&quot;&gt;bcm2835 bibliothèque&lt;/a&gt; 
+au lieu d’autres bibliothèques, afin d’éviter l’utilisation des pilotes I2C.
+Ça me donne l’opportunité d’essayer &lt;a href=&quot;https://xenomai.org/&quot;&gt;Xenomai&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;La communication entre le contrôleur et le drone est réalisée par des modules RF. 
+Et le drone peut arrêter automatiquement quand la communication est vraiment perdue.&lt;/li&gt;
+  &lt;li&gt;Si nécessaire, le noyau Preempt RT ou Xenomai peut être adapté afin de réguler la fréquence.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Selon les spécifications, on doit préparer:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;10 DOF IMU：GY80(I2C，400kHz，le temps de rafraîchissement peut atteindre 1600Hz). 
 Mais j’ai trouvé que le baromètre (Bosch BMP085) n’est pas assez précis (0.03hPa / 0.25m résolution).
-MS5611 est ajouté afin d’augmenter la précision. &lt;br /&gt;
-- nRF24L01*2：modules RF(250Kbps-2Mbps，la bande passante varie avec la distance, SPI), un pour RPi, un pour Arduino.&lt;br /&gt;
-- ADC：MCP3008, 10bit(afin de mesurer la tension de la batterie)，SPI.&lt;br /&gt;
-- PWM：PCA9685 (on peut acheter à &lt;a href=&quot;(https://www.adafruit.com/product/815)&quot;&gt;Adafruit&lt;/a&gt;)，I2C，12bit，la fréquence maximum est 1526Hz.&lt;br /&gt;
-- &lt;a href=&quot;https://www.amazon.fr/gp/product/B00T6ANWUU/ref=oh_aui_detailpage_o02_s00?ie=UTF8&amp;amp;psc=1&quot;&gt;ZOP Power 11.1V 5500mAh 3S1P 35C Lipo Battery For RC Model&lt;/a&gt;&lt;br /&gt;
-- &lt;a href=&quot;https://www.amazon.fr/gp/product/B00RWH7CA0/ref=oh_aui_detailpage_o03_s00?ie=UTF8&amp;amp;psc=1&quot;&gt;HOSdog 30A 4 en 1 Brushless Speed Contrôleur ESC pour RC Quadcopter Multicopter (Noir)&lt;/a&gt;&lt;br /&gt;
-- &lt;a href=&quot;https://www.amazon.fr/gp/product/B00CCXN4HO/ref=oh_aui_detailpage_o07_s00?ie=UTF8&amp;amp;psc=1&quot;&gt;JMT F450 Air multi-Rotor Frame FlameWheel KIT 450F comme DJI pour KK MWC MK 4 axe RC Quadcopter Multicopter UFO Heli&lt;/a&gt;&lt;br /&gt;
-- &lt;a href=&quot;https://www.amazon.fr/gp/product/B00L8H95AU/ref=oh_aui_detailpage_o08_s00?ie=UTF8&amp;amp;psc=1&quot;&gt;Andoer 4 A2212/13T 1000KV Brushless Motor + 2 paires 1045 10 * 4.5 Hélices pour DJI F450 F550 MWC Multicopter (2212 1000KV Brushless Motor, 1045 10 * 4.5 Hélices, DJI F450 F550 partie)&lt;/a&gt;&lt;/p&gt;
+MS5611 est ajouté afin d’augmenter la précision.&lt;/li&gt;
+  &lt;li&gt;nRF24L01*2：modules RF(250Kbps-2Mbps，la bande passante varie avec la distance, SPI), un pour RPi, un pour Arduino.&lt;/li&gt;
+  &lt;li&gt;ADC：MCP3008, 10bit(afin de mesurer la tension de la batterie)，SPI.&lt;/li&gt;
+  &lt;li&gt;PWM：PCA9685 (on peut acheter à &lt;a href=&quot;(https://www.adafruit.com/product/815)&quot;&gt;Adafruit&lt;/a&gt;)，I2C，12bit，la fréquence maximum est 1526Hz.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.amazon.fr/gp/product/B00T6ANWUU/ref=oh_aui_detailpage_o02_s00?ie=UTF8&amp;amp;psc=1&quot;&gt;ZOP Power 11.1V 5500mAh 3S1P 35C Lipo Battery For RC Model&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.amazon.fr/gp/product/B00RWH7CA0/ref=oh_aui_detailpage_o03_s00?ie=UTF8&amp;amp;psc=1&quot;&gt;HOSdog 30A 4 en 1 Brushless Speed Contrôleur ESC pour RC Quadcopter Multicopter (Noir)&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.amazon.fr/gp/product/B00CCXN4HO/ref=oh_aui_detailpage_o07_s00?ie=UTF8&amp;amp;psc=1&quot;&gt;JMT F450 Air multi-Rotor Frame FlameWheel KIT 450F comme DJI pour KK MWC MK 4 axe RC Quadcopter Multicopter UFO Heli&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.amazon.fr/gp/product/B00L8H95AU/ref=oh_aui_detailpage_o08_s00?ie=UTF8&amp;amp;psc=1&quot;&gt;Andoer 4 A2212/13T 1000KV Brushless Motor + 2 paires 1045 10 * 4.5 Hélices pour DJI F450 F550 MWC Multicopter (2212 1000KV Brushless Motor, 1045 10 * 4.5 Hélices, DJI F450 F550 partie)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
+&lt;p&gt;Voici le schéma du système &lt;img src=&quot;/public/imgs/Sheme_drone.jpg&quot; alt=&quot;gras&quot; /&gt; &lt;/p&gt;
 &lt;p&gt;Ensuite, on y va!&lt;/p&gt;
 
 &lt;h4 id=&quot;rfrence&quot;&gt;Référence:&lt;/h4&gt;

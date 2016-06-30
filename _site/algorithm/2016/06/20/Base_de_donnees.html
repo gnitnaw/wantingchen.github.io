@@ -12,7 +12,7 @@
 
   <title>
     
-      Construire un quadrirotor avec Raspberry Pi (2) &middot; Let's open source!
+      Comment fonctionne une base de données &middot; Let's open source!
     
   </title>
 
@@ -120,39 +120,23 @@
 
       <div class="container content">
         <div class="post">
-  <h1 class="post-title">Construire un quadrirotor avec Raspberry Pi (2)</h1>
+  <h1 class="post-title">Comment fonctionne une base de données</h1>
   <span>
-    <span class="post-date" style="display:inline-block;">2016-05</span> |
+    <span class="post-date" style="display:inline-block;">2016-06</span> |
     
-	<a class="codinfox-tag-mark" href="/tag.html#raspberry-pi">raspberry_pi</a>
+	<a class="codinfox-tag-mark" href="/tag.html#database">database</a>
     
-	<a class="codinfox-tag-mark" href="/tag.html#linux">linux</a>
-    
-	<a class="codinfox-tag-mark" href="/tag.html#drone">drone</a>
+	<a class="codinfox-tag-mark" href="/tag.html#algorithm">algorithm</a>
     
   </span>
-  <p>La programmation et les spécifications :</p>
+  <h3 id="normalement-cest-ce-que-les-gens-pensent">Normalement, c’est ce que les gens pensent</h3>
+
+<h3 id="rfrence">Référence</h3>
 
 <ul>
-  <li>Le code est écrit en C, en exploitant les nouveautés couverts pas le standard C99. 
-gcc 4.9 est utilisé.</li>
-  <li>Utiliser pthreads (POSIX) pour la programmation multithreading, puis <a href="https://gcc.gnu.org/wiki/C11Status">gcc</a> 
-et clang ne supporte pas encore C11 Thread (c’est à cause de glibc).</li>
-  <li>Le programme doit marcher sur RPi modèle B+ et aussi sur RPi2 modèle B (peut-être aussi RPi3 modèle B, j’espère).</li>
-  <li>Le programme peut se faire exécuter à la fin de la procédure de démarrage.
-Davantage, le système peut exécuter le programme s’il est arrêté à cause de certaines raisons.
-C’est-à-dire, on doit préparer un script shell qui peut être exécuté par /etc/rc.local 
-afin de lancer ce programme et surveiller s’il est encore en cours.</li>
-  <li>Il faut enregistrer toutes les données nécessaires, 
-y compris celles recueillies par les capteurs et celles calculées pas le programme,
-dans un fichier log dont le nom contient l’instant (date,heure,etc.) du démarrage du programme.</li>
-  <li><a href="http://www.cmake.org/">CMake</a> est utilisé pour générer le fichier Makefile</li>
-  <li>Suivre les principes indiqués par <a href="https://matt.sh/howto-c">How to C in 2016</a>, 
-et le style de code fait référence à <a href="http://zeromq.org/docs:style">21/CLASS - C Language Style for Scalability </a></li>
-  <li>Utiliser <a href="http://www.stack.nl/~dimitri/doxygen/index.html">Doxygen</a> 
-pour générer la documentation du code source.</li>
+  <li><a href="http://coding-geek.com/how-databases-work/">How does a relational database work </a></li>
+  <li><a href="http://blog.jobbole.com/100349/">如果有人问你数据库的原理，叫他看这篇文章</a></li>
 </ul>
-
 
 </div>
 

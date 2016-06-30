@@ -96,7 +96,7 @@
   </nav>
 
   <div class="sidebar-item">
-    <p> <a href="http://gnitnaw.github.io/"> 中文blog</a> </p>
+    <p> <a href="http://gnitnaw.github.io/"> Blog en chinois </a> </p>
     <p>
       Powered by <a href="http://jekyllrb.com">jekyll</a> and <a href="http://lanyon.getpoole.com">lanyon</a>.
     </p>
@@ -149,11 +149,14 @@ Le format est ainsi:</p>
 La condition préalable est les fichiers/répertoires nécéssaires pour compiler la cible.
 La recette est la combinaison de commandes pour compiler et lier la cible.</p>
 
-<p>Les règles du jeu sont:<br />
-- On compile tous les codes source afin de créer le fichier de cible lorsqu’il n’existe pas.<br />
-- On renouvelle le fichier de cible lorsque les fichiers indiqués pas la condition préalable sont plus nouveaux que la cible.
-On doit seulement recompiler les codes source actualisés et alors relier au fichier de cible.<br />
-- Si les fichiers en-tête sont modifiés, il faut récompiler les codes source qui les comportent et alors relier au fichier de cible.</p>
+<p>Les règles du jeu sont:</p>
+
+<ul>
+  <li>On compile tous les codes source afin de créer le fichier de cible lorsqu’il n’existe pas.</li>
+  <li>On renouvelle le fichier de cible lorsque les fichiers indiqués pas la condition préalable sont plus nouveaux que la cible.
+On doit seulement recompiler les codes source actualisés et alors relier au fichier de cible.</li>
+  <li>Si les fichiers en-tête sont modifiés, il faut récompiler les codes source qui les comportent et alors relier au fichier de cible.</li>
+</ul>
 
 <h3 id="le-rglage-de-variables">Le réglage de variables</h3>
 

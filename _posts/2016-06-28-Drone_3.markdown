@@ -1,0 +1,76 @@
+---
+layout: post
+title:  "Construire un quadrirotor avec Raspberry Pi (3)"
+comments: false
+analytics : false
+category: Système embarqué
+tags: raspberry_pi linux drone astyle
+---
+
+### Pourquoi faut-il avoir un certain style de programmation ? ###
+
+Quand on fait la programmation, on doit collaborer avec au moins avec deux personnes:
+soi-même auparavant et à l'avenir.
+Beaucoup de programmateurs ont de l'expérience comme ça:
+on ne comprend plus rien ce que on a fait si on ne touche pas les code source pendant plus que un mois.
+Em outre, si votre code source est déjà assez difficile pour vous-même à l'avenir de comprendre,
+ça deviendra plus compliqué de ajouter des autre collaborateurs pour réutiliser, modifier ou améliorer votre code.
+
+Ainsi, c'est plus efficace de définer certains règles or spécifications de codage afin d'aider à lire et comprendre les code source,
+dont facilite la communication parmi les programmateurs et éviter des bugs davantage.
+Avec un propre style de programmation, on peut assurer la qualité de code et aussi limiter sa complexité et taille.
+
+Maintenant je réfère au style de programmation de ZEROMQ,
+[C Language Style for Scalability](http://rfc.zeromq.org/spec:21/CLASS/),
+dans mon projet de quadrirotor.
+Je ne ferai pas tout, mais seulement les spécifications obligatoires qui ne compris pas ceux qui sont lié à ZEROMQ,
+parce que je ne l'utilise pas.
+
+### Obligatoire : Licence, README, ... etc. ###
+
+Avec [github](https://github.com/), c'est très facile.
+
+Quand on crée un repository en github, on peut rédiger README et choisir la licence 
+(normalement on utilise GPL v3 pour projets d'open source).
+
+Ce projet de drone est nommé "RTPiDrone", ayant du préfixe "RPD".
+
+Il faut ajouter deux dossiers : "include" pour tous les fichiers entêtes, "src" pour les fichier source,
+et "scripts" pour les shell-script nécessaires.
+Dans le dossieur "include" il y a un fichier entête publique "RTPiDrone.h".
+
+Pas de Makefile, car je veux utiliser cmake.
+
+### Util pour bien contrôler le format de code : astyle ###
+
+[Artistic Style](http://astyle.sourceforge.net/)
+est un util qui peut formatter, embellir, et ajuster l'indentation le code source de
+C, C ++, C ++ / CLI, Objective-C, C# et Java langages de programmation.
+Il est un programme de console qui reçoit l'information de ligne de commande, comme ça:
+
+{% highlight terminal %}
+astyle  [OPTIONS]  SourceFile1  SourceFile2  SourceFile3  [ . . . ]
+{% endhighlight %}
+Dans [OPTION] on peut mettre plus que une option. Par exemple, pour formatter un fichier:
+{% highlight terminal %}
+astyle  --style=allman  /home/user/project/foo.cpp
+{% endhighlight %}
+Pour plusiers fichiers:
+{% highlight terminal %}
+astyle  --style=allman --recursive  /home/user/project/*.cpp  /home/user/project/*.h
+{% endhighlight %}
+
+Pour ce projet je utilise les option *-A3 -s4* (Kernighan & Ritchie style et 4 spaces pas indent), 
+bien que ça ne corresponde pas le style de code de ZEROMQ.
+Mais il correspond mon propre style.
+Le résultat est comme ça.
+{% highlight c++ %}
+int Foo(bool isBar)
+{
+    if (isBar) {
+        bar();
+        return 1;
+    } else
+        return 0;
+}
+{% endhighlight %}

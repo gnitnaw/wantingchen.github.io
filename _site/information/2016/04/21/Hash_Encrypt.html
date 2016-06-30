@@ -96,7 +96,7 @@
   </nav>
 
   <div class="sidebar-item">
-    <p> <a href="http://gnitnaw.github.io/"> 中文blog</a> </p>
+    <p> <a href="http://gnitnaw.github.io/"> Blog en chinois </a> </p>
     <p>
       Powered by <a href="http://jekyllrb.com">jekyll</a> and <a href="http://lanyon.getpoole.com">lanyon</a>.
     </p>
@@ -130,17 +130,19 @@
     
   </span>
   <h3 id="la-diffrence-entre-fonction-de-hachage-hash-et-chiffrement-encryption">La différence entre fonction de Hachage (Hash) et Chiffrement (Encryption)</h3>
+
 <p>D’abord, il faut qu’on explique les deux brièvement.</p>
 
-<p>En général, une fonction de Hachage convertit “irrévesiblement” les données avec les tailles arbitraires aux données avec les tailles fixés.
-Et on peut chiffrer les données à une autre forme et aussi retrouver les données originaux avec la clé de chiffrement correspondante.</p>
+<p>En général, une fonction de Hachage convertit “irréversiblement” les données de tailles arbitraires aux données de tailles fixes.
+De l’autre côté, il y a le Chiffrement, qui convertit les données dans une autre forme, 
+tout en permettant de retrouver les données originales avec la clé de chiffrement correspondante.</p>
 
 <p>Concrètement,  il y a deux différences majeures:</p>
 
 <ul>
-  <li><strong>Normalement, les taille de données convertie par une certaine fonction de Hachage ne change jamais.</strong> 
-Mais celles obtenues par chiffrement est souvent (pas toujours) proportionnelles aux tailles de données originaux.
-Par exemple, si on utilise la fontion de Hachage encastré de python pour convertir les deux chaîne de caractères, “Microsoft” et “Google”:</li>
+  <li><strong>Normalement, les tailles des données converties par une certaine fonction de Hachage ne changent jamais.</strong> 
+Mais celles obtenues par Chiffrement sont souvent (pas toujours) proportionnelles aux tailles des données originales.
+Par exemple, si on utilise la fontion de Hachage encastré de Python pour convertir les deux chaînes de caractères, “Microsoft” et “Google”:</li>
 </ul>
 
 <figure class="highlight">
@@ -151,7 +153,7 @@ Par exemple, si on utilise la fontion de Hachage encastré de python pour conver
 <span class="n">Out</span><span class="p">[</span><span class="mi">23</span><span class="p">]:</span> <span class="o">-</span><span class="mi">201064995106876445</span></code></pre>
 </figure>
 
-<p>Les tailles de résultats sont la même. Mais, si on utilise l’implémentation de RSA:</p>
+<p>Les tailles de résultats sont les mêmes. Mais, si on utilise l’implémentation de RSA <sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>:</p>
 
 <figure class="highlight">
   <pre><code class="language-python" data-lang="python"><span class="n">In</span> <span class="p">[</span><span class="mi">37</span><span class="p">]:</span> <span class="p">(</span><span class="n">pubkey</span><span class="p">,</span> <span class="n">privkey</span><span class="p">)</span> <span class="o">=</span> <span class="n">rsa</span><span class="o">.</span><span class="n">newkeys</span><span class="p">(</span><span class="mi">512</span><span class="p">)</span>
@@ -164,9 +166,9 @@ Par exemple, si on utilise la fontion de Hachage encastré de python pour conver
 </figure>
 
 <ul>
-  <li><strong>Un algorithme de Hachage est irrévisible. Néanmoins, celui de Chiffrement est révisible.</strong>
-C’est-à-dire qu’il n’existe pas de façon de retrouver les résultats générés par une fonction de hachage á les chaînes de caractères originaux,
-pourtant on peut déchiffrer les codes avec la clé de chiffrement correspondante.</li>
+  <li><strong>Un algorithme de Hachage est irréversible. Au contraire, celui de Chiffrement est réversible.</strong>
+C’est-à-dire qu’il n’existe pas de façon de reconvertir les résultats générés par une fonction de hachage aux chaînes de caractères originales,
+pourtant on peut déchiffrer les codes avec la clé de Chiffrement correspondante.</li>
 </ul>
 
 <figure class="highlight">
@@ -178,35 +180,42 @@ pourtant on peut déchiffrer les codes avec la clé de chiffrement correspondant
 </figure>
 
 <p>Pourquoi? 
-Parce que une certaine chaîne de caractères peut avoir uniquement un mapping à une certaine 
-chaîne de caractères avec certains algorithme et clé
+Parce qu’une certaine chaîne de caractères ne peut avoir qu’un seul mapping à une autre 
+chaîne de caractères, étant donné l’algorithme et la clé
 (ça signifie : seul à seul).
-Mais c’est possible de trouver deux ou plus chaînes de caractères qui peuvent convertir a même résultat avec une certaine fountion de Hachage
-(Dans cette situation, on l’appelle ces chaînes de caractères one la “collision”).</p>
+Mais il est possible de trouver plusieurs chaînes de caractères qui peuvent convertir a un même résultat avec une certaine fountion de Hachage
+(Dans cette situation, on appelle ces chaînes de caractères ont la “collision”).</p>
 
-<h3 id="diffrent-conception">Différent conception</h3>
-<p>Pour une bonne fonction de Hachage, il faut avoir les conditions:
-- <strong>C’est difficile de trouver quelconque collision.</strong> 
+<h3 id="conception-diffrente">Conception différente</h3>
+
+<p>Pour une bonne fonction de Hachage, les conditions ci-dessous doivent être satisfaites :<br />
+- <strong>Il est difficile de trouver quelconque collision.</strong> 
 Si on utilise une fonction de Hachage pour convertir un certain mot-de-passe, 
 on peut simplement essayer une énorme quantité de chaînes de caractères afin de obtenir le même résultat,
-et alors on peut passer!</p>
+et alors on peut passer!<br />
+- <strong>Elle est sensible aux petites différences.</strong>
+Si un caractère d’une chaîne avec 10000-bytes longueur est modifié, le résultat devra changer complétement.</p>
 
-<ul>
-  <li><strong>C’est sensitive aux petites différences.</strong>
-Si un caractère d’une chaîne avec 10000-bytes longueur est modifié, le résultat devra changer complétement.</li>
-</ul>
+<p>Et une fonction de Chiffrement fiable doit avoir la propriété de “fonction à sens unique avec trappe”:<br />
+- <strong>Faible coût de calcul de chiffrement. Faible coût de calcul de déchiffrement, à condition de posséder la clé.</strong><br />
+- <strong>Si on n’a pas la clé, il sera extrêmement difficile de trouver l’original même si on sait l’algorithme.</strong></p>
 
-<p>Et une fonction de chiffrement fiable doit avoir la propriété de “fonction à sens unique avec trappe”:
-- <strong>c’est facile de chiffrer facilement et aussi d’être inversé avec clé.</strong></p>
+<h3 id="rfrence">Référence</h3>
 
-<ul>
-  <li><strong>Si on’a pas de clé, c’est extrêmement de trouver le façon de déchiffrer même si on sait l’algorithme.</strong></li>
-</ul>
-
-<h3 id="rfrence">Référence:</h3>
 <ul>
   <li><a href="http://www.cnblogs.com/leoo2sk/archive/2010/10/01/hash-and-encrypt.html">哈希(Hash)与加密(Encrypt)的基本原理、区别及工程应用 (en chinois)</a></li>
 </ul>
+
+<h3 id="commentaire">Commentaire</h3>
+
+<p>et plus généralement pour échanger des données confidentielles sur Internet.</p>
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+      <p>Le chiffrement RSA est un algorithme de cryptographie asymétrique, très utilisé dans le commerce électronique, <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
 
 </div>
 
