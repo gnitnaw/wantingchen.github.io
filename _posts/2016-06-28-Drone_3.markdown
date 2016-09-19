@@ -9,49 +9,51 @@ tags: raspberry_pi linux drone astyle
 
 ### Pourquoi faut-il avoir un certain style de programmation ? ###
 
-Quand on fait la programmation, on doit collaborer avec au moins avec deux personnes:
-soi-même auparavant et à l'avenir.
-Beaucoup de programmateurs ont de l'expérience comme ça:
-on ne comprend plus rien ce que on a fait si on ne touche pas les code source pendant plus que un mois.
-Em outre, si votre code source est déjà assez difficile pour vous-même à l'avenir de comprendre,
-ça deviendra plus compliqué de ajouter des autre collaborateurs pour réutiliser, modifier ou améliorer votre code.
+Quand on fait de la programmation, on doit collaborer avec au moins deux personnes: 
+soi-même auparavant et soi-même à l’avenir. 
 
-Ainsi, c'est plus efficace de définer certains règles or spécifications de codage afin d'aider à lire et comprendre les code source,
-dont facilite la communication parmi les programmateurs et éviter des bugs davantage.
-Avec un propre style de programmation, on peut assurer la qualité de code et aussi limiter sa complexité et taille.
+Le sentiment du programmeur : 
+je ne comprends plus mon propre code après une absence de guère un mois !
+Donc on imagine bien la vie compliquée de tout collaborateur futur éventuel, 
+dans le récyclage, la modification ou l'amélioration de votre code.
 
-Maintenant je réfère au style de programmation de ZEROMQ,
+Pour faire face à ce problème, il est efficace de définer certaines règles et spécifications de codage, 
+afin d’aider à lire et comprendre le code source, 
+ce qui facilite la communication entre les programmeurs et réduit le nombre de bugs. 
+Avec un style de programmation "sain", on peut assurer la qualité du code et aussi limiter sa complexité et taille.
+
+Je réfère au style de programmation de ZEROMQ, 
 [C Language Style for Scalability](http://rfc.zeromq.org/spec:21/CLASS/),
 dans mon projet de quadrirotor.
-Je ne ferai pas tout, mais seulement les spécifications obligatoires qui ne compris pas ceux qui sont lié à ZEROMQ,
-parce que je ne l'utilise pas.
+Toutefois, seulement le style. Comme je n'appuie pas sur les bibliothèques de ZEROMQ, 
+les spécifications correspondantes ne sont pas obligatoires pour moi.
 
 ### Obligatoire : Licence, README, ... etc. ###
 
 Avec [github](https://github.com/), c'est très facile.
 
 Quand on crée un repository en github, on peut rédiger README et choisir la licence 
-(normalement on utilise GPL v3 pour projets d'open source).
+(normalement on utilise GPL v3 pour les projets de logiciel libre).
 
 Ce projet de drone est nommé "RTPiDrone", ayant du préfixe "RPD".
 
-Il faut ajouter deux dossiers : "include" pour tous les fichiers entêtes, "src" pour les fichier source,
+Il faut ajouter trois dossiers : "include" pour tous les fichiers entêtes, "src" pour les fichier source,
 et "scripts" pour les shell-script nécessaires.
 Dans le dossieur "include" il y a un fichier entête publique "RTPiDrone.h".
 
 Pas de Makefile, car je veux utiliser cmake.
 
-### Util pour bien contrôler le format de code : astyle ###
+### Outil pour bien contrôler le format de code : astyle ###
 
 [Artistic Style](http://astyle.sourceforge.net/)
-est un util qui peut formatter, embellir, et ajuster l'indentation le code source de
+est un outil qui peut formatter, embellir, et ajuster l'indentation le code source de
 C, C ++, C ++ / CLI, Objective-C, C# et Java langages de programmation.
 Il est un programme de console qui reçoit l'information de ligne de commande, comme ça:
 
 {% highlight terminal %}
 astyle  [OPTIONS]  SourceFile1  SourceFile2  SourceFile3  [ . . . ]
 {% endhighlight %}
-Dans [OPTION] on peut mettre plus que une option. Par exemple, pour formatter un fichier:
+Dans [OPTION] on peut mettre plus qu'une option. Par exemple, pour formatter un fichier:
 {% highlight terminal %}
 astyle  --style=allman  /home/user/project/foo.cpp
 {% endhighlight %}
@@ -60,10 +62,10 @@ Pour plusiers fichiers:
 astyle  --style=allman --recursive  /home/user/project/*.cpp  /home/user/project/*.h
 {% endhighlight %}
 
-Pour ce projet je utilise les option *-A3 -s4* (Kernighan & Ritchie style et 4 spaces pas indent), 
-bien que ça ne corresponde pas le style de code de ZEROMQ.
-Mais il correspond mon propre style.
-Le résultat est comme ça.
+Pour ce projet j'utilise les options *-A3 -s4* (Kernighan & Ritchie style et 4 spaces pas indent), 
+bien que ça ne corresponde pas au style de code de ZEROMQ.
+Mais il correspond à mon propre style.
+Le résultat est ainsi comme ça.
 {% highlight c++ %}
 int Foo(bool isBar)
 {
